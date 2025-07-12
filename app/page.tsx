@@ -84,14 +84,14 @@ export default function ConcordSMPLanding() {
     if (serverStatus?.version) {
       return serverStatus.version
     }
-    return "1.21.7"
+    return "1.21.7" // Default version if not fetched
   }
 
   const getSoftwareInfo = () => {
     if (serverStatus?.software) {
       return serverStatus.software
     }
-    return "Paper"
+    return "Paper" // Default software if not fetched
   }
 
   const handleMenuClick = (view: CurrentView) => {
@@ -706,7 +706,7 @@ export default function ConcordSMPLanding() {
         ) : (
           <div className="text-center py-8">
             <Megaphone className="w-12 h-12 text-slate-300 mx-auto mb-3" />
-            <p className="text-slate-500 font-light">no announcements yet.</p>
+            <p className="text-slate-500 font-light">no announcements available at the moment</p>
           </div>
         )}
       </div>
@@ -715,150 +715,176 @@ export default function ConcordSMPLanding() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-100 via-indigo-100 to-purple-100 text-slate-800">
+      {/* Navbar */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white/70 backdrop-blur-lg shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16 items-center">
-            <div className="flex items-center">
+            {/* Logo */}
+            <div className="flex-shrink-0 flex items-center">
               <Image
                 src={concordLogo}
                 alt="Concord SMP Logo"
                 width={32}
                 height={32}
-                className="w-8 h-8 object-contain rounded-full mr-2"
+                className="w-8 h-8 rounded-full mr-2"
               />
-              <span className="font-semibold text-xl text-slate-800">Concord SMP</span>
+              <span className="text-xl font-semibold text-slate-800">Concord SMP</span>
             </div>
 
+            {/* Desktop Navigation */}
             <div className="hidden md:flex space-x-6">
-              <button
-                className={`text-slate-600 hover:text-blue-600 transition-colors text-lg font-medium flex items-center ${
-                  currentView === "home" ? "text-blue-600 font-bold" : ""
-                }`}
+              <Button
+                variant="ghost"
                 onClick={() => handleMenuClick("home")}
+                className={`text-slate-600 hover:text-slate-900 ${currentView === "home" ? "font-bold text-slate-900" : ""}`}
               >
-                <Home className="w-5 h-5 mr-1" /> Home
-              </button>
-              <button
-                className={`text-slate-600 hover:text-blue-600 transition-colors text-lg font-medium flex items-center ${
-                  currentView === "status" ? "text-blue-600 font-bold" : ""
-                }`}
+                <Home className="w-4 h-4 mr-2" /> Home
+              </Button>
+              <Button
+                variant="ghost"
                 onClick={() => handleMenuClick("status")}
+                className={`text-slate-600 hover:text-slate-900 ${currentView === "status" ? "font-bold text-slate-900" : ""}`}
               >
-                <Server className="w-5 h-5 mr-1" /> Status
-              </button>
-              <button
-                className={`text-slate-600 hover:text-blue-600 transition-colors text-lg font-medium flex items-center ${
-                  currentView === "players" ? "text-blue-600 font-bold" : ""
-                }`}
+                <Cloud className="w-4 h-4 mr-2" /> Status
+              </Button>
+              <Button
+                variant="ghost"
                 onClick={() => handleMenuClick("players")}
+                className={`text-slate-600 hover:text-slate-900 ${currentView === "players" ? "font-bold text-slate-900" : ""}`}
               >
-                <Users className="w-5 h-5 mr-1" /> Players
-              </button>
-              <button
-                className={`text-slate-600 hover:text-blue-600 transition-colors text-lg font-medium flex items-center ${
-                  currentView === "rules" ? "text-blue-600 font-bold" : ""
-                }`}
+                <Users className="w-4 h-4 mr-2" /> Players
+              </Button>
+              <Button
+                variant="ghost"
                 onClick={() => handleMenuClick("rules")}
+                className={`text-slate-600 hover:text-slate-900 ${currentView === "rules" ? "font-bold text-slate-900" : ""}`}
               >
-                <ScrollText className="w-5 h-5 mr-1" /> Rules
-              </button>
-              <button
-                className={`text-slate-600 hover:text-blue-600 transition-colors text-lg font-medium flex items-center ${
-                  currentView === "screenshots" ? "text-blue-600 font-bold" : ""
-                }`}
+                <ScrollText className="w-4 h-4 mr-2" /> Rules
+              </Button>
+              <Button
+                variant="ghost"
                 onClick={() => handleMenuClick("screenshots")}
+                className={`text-slate-600 hover:text-slate-900 ${currentView === "screenshots" ? "font-bold text-slate-900" : ""}`}
               >
-                <Camera className="w-5 h-5 mr-1" /> Screenshots
-              </button>
-              <button
-                className={`text-slate-600 hover:text-blue-600 transition-colors text-lg font-medium flex items-center ${
-                  currentView === "announcements" ? "text-blue-600 font-bold" : ""
-                }`}
+                <Camera className="w-4 h-4 mr-2" /> Screenshots
+              </Button>
+              <Button
+                variant="ghost"
                 onClick={() => handleMenuClick("announcements")}
+                className={`text-slate-600 hover:text-slate-900 ${currentView === "announcements" ? "font-bold text-slate-900" : ""}`}
               >
-                <Megaphone className="w-5 h-5 mr-1" /> Announcements
-              </button>
+                <Megaphone className="w-4 h-4 mr-2" /> Announcements
+              </Button>
             </div>
 
-            <div className="md:hidden">
-              <Button variant="ghost" size="icon" onClick={() => setMenuOpen(!menuOpen)}>
-                {menuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            {/* Mobile Menu Button */}
+            <div className="-mr-2 flex md:hidden">
+              <Button
+                variant="ghost"
+                onClick={() => setMenuOpen(!menuOpen)}
+                className="inline-flex items-center justify-center p-2 rounded-md text-slate-600 hover:text-slate-900 hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
+              >
+                <span className="sr-only">Open main menu</span>
+                {menuOpen ? (
+                  <X className="block h-6 w-6" aria-hidden="true" />
+                ) : (
+                  <Menu className="block h-6 w-6" aria-hidden="true" />
+                )}
               </Button>
             </div>
           </div>
         </div>
 
+        {/* Mobile Menu Panel */}
         {menuOpen && (
-          <div className="md:hidden bg-white/90 backdrop-blur-lg pb-4 shadow-inner">
+          <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-              <button
-                className={`block w-full text-left px-3 py-2 rounded-md text-base font-medium ${
-                  currentView === "home" ? "bg-blue-50 text-blue-700" : "text-slate-700 hover:bg-slate-50"
-                }`}
+              <Button
+                variant="ghost"
                 onClick={() => handleMenuClick("home")}
+                className={`w-full justify-start text-slate-700 hover:bg-slate-100 ${currentView === "home" ? "font-bold bg-slate-100" : ""}`}
               >
-                <Home className="inline-block w-5 h-5 mr-2" /> Home
-              </button>
-              <button
-                className={`block w-full text-left px-3 py-2 rounded-md text-base font-medium ${
-                  currentView === "status" ? "bg-blue-50 text-blue-700" : "text-slate-700 hover:bg-slate-50"
-                }`}
+                <Home className="w-4 h-4 mr-2" /> Home
+              </Button>
+              <Button
+                variant="ghost"
                 onClick={() => handleMenuClick("status")}
+                className={`w-full justify-start text-slate-700 hover:bg-slate-100 ${currentView === "status" ? "font-bold bg-slate-100" : ""}`}
               >
-                <Server className="inline-block w-5 h-5 mr-2" /> Status
-              </button>
-              <button
-                className={`block w-full text-left px-3 py-2 rounded-md text-base font-medium ${
-                  currentView === "players" ? "bg-blue-50 text-blue-700" : "text-slate-700 hover:bg-slate-50"
-                }`}
+                <Cloud className="w-4 h-4 mr-2" /> Status
+              </Button>
+              <Button
+                variant="ghost"
                 onClick={() => handleMenuClick("players")}
+                className={`w-full justify-start text-slate-700 hover:bg-slate-100 ${currentView === "players" ? "font-bold bg-slate-100" : ""}`}
               >
-                <Users className="inline-block w-5 h-5 mr-2" /> Players
-              </button>
-              <button
-                className={`block w-full text-left px-3 py-2 rounded-md text-base font-medium ${
-                  currentView === "rules" ? "bg-blue-50 text-blue-700" : "text-slate-700 hover:bg-slate-50"
-                }`}
+                <Users className="w-4 h-4 mr-2" /> Players
+              </Button>
+              <Button
+                variant="ghost"
                 onClick={() => handleMenuClick("rules")}
+                className={`w-full justify-start text-slate-700 hover:bg-slate-100 ${currentView === "rules" ? "font-bold bg-slate-100" : ""}`}
               >
-                <ScrollText className="inline-block w-5 h-5 mr-2" /> Rules
-              </button>
-              <button
-                className={`block w-full text-left px-3 py-2 rounded-md text-base font-medium ${
-                  currentView === "screenshots" ? "bg-blue-50 text-blue-700" : "text-slate-700 hover:bg-slate-50"
-                }`}
+                <ScrollText className="w-4 h-4 mr-2" /> Rules
+              </Button>
+              <Button
+                variant="ghost"
                 onClick={() => handleMenuClick("screenshots")}
+                className={`w-full justify-start text-slate-700 hover:bg-slate-100 ${currentView === "screenshots" ? "font-bold bg-slate-100" : ""}`}
               >
-                <Camera className="inline-block w-5 h-5 mr-2" /> Screenshots
-              </button>
-              <button
-                className={`block w-full text-left px-3 py-2 rounded-md text-base font-medium ${
-                  currentView === "announcements" ? "bg-blue-50 text-blue-700" : "text-slate-700 hover:bg-slate-50"
-                }`}
+                <Camera className="w-4 h-4 mr-2" /> Screenshots
+              </Button>
+              <Button
+                variant="ghost"
                 onClick={() => handleMenuClick("announcements")}
+                className={`w-full justify-start text-slate-700 hover:bg-slate-100 ${currentView === "announcements" ? "font-bold bg-slate-100" : ""}`}
               >
-                <Megaphone className="inline-block w-5 h-5 mr-2" /> Announcements
-              </button>
+                <Megaphone className="w-4 h-4 mr-2" /> Announcements
+              </Button>
             </div>
           </div>
         )}
       </nav>
 
-      <main className="pt-16">
-        {currentView === "home" && renderHomePage()}
-        {currentView === "status" && renderServerStatus()}
-        {currentView === "players" && renderActivePlayers()}
-        {currentView === "rules" && renderRulesPage()}
-        {currentView === "screenshots" && renderScreenshotsPage()}
-        {currentView === "announcements" && renderAnnouncementsPage()}
+      {/* Main Content based on currentView */}
+      <main className="pt-16"> {/* Add padding-top to account for fixed navbar */}
+        {(() => {
+          switch (currentView) {
+            case "home":
+              return renderHomePage()
+            case "status":
+              return renderServerStatus()
+            case "players":
+              return renderActivePlayers()
+            case "rules":
+              return renderRulesPage()
+            case "screenshots":
+              return renderScreenshotsPage()
+            case "announcements":
+              return renderAnnouncementsPage()
+            default:
+              return renderHomePage()
+          }
+        })()}
       </main>
 
-      <footer className="bg-slate-800 text-white py-8 text-center mt-auto">
-        <div className="max-w-7xl mx-auto px-4">
-          <p>&copy; {new Date().getFullYear()} Concord SMP. All rights reserved.</p>
-          <div className="flex justify-center space-x-4 mt-4">
-            <a href="#" className="text-slate-400 hover:text-white transition-colors">Discord</a>
-            <a href="#" className="text-slate-400 hover:text-white transition-colors">Twitter</a>
+      {/* Footer */}
+      <footer className="bg-slate-800 text-slate-300 py-8 px-4">
+        <div className="max-w-7xl mx-auto text-center space-y-4">
+          <div className="flex justify-center mb-4">
+            <Image
+              src={concordLogo}
+              alt="Concord SMP Logo"
+              width={48}
+              height={48}
+              className="w-12 h-12 object-contain rounded-full"
+            />
+          </div>
+          <p className="text-xl font-light text-white">Concord SMP</p>
+          <p className="text-sm font-light">&copy; {new Date().getFullYear()} Concord SMP. All rights reserved.</p>
+          <div className="flex justify-center space-x-4">
+            <a href="#" className="text-slate-400 hover:text-white transition-colors duration-200">Privacy Policy</a>
+            <a href="#" className="text-slate-400 hover:text-white transition-colors duration-200">Terms of Service</a>
           </div>
         </div>
       </footer>
