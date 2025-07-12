@@ -869,25 +869,12 @@ export default function ConcordSMPLanding() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-slate-800 text-slate-300 py-8 px-4">
-        <div className="max-w-7xl mx-auto text-center space-y-4">
-          <div className="flex justify-center mb-4">
-            <Image
-              src={concordLogo}
-              alt="Concord SMP Logo"
-              width={48}
-              height={48}
-              className="w-12 h-12 object-contain rounded-full"
-            />
-          </div>
-          <p className="text-xl font-light text-white">Concord SMP</p>
-          <p className="text-sm font-light">&copy; {new Date().getFullYear()} Concord SMP. All rights reserved.</p>
-          <div className="flex justify-center space-x-4">
-            <a href="#" className="text-slate-400 hover:text-white transition-colors duration-200">Privacy Policy</a>
-            <a href="#" className="text-slate-400 hover:text-white transition-colors duration-200">Terms of Service</a>
-          </div>
-        </div>
-      </footer>
+<footer className="bg-slate-800 text-slate-300 py-8 px-4">
+  <div className="max-w-7xl mx-auto text-center space-y-4">
+    <p className="text-xl font-light text-white">Concord SMP</p>
+    <p className="text-lg font-mono text-blue-300">concord.my.pebble.host</p>
+  </div>
+</footer>
     </div>
   )
 }
