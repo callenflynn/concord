@@ -857,13 +857,15 @@ export default function ConcordSMPLanding() {
         {currentView === "announcements" && renderAnnouncementsPage()}
       </main>
 
-      {/* Footer */}
-<footer className="bg-slate-800 text-slate-300 py-8 px-4 text-center">
-  <div className="max-w-4xl mx-auto">
-    <p className="text-xs">
-      Concord SMP &bull; concord.my.pebble.host
-    </p>
-  </div>
-</footer>
+      <footer className="bg-slate-800 text-slate-300 py-8 px-4 text-center">
+        <div className="max-w-4xl mx-auto">
+          <p className="text-sm">
+            &copy; {new Date().getFullYear()} Concord SMP. All rights reserved.
+          </p>
+          <p className="text-xs mt-2">
+            Built with ❤️ by the community
+          </p>
+        </div>
+      </footer>
   )
 }
