@@ -106,7 +106,13 @@ export default function ConcordSMPLanding() {
           <div className="text-center space-y-6">
             <div className="space-y-3">
               <div className="flex justify-center mb-4">
-                <Cloud className="w-16 h-16 text-blue-400/70" />
+                <Image
+                src="/image.jpeg"
+                alt="Concord SMP Logo"
+                width={64}
+                height={64}
+                className="w-16 h-16 object-contain rounded-full"
+              />
               </div>
               <h1 className="text-4xl sm:text-6xl font-light tracking-wide text-slate-700">Concord SMP</h1>
               <p className="text-lg sm:text-xl text-slate-600 max-w-2xl mx-auto font-light">
