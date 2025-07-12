@@ -107,7 +107,7 @@ export default function ConcordSMPLanding() {
             <div className="space-y-3">
               <div className="flex justify-center mb-4">
                 <Image
-                src="/image.jpeg"
+                src="/app/image.jpeg"
                 alt="Concord SMP Logo"
                 width={64}
                 height={64}
