@@ -693,17 +693,13 @@ export default function ConcordSMPLanding() {
           <p className="text-lg text-slate-500 font-light">stay up-to-date with concord smp news</p>
         </div>
 
-        <div className="space-y-6">
-          {announcements.length > 0 ? (
-            announcements.map((announcement) => (
-              <Card
-                key={announcement.id}
-                className="border-0 bg-white/70 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden"
-              >
+        {announcements.length > 0 ? (
+          <div className="space-y-6">
+            {announcements.map((announcement, index) => (
+              <Card key={index} className="border-0 bg-white/70 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
                 <CardContent className="p-6">
                   <div className="flex items-start gap-4">
-                    <div className="w-8 h-8 bg-blue-200 text-blue-600 rounded-full flex items-center justify-center font-medium text-s
-                  m">
+                    <div className="w-8 h-8 bg-blue-200 text-blue-600 rounded-full flex items-center justify-center font-medium text-sm">
                       <Megaphone className="w-4 h-4" />
                     </div>
                     <div className="flex-1">
@@ -714,14 +710,14 @@ export default function ConcordSMPLanding() {
                   </div>
                 </CardContent>
               </Card>
-            ))
-          ) : (
-            <div className="text-center py-8">
-              <Megaphone className="w-12 h-12 text-slate-300 mx-auto mb-3" />
-              <p className="text-slate-500 font-light">no announcements yet</p>
-            </div>
-          )}
-        </div>
+            ))}
+          </div>
+        ) : (
+          <div className="text-center py-8">
+            <Megaphone className="w-12 h-12 text-slate-300 mx-auto mb-3" />
+            <p className="text-slate-500 font-light">No announcements yet.</p>
+          </div>
+        )}
       </div>
     </section>
   )
@@ -732,66 +728,44 @@ export default function ConcordSMPLanding() {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white/70 backdrop-blur-lg shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16 items-center">
+            {/* Logo and Name */}
             <div className="flex items-center">
-              <a href="#" className="flex-shrink-0 flex items-center gap-2" onClick={() => handleMenuClick("home")}>
-                <Image
-                  src={concordLogo} // <--- USING THE IMPORTED concordLogo HERE TOO FOR NAV
-                  alt="Concord SMP Logo"
-                  width={32}
-                  height={32}
-                  className="w-8 h-8 object-contain rounded-full"
-                />
-                <span className="text-lg font-bold text-slate-800">Concord SMP</span>
-              </a>
+              <Image
+                src={concordLogo}
+                alt="Concord SMP Logo"
+                width={32}
+                height={32}
+                className="w-8 h-8 object-contain rounded-full mr-2"
+              />
+              <span className="font-semibold text-xl text-slate-800">Concord SMP</span>
             </div>
-            <div className="hidden md:flex md:space-x-8">
-              <Button
-                variant="ghost"
-                className={`text-slate-600 hover:text-slate-900 ${currentView === "home" ? "font-bold" : ""}`}
-                onClick={() => handleMenuClick("home")}
-              >
-                <Home className="mr-2 h-4 w-4" /> Home
+
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex space-x-6">
+              <Button variant="ghost" onClick={() => handleMenuClick("home")} className="text-slate-600 hover:text-slate-800">
+                <Home className="w-4 h-4 mr-1" /> Home
               </Button>
-              <Button
-                variant="ghost"
-                className={`text-slate-600 hover:text-slate-900 ${currentView === "status" ? "font-bold" : ""}`}
-                onClick={() => handleMenuClick("status")}
-              >
-                <Activity className="mr-2 h-4 w-4" /> Status
+              <Button variant="ghost" onClick={() => handleMenuClick("status")} className="text-slate-600 hover:text-slate-800">
+                <Activity className="w-4 h-4 mr-1" /> Status
               </Button>
-              <Button
-                variant="ghost"
-                className={`text-slate-600 hover:text-slate-900 ${currentView === "players" ? "font-bold" : ""}`}
-                onClick={() => handleMenuClick("players")}
-              >
-                <Users className="mr-2 h-4 w-4" /> Players
+              <Button variant="ghost" onClick={() => handleMenuClick("players")} className="text-slate-600 hover:text-slate-800">
+                <Users className="w-4 h-4 mr-1" /> Players
               </Button>
-              <Button
-                variant="ghost"
-                className={`text-slate-600 hover:text-slate-900 ${currentView === "rules" ? "font-bold" : ""}`}
-                onClick={() => handleMenuClick("rules")}
-              >
-                <ScrollText className="mr-2 h-4 w-4" /> Rules
+              <Button variant="ghost" onClick={() => handleMenuClick("rules")} className="text-slate-600 hover:text-slate-800">
+                <ScrollText className="w-4 h-4 mr-1" /> Rules
               </Button>
-              <Button
-                variant="ghost"
-                className={`text-slate-600 hover:text-slate-900 ${currentView === "screenshots" ? "font-bold" : ""}`}
-                onClick={() => handleMenuClick("screenshots")}
-              >
-                <Camera className="mr-2 h-4 w-4" /> Screenshots
+              <Button variant="ghost" onClick={() => handleMenuClick("screenshots")} className="text-slate-600 hover:text-slate-800">
+                <Camera className="w-4 h-4 mr-1" /> Screenshots
               </Button>
-              <Button
-                variant="ghost"
-                className={`text-slate-600 hover:text-slate-900 ${currentView === "announcements" ? "font-bold" : ""}`}
-                onClick={() => handleMenuClick("announcements")}
-              >
-                <Megaphone className="mr-2 h-4 w-4" /> Announcements
+              <Button variant="ghost" onClick={() => handleMenuClick("announcements")} className="text-slate-600 hover:text-slate-800">
+                <Megaphone className="w-4 h-4 mr-1" /> Announcements
               </Button>
             </div>
-            <div className="-mr-2 flex md:hidden">
-              <Button variant="ghost" onClick={() => setMenuOpen(!menuOpen)}>
-                <span className="sr-only">Open main menu</span>
-                {menuOpen ? <X className="block h-6 w-6" aria-hidden="true" /> : <Menu className="block h-6 w-6" aria-hidden="true" />}
+
+            {/* Mobile Menu Button */}
+            <div className="md:hidden">
+              <Button variant="ghost" size="icon" onClick={() => setMenuOpen(!menuOpen)}>
+                {menuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
               </Button>
             </div>
           </div>
@@ -799,49 +773,25 @@ export default function ConcordSMPLanding() {
 
         {/* Mobile Menu */}
         {menuOpen && (
-          <div className="md:hidden">
+          <div className="md:hidden bg-white/70 backdrop-blur-lg border-t border-slate-200">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-              <Button
-                variant="ghost"
-                className="block w-full text-left text-slate-600 hover:text-slate-900"
-                onClick={() => handleMenuClick("home")}
-              >
-                <Home className="mr-2 h-4 w-4" /> Home
+              <Button variant="ghost" onClick={() => handleMenuClick("home")} className="w-full justify-start text-slate-700 hover:bg-slate-100">
+                <Home className="w-4 h-4 mr-2" /> Home
               </Button>
-              <Button
-                variant="ghost"
-                className="block w-full text-left text-slate-600 hover:text-slate-900"
-                onClick={() => handleMenuClick("status")}
-              >
-                <Activity className="mr-2 h-4 w-4" /> Status
+              <Button variant="ghost" onClick={() => handleMenuClick("status")} className="w-full justify-start text-slate-700 hover:bg-slate-100">
+                <Activity className="w-4 h-4 mr-2" /> Status
               </Button>
-              <Button
-                variant="ghost"
-                className="block w-full text-left text-slate-600 hover:text-slate-900"
-                onClick={() => handleMenuClick("players")}
-              >
-                <Users className="mr-2 h-4 w-4" /> Players
+              <Button variant="ghost" onClick={() => handleMenuClick("players")} className="w-full justify-start text-slate-700 hover:bg-slate-100">
+                <Users className="w-4 h-4 mr-2" /> Players
               </Button>
-              <Button
-                variant="ghost"
-                className="block w-full text-left text-slate-600 hover:text-slate-900"
-                onClick={() => handleMenuClick("rules")}
-              >
-                <ScrollText className="mr-2 h-4 w-4" /> Rules
+              <Button variant="ghost" onClick={() => handleMenuClick("rules")} className="w-full justify-start text-slate-700 hover:bg-slate-100">
+                <ScrollText className="w-4 h-4 mr-2" /> Rules
               </Button>
-              <Button
-                variant="ghost"
-                className="block w-full text-left text-slate-600 hover:text-slate-900"
-                onClick={() => handleMenuClick("screenshots")}
-              >
-                <Camera className="mr-2 h-4 w-4" /> Screenshots
+              <Button variant="ghost" onClick={() => handleMenuClick("screenshots")} className="w-full justify-start text-slate-700 hover:bg-slate-100">
+                <Camera className="w-4 h-4 mr-2" /> Screenshots
               </Button>
-              <Button
-                variant="ghost"
-                className="block w-full text-left text-slate-600 hover:text-slate-900"
-                onClick={() => handleMenuClick("announcements")}
-              >
-                <Megaphone className="mr-2 h-4 w-4" /> Announcements
+              <Button variant="ghost" onClick={() => handleMenuClick("announcements")} className="w-full justify-start text-slate-700 hover:bg-slate-100">
+                <Megaphone className="w-4 h-4 mr-2" /> Announcements
               </Button>
             </div>
           </div>
@@ -857,15 +807,14 @@ export default function ConcordSMPLanding() {
         {currentView === "announcements" && renderAnnouncementsPage()}
       </main>
 
+      {/* Footer */}
       <footer className="bg-slate-800 text-slate-300 py-8 px-4 text-center">
         <div className="max-w-4xl mx-auto">
-          <p className="text-sm">
-            &copy; {new Date().getFullYear()} Concord SMP. All rights reserved.
-          </p>
-          <p className="text-xs mt-2">
-            Built with ❤️ by the community
+          <p className="text-xs">
+            Concord SMP &bull; {serverIP}
           </p>
         </div>
       </footer>
+    </div>
   )
 }
