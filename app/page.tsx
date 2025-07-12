@@ -723,23 +723,24 @@ export default function ConcordSMPLanding() {
   )
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-100 via-indigo-100 to-purple-100 text-slate-800">
-      {/* Navbar */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/70 backdrop-blur-lg shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between h-16 items-center">
-            {/* Logo and Name */}
-            <div className="flex items-center">
-              <Image
-                src={concordLogo}
-                alt="Concord SMP Logo"
-                width={32}
-                height={32}
-                className="w-8 h-8 object-contain rounded-full mr-2"
-              />
-              <span className="font-semibold text-xl text-slate-800">Concord SMP</span>
-            </div>
-
+<div className="min-h-screen bg-gradient-to-br from-blue-100 via-indigo-100 to-purple-100 text-slate-800">
+  <nav className="fixed top-0 left-0 right-0 z-50 bg-white/70 backdrop-blur-lg shadow-sm">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="flex justify-between h-16 items-center">
+        <div className="flex items-center">
+          <Image
+            src={concordLogo}
+            alt="Concord SMP Logo"
+            width={32}
+            height={32}
+            className="w-8 h-8 object-contain rounded-full mr-2"
+          />
+          <span className="font-semibold text-xl text-slate-800">Concord SMP</span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>
             {/* Desktop Navigation */}
             <div className="hidden md:flex space-x-6">
               <Button variant="ghost" onClick={() => handleMenuClick("home")} className="text-slate-600 hover:text-slate-800">
