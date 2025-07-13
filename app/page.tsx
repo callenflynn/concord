@@ -607,7 +607,7 @@ export default function ConcordSMPLanding() {
             <CardContent className="p-6">
               <div className="flex items-start gap-4">
                 <div className="w-8 h-8 bg-amber-200 text-amber-600 rounded-full flex items-center justify-center font-medium text-sm">
-                  5
+                  6
                 </div>
                 <div className="flex-1">
                   <h3 className="text-lg font-medium text-slate-700 mb-2">no netherite armor</h3>
@@ -623,7 +623,7 @@ export default function ConcordSMPLanding() {
             <CardContent className="p-6">
               <div className="flex items-start gap-4">
                 <div className="w-8 h-8 bg-teal-200 text-teal-600 rounded-full flex items-center justify-center font-medium text-sm">
-                  6
+                  7
                 </div>
                 <div className="flex-1">
                   <h3 className="text-lg font-medium text-slate-700 mb-2">spawn protection</h3>
