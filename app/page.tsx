@@ -522,7 +522,7 @@ export default function ConcordSMPLanding() {
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-light text-slate-700 mb-3">server rules</h2>
-          <p className="text-lg text-slate-500 font-light">keeping concord smp chill and fair</p>
+          <p className="text-lg text-slate-500 font-light">keeping concord smp fun and fair</p>
         </div>
 
         <div className="space-y-6">
@@ -533,9 +533,9 @@ export default function ConcordSMPLanding() {
                   1
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-lg font-medium text-slate-700 mb-2">no griefing (unless at war)</h3>
+                  <h3 className="text-lg font-medium text-slate-700 mb-2">no griefing</h3>
                   <p className="text-slate-500 font-light">
-                    do not grief spawn. do not grief other players' builds unless you are officially at war with them.
+                    do not grief spawn. do not grief other players' builds unless you both agreed you are at war.
                   </p>
                 </div>
               </div>
@@ -594,9 +594,25 @@ export default function ConcordSMPLanding() {
                   5
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-lg font-medium text-slate-700 mb-2">no stealing (unless at war)</h3>
+                  <h3 className="text-lg font-medium text-slate-700 mb-2">no stealing</h3>
                   <p className="text-slate-500 font-light">
-                    do not steal items from other players unless you are officially at war with them.
+                    do not steal items from other players unless you both agreed you are at war.
+                  </p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+                    <Card className="border-0 bg-white/70 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
+            <CardContent className="p-6">
+              <div className="flex items-start gap-4">
+                <div className="w-8 h-8 bg-amber-200 text-amber-600 rounded-full flex items-center justify-center font-medium text-sm">
+                  5
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-lg font-medium text-slate-700 mb-2">no netherite armor</h3>
+                  <p className="text-slate-500 font-light">
+                    Netherite armor is not allowed and is not possible to make, however netherite tools are allowed.
                   </p>
                 </div>
               </div>
@@ -628,7 +644,7 @@ export default function ConcordSMPLanding() {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-light text-slate-700 mb-3">server screenshots</h2>
-          <p className="text-lg text-slate-500 font-light">moments from our peaceful world</p>
+          <p className="text-lg text-slate-500 font-light">moments from our world</p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -666,6 +682,16 @@ export default function ConcordSMPLanding() {
             <Image
               src="/images/screenshot-4.png"
               alt="Nighttime Minecraft landscape with glowing purple structure"
+              width={600}
+              height={400}
+              className="w-full h-auto object-cover rounded-t-2xl"
+            />
+          </Card>
+
+                    <Card className="border-0 bg-white/60 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
+            <Image
+              src="/images/screenshot-5.png"
+              alt="A view of spawn without shaders (July 13, 2025)"
               width={600}
               height={400}
               className="w-full h-auto object-cover rounded-t-2xl"
