@@ -869,9 +869,6 @@ export default function ConcordSMPLanding() {
       </main>
 
       {/* Footer */}
-Here's your footer with the logo added back:
-
-```jsx
 <footer className="bg-slate-800 text-slate-300 py-8 px-4">
   <div className="max-w-7xl mx-auto text-center space-y-4">
     <div className="flex justify-center mb-4">
@@ -887,7 +884,6 @@ Here's your footer with the logo added back:
     <p className="text-lg font-mono text-blue-300">concord.my.pebble.host</p>
   </div>
 </footer>
-```
     </div>
   )
 }
