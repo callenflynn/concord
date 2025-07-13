@@ -606,7 +606,7 @@ export default function ConcordSMPLanding() {
                     <Card className="border-0 bg-white/70 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
             <CardContent className="p-6">
               <div className="flex items-start gap-4">
-                <div className="w-8 h-8 bg-amber-200 text-amber-600 rounded-full flex items-center justify-center font-medium text-sm">
+                <div className="w-8 h-8 bg-purple-200 text-purple-600 rounded-full flex items-center justify-center font-medium text-sm">
                   6
                 </div>
                 <div className="flex-1">
