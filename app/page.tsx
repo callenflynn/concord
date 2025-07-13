@@ -671,15 +671,6 @@ export default function ConcordSMPLanding() {
               className="w-full h-auto object-cover rounded-t-2xl"
             />
           </Card>
-                    <Card className="border-0 bg-white/60 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
-            <Image
-              src="/images/screenshot-5.png"
-              alt="Overview of spawn as of July 13, 2025"
-              width={600}
-              height={400}
-              className="w-full h-auto object-cover rounded-t-2xl"
-            />
-          </Card>
         </div>
       </div>
     </section>
