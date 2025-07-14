@@ -739,6 +739,56 @@ export default function ConcordSMPLanding() {
     </section>
   )
 
+const renderAffiliatesPage = () => (
+  <section className="py-16 px-4 min-h-screen">
+    <div className="max-w-4xl mx-auto">
+      <div className="text-center mb-12">
+        <h2 className="text-3xl font-light text-slate-700 mb-3">our affiliates</h2>
+        <p className="text-lg text-slate-500 font-light">partnerships that make our community stronger</p>
+      </div>
+
+      <div className="space-y-6">
+        {/* Kings MC Network Affiliate Card */}
+        <Card className="border-0 bg-white/70 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
+          <CardContent className="p-6">
+            <div className="flex items-center gap-4">
+              {/* Affiliate Logo */}
+              <Image
+                src="/images/kings.png" // Path to the Kings MC Network logo
+                alt="Kings MC Network Logo"
+                width={64}
+                height={64}
+                className="w-16 h-16 object-contain rounded-full border border-slate-200"
+              />
+              {/* Affiliate Details */}
+              <div className="flex-1">
+                <h3 className="text-lg font-medium text-slate-700 mb-1">Kings MC Network</h3>
+                <p className="text-slate-500 font-light mb-2">
+                  A network featuring both a traditional SMP and a thrilling Lifesteal SMP.
+                </p>
+                {/* Website Link */}
+                <a
+                  href="https://kings-mc.vercel.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-500 hover:underline text-sm font-medium flex items-center gap-1"
+                >
+                  Visit Website <ExternalLink className="w-3 h-3" /> {/* ExternalLink icon */}
+                </a>
+                {/* Badges for server types */}
+                <div className="mt-2 flex flex-wrap gap-2">
+                  <Badge variant="secondary" className="bg-blue-100 text-blue-600">SMP</Badge>
+                  <Badge variant="secondary" className="bg-red-100 text-red-600">Lifesteal</Badge>
+                </div>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+              </div>
+    </div>
+  </section>
+);
+  
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-100 via-indigo-100 to-purple-100 text-slate-800">
       {/* Navbar */}
