@@ -3,9 +3,8 @@ import './globals.css'
 
 export const metadata: Metadata = {
   title: 'Concord SMP',
-  description: 'A minecraft server build around community',
+  description: 'A minecraft server built around community',
   icons: {
-    // This path is correct IF image.png is directly inside the 'public' directory
     icon: '/image.png', 
   },
 }
