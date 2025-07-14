@@ -23,10 +23,13 @@ import {
   ScrollText,
   Camera,
   Megaphone,
+    Network, 
+  ExternalLink,
 } from "lucide-react"
 import { getAnnouncements } from "@/lib/announcements"
 
 import concordLogo from './image.jpeg'
+import kingsLogo from './kings.png' 
 
 interface ServerStatus {
   online: boolean
@@ -42,7 +45,7 @@ interface ServerStatus {
   }
 }
 
-type CurrentView = "home" | "status" | "players" | "rules" | "screenshots" | "announcements"
+type CurrentView = "home" | "status" | "players" | "rules" | "screenshots" | "announcements" | "affiliates" 
 
 export default function ConcordSMPLanding() {
   const [serverStatus, setServerStatus] = useState<ServerStatus | null>(null)
@@ -748,11 +751,9 @@ const renderAffiliatesPage = () => (
       </div>
 
       <div className="space-y-6">
-        {/* Kings MC Network Affiliate Card */}
         <Card className="border-0 bg-white/70 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
           <CardContent className="p-6">
             <div className="flex items-center gap-4">
-              {/* Affiliate Logo */}
               <Image
                 src="/images/kings.png" // Path to the Kings MC Network logo
                 alt="Kings MC Network Logo"
@@ -760,22 +761,19 @@ const renderAffiliatesPage = () => (
                 height={64}
                 className="w-16 h-16 object-contain rounded-full border border-slate-200"
               />
-              {/* Affiliate Details */}
               <div className="flex-1">
                 <h3 className="text-lg font-medium text-slate-700 mb-1">Kings MC Network</h3>
                 <p className="text-slate-500 font-light mb-2">
                   A network featuring both a traditional SMP and a thrilling Lifesteal SMP.
                 </p>
-                {/* Website Link */}
                 <a
                   href="https://kings-mc.vercel.app/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-blue-500 hover:underline text-sm font-medium flex items-center gap-1"
                 >
-                  Visit Website <ExternalLink className="w-3 h-3" /> {/* ExternalLink icon */}
+                  Visit Website <ExternalLink className="w-3 h-3" />
                 </a>
-                {/* Badges for server types */}
                 <div className="mt-2 flex flex-wrap gap-2">
                   <Badge variant="secondary" className="bg-blue-100 text-blue-600">SMP</Badge>
                   <Badge variant="secondary" className="bg-red-100 text-red-600">Lifesteal</Badge>
@@ -784,7 +782,7 @@ const renderAffiliatesPage = () => (
             </div>
           </CardContent>
         </Card>
-              </div>
+      </div>
     </div>
   </section>
 );
@@ -917,6 +915,13 @@ const renderAffiliatesPage = () => (
               >
                 <Megaphone className="w-4 h-4 mr-2" /> Announcements
               </Button>
+              <Button
+                variant="ghost"
+                onClick={() => handleMenuClick("affiliates")}
+                className={`w-full justify-start text-slate-700 hover:bg-slate-100 ${currentView === "affiliates" ? "font-bold bg-slate-100" : ""}`}
+              >
+                <Network className="w-4 h-4 mr-2" /> Affiliates
+              </Button>
             </div>
           </div>
         )}
@@ -938,6 +943,8 @@ const renderAffiliatesPage = () => (
               return renderScreenshotsPage()
             case "announcements":
               return renderAnnouncementsPage()
+            case "affiliates": 
+              return renderAffiliatesPage() 
             default:
               return renderHomePage()
           }
