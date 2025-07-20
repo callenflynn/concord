@@ -764,10 +764,10 @@ const renderAffiliatesPage = () => (
               <div className="flex-1">
                 <h3 className="text-lg font-medium text-slate-700 mb-1">Kings MC Network</h3>
                 <p className="text-slate-500 font-light mb-2">
-                  A network featuring both a traditional SMP and a thrilling Lifesteal SMP.
+                  A network featuring both a traditional SMP and Lifesteal server.
                 </p>
                 <a
-                  href="https://kings-mc.vercel.app/"
+                  href="https://kings-mc.odoo.com/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-blue-500 hover:underline text-sm font-medium flex items-center gap-1"
