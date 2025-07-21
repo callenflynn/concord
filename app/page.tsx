@@ -498,11 +498,10 @@ const renderActivePlayers = () => {
           </CardHeader>
           <CardContent>
             {serverStatus.online ? (
-              serverStatus.players?.list && serverStatus.players.list.length > 0 ? (
+              Array.isArray(serverStatus.players?.list) && serverStatus.players.list.length > 0 ? (
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
                   {serverStatus.players.list.map((player, index) => (
                     <div key={index} className="flex items-center gap-3 bg-white/50 backdrop-blur-sm rounded-lg p-3">
-                      {/* Player Avatar or Initial */}
                       <div className="w-8 h-8 rounded-lg overflow-hidden">
                         <img
                           src={`https://crafatar.com/avatars/${player}?size=40&default=MHF_Steve&overlay`}
