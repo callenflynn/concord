@@ -775,7 +775,7 @@ const renderAffiliatesPage = () => (
           <CardContent className="p-6">
             <div className="flex items-center gap-4">
               <Image
-                src="/kings.png" 
+                src="/images/kings.png" 
                 alt="Kings MC Network Logo"
                 width={64}
                 height={64}
