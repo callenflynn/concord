@@ -29,7 +29,7 @@ import {
 import { getAnnouncements } from "@/lib/announcements"
 
 import concordLogo from './image.jpeg'
-import kingsLogo from './kings.png' 
+import kingsmc from './kings.png' 
 
 interface ServerStatus {
   online: boolean
@@ -775,7 +775,7 @@ const renderAffiliatesPage = () => (
           <CardContent className="p-6">
             <div className="flex items-center gap-4">
               <Image
-                src="/images/kings.png" 
+                src={kingsmc} 
                 alt="Kings MC Network Logo"
                 width={64}
                 height={64}
