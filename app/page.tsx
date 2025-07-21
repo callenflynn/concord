@@ -472,8 +472,16 @@ export default function ConcordSMPLanding() {
       </div>
     </section>
   )
+const renderActivePlayers = () => {
+  if (!serverStatus) {
+    return (
+      <section className="py-16 px-4 min-h-screen text-center text-slate-500">
+        <p>loading server status...</p>
+      </section>
+    );
+  }
 
-  const renderActivePlayers = () => (
+  return (
     <section className="py-16 px-4 min-h-screen">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-12">
@@ -485,21 +493,32 @@ export default function ConcordSMPLanding() {
           <CardHeader>
             <CardTitle className="flex items-center gap-2 text-lg font-medium text-slate-700">
               <Users className="w-5 h-5 text-slate-400" />
-              online now ({serverStatus?.players?.online || 0}/{serverStatus?.players?.max || 0})
+              online now ({serverStatus.players?.online || 0}/{serverStatus.players?.max || 0})
             </CardTitle>
           </CardHeader>
           <CardContent>
-            {serverStatus?.online ? (
+            {serverStatus.online ? (
               serverStatus.players?.list && serverStatus.players.list.length > 0 ? (
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
                   {serverStatus.players.list.map((player, index) => (
                     <div key={index} className="flex items-center gap-3 bg-white/50 backdrop-blur-sm rounded-lg p-3">
-                      <div className="w-8 h-8 bg-gradient-to-br from-blue-400 to-purple-400 rounded-lg flex items-center justify-center">
-                        <span className="text-white text-sm font-medium">{player.charAt(0).toUpperCase()}</span>
+                      {/* Player Avatar or Initial */}
+                      <div className="w-8 h-8 rounded-lg overflow-hidden">
+                        <img
+                          src={`https://crafatar.com/avatars/${player}?size=40&default=MHF_Steve&overlay`}
+                          alt={player}
+                          className="w-full h-full object-cover"
+                        />
                       </div>
                       <span className="text-slate-700 font-medium">{player}</span>
                     </div>
                   ))}
+                </div>
+              ) : serverStatus.players?.online > 0 ? (
+                <div className="text-center py-8">
+                  <Users className="w-12 h-12 text-slate-300 mx-auto mb-3" />
+                  <p className="text-slate-500 font-light">players online, but names are hidden</p>
+                  <p className="text-slate-400 text-sm mt-1">server may not support player list</p>
                 </div>
               ) : (
                 <div className="text-center py-8">
@@ -518,7 +537,9 @@ export default function ConcordSMPLanding() {
         </Card>
       </div>
     </section>
-  )
+  );
+};
+
 
   const renderRulesPage = () => (
     <section className="py-16 px-4 min-h-screen">
