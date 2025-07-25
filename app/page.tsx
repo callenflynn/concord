@@ -473,6 +473,36 @@ export default function ConcordSMPLanding() {
     </section>
   )
 const renderActivePlayers = () => {
+  // Early return with loading state if no server status
+  if (!serverStatus) {
+    return (
+      <section className="py-16 px-4 min-h-screen">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-light text-slate-700 mb-3">active players</h2>
+            <p className="text-lg text-slate-500 font-light">who's currently online</p>
+          </div>
+          <Card className="border-0 bg-white/60 backdrop-blur-sm shadow-sm rounded-2xl">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2 text-lg font-medium text-slate-700">
+                <Users className="w-5 h-5 text-slate-400" />
+                checking server status...
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="text-center py-8">
+                <div className="animate-pulse">
+                  <Users className="w-12 h-12 text-slate-300 mx-auto mb-3" />
+                </div>
+                <p className="text-slate-500 font-light">loading player information...</p>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+    )
+  }
+
   return (
     <section className="py-16 px-4 min-h-screen">
       <div className="max-w-4xl mx-auto">
@@ -485,58 +515,90 @@ const renderActivePlayers = () => {
           <CardHeader>
             <CardTitle className="flex items-center gap-2 text-lg font-medium text-slate-700">
               <Users className="w-5 h-5 text-slate-400" />
-              online now ({serverStatus?.players?.online || 0}/{serverStatus?.players?.max || 0})
+              online now ({(serverStatus?.players?.online ?? 0)}/{(serverStatus?.players?.max ?? 0)})
             </CardTitle>
           </CardHeader>
           <CardContent>
-            {!serverStatus ? (
-              <div className="text-center py-8">
-                <Users className="w-12 h-12 text-slate-300 mx-auto mb-3" />
-                <p className="text-slate-500 font-light">loading server status...</p>
+            {/* Server offline state */}
+            {!serverStatus.online ? (
+              <div className="text-center py-12">
+                <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Server className="w-8 h-8 text-red-400" />
+                </div>
+                <h3 className="text-lg font-medium text-slate-700 mb-2">server is offline</h3>
+                <p className="text-slate-500 font-light">the server is currently not responding</p>
               </div>
-            ) : !serverStatus.online ? (
-              <div className="text-center py-8">
-                <Server className="w-12 h-12 text-slate-300 mx-auto mb-3" />
-                <p className="text-slate-500 font-light">server is currently offline</p>
+            ) : /* No players online */ (serverStatus?.players?.online ?? 0) === 0 ? (
+              <div className="text-center py-12">
+                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Users className="w-8 h-8 text-blue-400" />
+                </div>
+                <h3 className="text-lg font-medium text-slate-700 mb-2">no players online</h3>
+                <p className="text-slate-500 font-light">be the first to join and start playing!</p>
               </div>
-            ) : !serverStatus.players || serverStatus.players.online === 0 ? (
-              <div className="text-center py-8">
-                <Users className="w-12 h-12 text-slate-300 mx-auto mb-3" />
-                <p className="text-slate-500 font-light">no players currently online</p>
-              </div>
-            ) : !serverStatus.players.list || serverStatus.players.list.length === 0 ? (
-              <div className="text-center py-8">
-                <Users className="w-12 h-12 text-slate-300 mx-auto mb-3" />
-                <p className="text-slate-500 font-light">{serverStatus.players.online} players online</p>
-                <p className="text-slate-400 text-sm mt-1">player names are not available</p>
-              </div>
-            ) : (
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
-                {serverStatus.players.list.map((player, index) => (
-                  <div key={`${player}-${index}`} className="flex items-center gap-3 bg-white/50 backdrop-blur-sm rounded-lg p-3">
-                    <div className="w-8 h-8 rounded-lg overflow-hidden">
-                      <img
-                        src={`https://crafatar.com/avatars/${encodeURIComponent(player)}?size=40&default=MHF_Steve&overlay`}
-                        alt={player}
-                        className="w-full h-full object-cover"
-                        onError={(e) => {
-                          const target = e.target as HTMLImageElement;
-                          target.src = "https://crafatar.com/avatars/MHF_Steve?size=40&overlay";
-                        }}
-                      />
-                    </div>
-                    <span className="text-slate-700 font-medium">{player}</span>
+            ) : /* Players are online */ (
+              <div className="text-center py-12">
+                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Users className="w-8 h-8 text-green-500" />
+                </div>
+                <h3 className="text-xl font-medium text-slate-700 mb-2">
+                  {serverStatus?.players?.online ?? 0} player{(serverStatus?.players?.online ?? 0) !== 1 ? 's' : ''} online
+                </h3>
+                <p className="text-slate-500 font-light mb-6">join them in the world of concord smp!</p>
+                
+                {/* Server details */}
+                <div className="bg-white/50 rounded-lg p-4 max-w-md mx-auto">
+                  <div className="flex items-center justify-between text-sm">
+                    <span className="text-slate-500">server capacity:</span>
+                    <span className="font-mono text-slate-700">
+                      {serverStatus?.players?.online ?? 0}/{serverStatus?.players?.max ?? 0}
+                    </span>
                   </div>
-                ))}
+                  <div className="mt-2 bg-slate-200 rounded-full h-2 overflow-hidden">
+                    <div 
+                      className="bg-green-400 h-full transition-all duration-300"
+                      style={{ 
+                        width: `${Math.min(100, ((serverStatus?.players?.online ?? 0) / Math.max(1, serverStatus?.players?.max ?? 1)) * 100)}%` 
+                      }}
+                    ></div>
+                  </div>
+                </div>
+
+                {/* Join button */}
+                <div className="mt-6">
+                  <div className="flex items-center justify-center gap-2 bg-slate-100 rounded-full px-4 py-2 max-w-fit mx-auto">
+                    <code className="font-mono text-sm text-slate-600">{serverIP}</code>
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      onClick={copyServerIP}
+                      className="text-slate-500 hover:bg-white/50 p-1 h-auto rounded-full"
+                    >
+                      {copied ? <CheckCircle className="w-3 h-3" /> : <Copy className="w-3 h-3" />}
+                    </Button>
+                  </div>
+                </div>
               </div>
             )}
           </CardContent>
         </Card>
+
+        {/* Additional info card */}
+        <Card className="border-0 bg-white/40 backdrop-blur-sm shadow-sm rounded-2xl mt-6">
+          <CardContent className="p-6">
+            <div className="text-center">
+              <h4 className="text-sm font-medium text-slate-600 mb-2">privacy notice</h4>
+              <p className="text-xs text-slate-500 font-light">
+                individual player names are kept private for security and privacy reasons. 
+                only player count is displayed publicly.
+              </p>
+            </div>
+          </CardContent>
+        </Card>
       </div>
     </section>
-  );
-};
-
+  )
+}
 
   const renderRulesPage = () => (
     <section className="py-16 px-4 min-h-screen">
