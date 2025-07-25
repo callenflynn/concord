@@ -723,7 +723,7 @@ const renderActivePlayers = () => {
 
                        <Card className="border-0 bg-white/60 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
             <Image
-              src="/images/screenshot-6.png"
+              src="/images/screenshot-1.png" 
               alt="scenery (July 25, 2025)"
               width={600}
               height={400}
