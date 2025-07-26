@@ -179,68 +179,6 @@ export default function ConcordSMPLanding() {
               a different kind of minecraft experience, built on trust and creativity
             </p>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <Card className="border-0 bg-white/60 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300 rounded-2xl">
-              <CardHeader className="pb-3">
-                <div className="w-10 h-10 bg-rose-100 rounded-full flex items-center justify-center mb-3">
-                  <Heart className="w-5 h-5 text-rose-400" />
-                </div>
-                <CardTitle className="text-lg font-medium text-slate-700">built on trust</CardTitle>
-                <CardDescription className="text-slate-500 font-light">
-                  no strict rules or harsh punishments. just good people doing good things together.
-                </CardDescription>
-              </CardHeader>
-            </Card>
-
-            <Card className="border-0 bg-white/60 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300 rounded-2xl">
-              <CardHeader className="pb-3">
-                <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mb-3">
-                  <Settings className="w-5 h-5 text-blue-400" />
-                </div>
-                <CardTitle className="text-lg font-medium text-slate-700">any client works</CardTitle>
-                <CardDescription className="text-slate-500 font-light">
-                  vanilla, fabric, optifine, neoforge - use whatever you want.
-                </CardDescription>
-              </CardHeader>
-            </Card>
-
-            <Card className="border-0 bg-white/60 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300 rounded-2xl">
-              <CardHeader className="pb-3">
-                <div className="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center mb-3">
-                  <Shield className="w-5 h-5 text-purple-400" />
-                </div>
-                <CardTitle className="text-lg font-medium text-slate-700">no anticheat stress</CardTitle>
-                <CardDescription className="text-slate-500 font-light">
-                  play freely without worrying about false flags or restrictions.
-                </CardDescription>
-              </CardHeader>
-            </Card>
-
-            <Card className="border-0 bg-white/60 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300 rounded-2xl">
-              <CardHeader className="pb-3">
-                <div className="w-10 h-10 bg-amber-100 rounded-full flex items-center justify-center mb-3">
-                  <Home className="w-5 h-5 text-amber-400" />
-                </div>
-                <CardTitle className="text-lg font-medium text-slate-700">amazing builds</CardTitle>
-                <CardDescription className="text-slate-500 font-light">
-                  explore incredible creations from our talented community members.
-                </CardDescription>
-              </CardHeader>
-            </Card>
-
-            <Card className="border-0 bg-white/60 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300 rounded-2xl">
-              <CardHeader className="pb-3">
-                <div className="w-10 h-10 bg-teal-100 rounded-full flex items-center justify-center mb-3">
-                  <Compass className="w-5 h-5 text-teal-400" />
-                </div>
-                <CardTitle className="text-lg font-medium text-slate-700">endless exploration</CardTitle>
-                <CardDescription className="text-slate-500 font-light">
-                  vast worlds with hidden treasures and peaceful adventures.
-                </CardDescription>
-              </CardHeader>
-            </Card>
-
 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <Card className="border-0 bg-white/60 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300 rounded-2xl">
               <CardHeader className="pb-3">
@@ -340,7 +278,6 @@ export default function ConcordSMPLanding() {
           </div>
         </div>
       </section>
-
       {latestAnnouncement && (
         <section className="py-16 px-4 bg-white/40 backdrop-blur-sm">
           <div className="max-w-4xl mx-auto">
