@@ -240,7 +240,17 @@ export default function ConcordSMPLanding() {
               </CardHeader>
             </Card>
 
-
+            <Card className="border-0 bg-white/60 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300 rounded-2xl">
+              <CardHeader className="pb-3">
+                <div className="w-10 h-10 bg-emerald-100 rounded-full flex items-center justify-center mb-3">
+                  <Zap className="w-5 h-5 text-emerald-400" />
+                </div>
+                <CardTitle className="text-lg font-medium text-slate-700">redstone friendly</CardTitle>
+                <CardDescription className="text-slate-500 font-light">
+                  perfect for engineers - no lag, no limits, just pure creativity.
+                </CardDescription>
+              </CardHeader>
+            </Card>
 
             <Card className="border-0 bg-white/60 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300 rounded-2xl">
               <CardHeader className="pb-3">
