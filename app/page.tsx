@@ -627,7 +627,7 @@ export default function ConcordSMPLanding() {
         </div>
       </section>
     </>
-  )
+  
 
   const renderServerStatus = () => (
     <section className="py-16 px-4 min-h-screen">
