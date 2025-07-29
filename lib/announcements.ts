@@ -7,6 +7,12 @@ export interface Announcement {
 
 const announcementsData: Announcement[] = [
   {
+      id: "announcement-4",
+    title: "Season 3 Info",
+    body: "Season 3 will update the server to the latest version! Season 3 will be Origins",
+    date: "2025-07-39",
+  },
+  {
     id: "announcement-3",
     title: "Server Update: 1.21.7 Compatibility!",
     body: "We've successfully updated the server to be fully compatible with Minecraft version 1.21.7! Enjoy all the new features and bug fixes. As always, all clients are supported.",
