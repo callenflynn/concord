@@ -15,7 +15,7 @@ const announcementsData: Announcement[] = [
   {
     id: "announcement-2",
     title: "New Community Event Coming Soon!",
-    body: "Get ready for our next big community event! Details will be announced shortly on our Discord. Prepare for some fun challenges and awesome rewards!",
+    body: "Get ready for our next big community event! Details will be announced shortly. Prepare for some fun challenges and awesome rewards!",
     date: "2025-06-25",
   },
   {
