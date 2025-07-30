@@ -6,11 +6,17 @@ export interface Announcement {
 }
 
 const announcementsData: Announcement[] = [
+    {
+      id: "announcement-5",
+    title: "Upgrading server",
+    body: "Season 3 will update the server to the latest version! Season 3 will be Origins",
+    date: "2025-07-30",
+  },
   {
       id: "announcement-4",
     title: "Season 3 Info",
-    body: "Season 3 will update the server to the latest version! Season 3 will be Origins",
-    date: "2025-07-39",
+    body: "upgrading to  CPU: Ryzen 7900 @ 3.7 / 5.4Ghz RAM: DDR5 4800MHz, SSD: Unmetered NVMe SSD Storage, NETWORK: Intel X550T 10 Gigabit Network Card, MOTHERBOARD: ASRockRack B650D4U, OS: Rocky Linux 8",
+    date: "2025-07-29",
   },
   {
     id: "announcement-3",
