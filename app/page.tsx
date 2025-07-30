@@ -834,7 +834,7 @@ const renderActivePlayers = () => {
                       <Card className="border-0 bg-white/60 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
             <Image
               src="/images/screenshot-9.png"
-              alt="Minecraft player in golden armor in a cozy room"
+              alt="too lazy to add placeholder text LOL"
               width={600}
               height={400}
               className="w-full h-auto object-cover rounded-t-2xl"
@@ -843,7 +843,16 @@ const renderActivePlayers = () => {
                       <Card className="border-0 bg-white/60 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
             <Image
               src="/images/screenshot-10.png"
-              alt="Minecraft player in golden armor in a cozy room"
+              alt="too lazy to add placeholder text LOL"
+              width={600}
+              height={400}
+              className="w-full h-auto object-cover rounded-t-2xl"
+            />
+          </Card>
+                      <Card className="border-0 bg-white/60 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
+            <Image
+              src="/images/screenshot-11.png"
+              alt="Callen's screenshot with shaders"
               width={600}
               height={400}
               className="w-full h-auto object-cover rounded-t-2xl"
