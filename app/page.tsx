@@ -641,7 +641,7 @@ const renderActivePlayers = () => {
                 <div className="flex-1">
                   <h3 className="text-lg font-medium text-slate-700 mb-2">no griefing</h3>
                   <p className="text-slate-500 font-light">
-                    do not grief spawn. do not grief other players' builds unless you both agreed you are at war.
+                    do not grief spawn. do not grief other players' builds unless.
                   </p>
                 </div>
               </div>
@@ -702,7 +702,7 @@ const renderActivePlayers = () => {
                 <div className="flex-1">
                   <h3 className="text-lg font-medium text-slate-700 mb-2">no stealing</h3>
                   <p className="text-slate-500 font-light">
-                    do not steal items from other players unless you both agreed you are at war.
+                    do not steal items from players in the "spawn" area.
                   </p>
                 </div>
               </div>
@@ -853,6 +853,15 @@ const renderActivePlayers = () => {
             <Image
               src="/images/screenshot-11.png"
               alt="Callen's screenshot with shaders"
+              width={600}
+              height={400}
+              className="w-full h-auto object-cover rounded-t-2xl"
+            />
+          </Card>
+                               <Card className="border-0 bg-white/60 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
+            <Image
+              src="/images/screenshot-12.png"
+              alt="Spawn screenshot from the air by cal"
               width={600}
               height={400}
               className="w-full h-auto object-cover rounded-t-2xl"
