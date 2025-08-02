@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import { useState, useEffect } from "react"
 import Image from "next/image"
@@ -23,7 +23,7 @@ import {
   ScrollText,
   Camera,
   Megaphone,
-    Network, 
+  Network, 
   ExternalLink,
   Trophy,
   Music,
@@ -49,7 +49,20 @@ interface ServerStatus {
 
 type CurrentView = "home" | "status" | "players" | "rules" | "screenshots" | "announcements" | "affiliates" 
 
+function usePreloadImages(imageUrls: string[]) {
+  useEffect(() => {
+    imageUrls.forEach((src) => {
+      const img = new Image()
+      img.src = src
+    })
+  }, [imageUrls])
+}
+
 export default function ConcordSMPLanding() {
+  usePreloadImages(
+    Array.from({ length: 14 }, (_, i) => `/images/screenshot-${i + 1}.png`)
+  )
+
   const [serverStatus, setServerStatus] = useState<ServerStatus | null>(null)
   const [copied, setCopied] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
@@ -89,20 +102,21 @@ export default function ConcordSMPLanding() {
     if (serverStatus?.version) {
       return serverStatus.version
     }
-    return "1.21.7" // Default version if not fetched
+    return "1.21.7" 
   }
 
   const getSoftwareInfo = () => {
     if (serverStatus?.software) {
       return serverStatus.software
     }
-    return "Paper" // Default software if not fetched
+    return "Paper" 
   }
 
   const handleMenuClick = (view: CurrentView) => {
     setCurrentView(view)
     setMenuOpen(false)
   }
+}
 
   const renderHomePage = () => (
     <>
