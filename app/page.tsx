@@ -30,6 +30,9 @@ import {
 } from "lucide-react"
 import { getAnnouncements } from "@/lib/announcements"
 
+import concordLogo from './image.jpeg'
+import kingsmc from './kings.png'
+
 interface ServerStatus {
   online: boolean
   version?: string
@@ -72,7 +75,6 @@ export default function ConcordSMPLanding() {
     return () => clearInterval(interval)
   }, [])
 
-// Preload all screenshots
   useEffect(() => {
     const screenshotPaths = [
       '/images/screenshot-1.png',
