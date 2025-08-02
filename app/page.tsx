@@ -1,4 +1,5 @@
- 'use client'
+'use client'
+
 import { useState, useEffect } from "react"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
@@ -28,8 +29,10 @@ import {
   Music,
 } from "lucide-react"
 import { getAnnouncements } from "@/lib/announcements"
+
 import concordLogo from './image.jpeg'
 import kingsmc from './kings.png' 
+
 interface ServerStatus {
   online: boolean
   version?: string
@@ -43,7 +46,9 @@ interface ServerStatus {
     clean: string[]
   }
 }
+
 type CurrentView = "home" | "status" | "players" | "rules" | "screenshots" | "announcements" | "affiliates" 
+
 export default function ConcordSMPLanding() {
   const [serverStatus, setServerStatus] = useState<ServerStatus | null>(null)
   const [copied, setCopied] = useState(false)
@@ -52,20 +57,24 @@ export default function ConcordSMPLanding() {
   const serverIP = "concord.my.pebble.host"
   const announcements = getAnnouncements()
   const latestAnnouncement = announcements.length > 0 ? announcements[0] : null
+
   useEffect(() => {
     const fetchServerStatus = async () => {
       try {
-        const response = await fetch(/api/server-status?address=${serverIP})
+        const response = await fetch(`/api/server-status?address=${serverIP}`)
         const data = await response.json()
         setServerStatus(data)
       } catch (error) {
         console.error("Failed to fetch server status:", error)
       }
     }
+
     fetchServerStatus()
     const interval = setInterval(fetchServerStatus, 30000)
+
     return () => clearInterval(interval)
   }, [])
+
   const copyServerIP = async () => {
     try {
       await navigator.clipboard.writeText(serverIP)
@@ -75,22 +84,26 @@ export default function ConcordSMPLanding() {
       console.error("Failed to copy:", error)
     }
   }
+
   const getVersionInfo = () => {
     if (serverStatus?.version) {
       return serverStatus.version
     }
     return "1.21.7" // Default version if not fetched
   }
+
   const getSoftwareInfo = () => {
     if (serverStatus?.software) {
       return serverStatus.software
     }
     return "Paper" // Default software if not fetched
   }
+
   const handleMenuClick = (view: CurrentView) => {
     setCurrentView(view)
     setMenuOpen(false)
   }
+ 
   const renderHomePage = () => (
     <>
       <section className="relative overflow-hidden bg-gradient-to-r from-blue-300/80 via-indigo-300/80 to-purple-300/80">
