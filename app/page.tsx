@@ -32,21 +32,7 @@ import { getAnnouncements } from "@/lib/announcements"
 
 import concordLogo from './image.jpeg'
 import kingsmc from './kings.png' 
-import Head from 'next/head';
 
-
-import concordLogo from './image.jpeg'
-import kingsmc from './kings.png' 
-
-<Head>
-  {Array.from({ length: 12 }, (_, i) => {
-    const filename = `screenshot-${i + 1}`;
-    const extension = filename.endsWith('.png') ? 'png' : 'jpeg';
-    return (
-      <link key={i} rel="preload" href={`/images/${filename}.${extension}`} as="image" />
-    );
-  })}
-</Head>
 interface ServerStatus {
   online: boolean
   version?: string
