@@ -32,7 +32,21 @@ import { getAnnouncements } from "@/lib/announcements"
 
 import concordLogo from './image.jpeg'
 import kingsmc from './kings.png' 
+import Image from 'next/image';
 
+
+Image.preload('/images/screenshot-1.png');
+Image.preload('/images/screenshot-2.jpeg');
+Image.preload('/images/screenshot-3.png');
+Image.preload('/images/screenshot-4.png');
+Image.preload('/images/screenshot-5.png');
+Image.preload('/images/screenshot-6.png');
+Image.preload('/images/screenshot-7.png');
+Image.preload('/images/screenshot-8.png');
+Image.preload('/images/screenshot-9.png');
+Image.preload('/images/screenshot-10.png');
+Image.preload('/images/screenshot-11.png');
+Image.preload('/images/screenshot-12.png');
 interface ServerStatus {
   online: boolean
   version?: string
