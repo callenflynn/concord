@@ -30,9 +30,6 @@ import {
 } from "lucide-react"
 import { getAnnouncements } from "@/lib/announcements"
 
-import concordLogo from './image.jpeg'
-import kingsmc from './kings.png' 
-
 interface ServerStatus {
   online: boolean
   version?: string
@@ -73,6 +70,31 @@ export default function ConcordSMPLanding() {
     const interval = setInterval(fetchServerStatus, 30000)
 
     return () => clearInterval(interval)
+  }, [])
+
+// Preload all screenshots
+  useEffect(() => {
+    const screenshotPaths = [
+      '/images/screenshot-1.png',
+      '/images/screenshot-2.jpeg',
+      '/images/screenshot-3.png',
+      '/images/screenshot-4.png',
+      '/images/screenshot-5.png',
+      '/images/screenshot-6.png',
+      '/images/screenshot-7.png',
+      '/images/screenshot-8.png',
+      '/images/screenshot-9.png',
+      '/images/screenshot-10.png',
+      '/images/screenshot-11.png',
+      '/images/screenshot-12.png',
+      '/images/screenshot-13.png',
+      '/images/screenshot-14.png'
+    ]
+
+    screenshotPaths.forEach(path => {
+      const img = new Image()
+      img.src = path
+    })
   }, [])
 
   const copyServerIP = async () => {
