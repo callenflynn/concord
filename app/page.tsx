@@ -29,7 +29,6 @@ import {
   Music,
 } from "lucide-react"
 import { getAnnouncements } from "@/lib/announcements"
-
 import concordLogo from './image.jpeg'
 import kingsmc from './kings.png' 
 
@@ -54,9 +53,59 @@ export default function ConcordSMPLanding() {
   const [copied, setCopied] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const [currentView, setCurrentView] = useState<CurrentView>("home")
+  const [imagesPreloaded, setImagesPreloaded] = useState(false)
+  
   const serverIP = "concord.my.pebble.host"
   const announcements = getAnnouncements()
   const latestAnnouncement = announcements.length > 0 ? announcements[0] : null
+
+  // Image preloading effect - runs immediately when component mounts
+  useEffect(() => {
+    const preloadImages = async () => {
+      try {
+        console.log('Starting image preload...')
+        
+        // Get list of images from API route
+        const response = await fetch('/api/images')
+        const imageList: string[] = await response.json()
+        
+        if (imageList.length === 0) {
+          console.log('No images found to preload')
+          setImagesPreloaded(true)
+          return
+        }
+        
+        console.log(`Found ${imageList.length} images to preload`)
+        
+        // Create promises for each image
+        const imagePromises = imageList.map((imagePath, index) => {
+          return new Promise<void>((resolve, reject) => {
+            const img = new Image()
+            img.onload = () => {
+              console.log(`Preloaded (${index + 1}/${imageList.length}): ${imagePath}`)
+              resolve()
+            }
+            img.onerror = (error) => {
+              console.warn(`Failed to preload: ${imagePath}`, error)
+              resolve() // Don't reject, just continue with other images
+            }
+            img.src = imagePath
+          })
+        })
+        
+        // Wait for all images to load
+        await Promise.all(imagePromises)
+        console.log('All images preloaded successfully!')
+        setImagesPreloaded(true)
+        
+      } catch (error) {
+        console.error('Error during image preloading:', error)
+        setImagesPreloaded(true) // Set to true anyway so app continues to work
+      }
+    }
+
+    preloadImages()
+  }, []) // Empty dependency array means this runs once on mount
 
   useEffect(() => {
     const fetchServerStatus = async () => {
@@ -68,10 +117,8 @@ export default function ConcordSMPLanding() {
         console.error("Failed to fetch server status:", error)
       }
     }
-
     fetchServerStatus()
     const interval = setInterval(fetchServerStatus, 30000)
-
     return () => clearInterval(interval)
   }, [])
 
@@ -104,6 +151,9 @@ export default function ConcordSMPLanding() {
     setMenuOpen(false)
   }
 
+  // Rest of your component code would continue here...
+  // I'm showing just the key additions for preloading
+}
   const renderHomePage = () => (
     <>
       <section className="relative overflow-hidden bg-gradient-to-r from-blue-300/80 via-indigo-300/80 to-purple-300/80">
