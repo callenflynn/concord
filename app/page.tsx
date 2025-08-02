@@ -75,29 +75,30 @@ export default function ConcordSMPLanding() {
     return () => clearInterval(interval)
   }, [])
 
-  useEffect(() => {
-    const screenshotPaths = [
-      '/images/screenshot-1.png',
-      '/images/screenshot-2.jpeg',
-      '/images/screenshot-3.png',
-      '/images/screenshot-4.png',
-      '/images/screenshot-5.png',
-      '/images/screenshot-6.png',
-      '/images/screenshot-7.png',
-      '/images/screenshot-8.png',
-      '/images/screenshot-9.png',
-      '/images/screenshot-10.png',
-      '/images/screenshot-11.png',
-      '/images/screenshot-12.png',
-      '/images/screenshot-13.png',
-      '/images/screenshot-14.png'
-    ]
+ // Preload all screenshots
+useEffect(() => {
+  const screenshotPaths = [
+    '/images/screenshot-1.png',
+    '/images/screenshot-2.jpeg',
+    '/images/screenshot-3.png',
+    '/images/screenshot-4.png',
+    '/images/screenshot-5.png',
+    '/images/screenshot-6.png',
+    '/images/screenshot-7.png',
+    '/images/screenshot-8.png',
+    '/images/screenshot-9.png',
+    '/images/screenshot-10.png',
+    '/images/screenshot-11.png',
+    '/images/screenshot-12.png',
+    '/images/screenshot-13.png',
+    '/images/screenshot-14.png'
+  ]
 
-    screenshotPaths.forEach(path => {
-      const img = new Image()
-      img.src = path
-    })
-  }, [])
+  screenshotPaths.forEach(path => {
+    const img = document.createElement('img')
+    img.src = path
+  })
+}, [])
 
   const copyServerIP = async () => {
     try {
