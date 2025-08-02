@@ -1,3 +1,5 @@
+'use client'
+
 import { useState, useEffect } from "react"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
@@ -59,7 +61,7 @@ export default function ConcordSMPLanding() {
   useEffect(() => {
     const fetchServerStatus = async () => {
       try {
-        const response = await fetch(/api/server-status?address=${serverIP})
+        const response = await fetch(`/api/server-status?address=${serverIP}`)
         const data = await response.json()
         setServerStatus(data)
       } catch (error) {
