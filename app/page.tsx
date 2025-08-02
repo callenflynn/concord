@@ -1,5 +1,4 @@
-'use client'
-
+ 'use client'
 import { useState, useEffect } from "react"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
@@ -31,7 +30,6 @@ import {
 import { getAnnouncements } from "@/lib/announcements"
 import concordLogo from './image.jpeg'
 import kingsmc from './kings.png' 
-
 interface ServerStatus {
   online: boolean
   version?: string
@@ -45,72 +43,19 @@ interface ServerStatus {
     clean: string[]
   }
 }
-
 type CurrentView = "home" | "status" | "players" | "rules" | "screenshots" | "announcements" | "affiliates" 
-
 export default function ConcordSMPLanding() {
   const [serverStatus, setServerStatus] = useState<ServerStatus | null>(null)
   const [copied, setCopied] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const [currentView, setCurrentView] = useState<CurrentView>("home")
-  const [imagesPreloaded, setImagesPreloaded] = useState(false)
-  
   const serverIP = "concord.my.pebble.host"
   const announcements = getAnnouncements()
   const latestAnnouncement = announcements.length > 0 ? announcements[0] : null
-
-  // Image preloading effect - runs immediately when component mounts
-  useEffect(() => {
-    const preloadImages = async () => {
-      try {
-        console.log('Starting image preload...')
-        
-        // Get list of images from API route
-        const response = await fetch('/api/images')
-        const imageList: string[] = await response.json()
-        
-        if (imageList.length === 0) {
-          console.log('No images found to preload')
-          setImagesPreloaded(true)
-          return
-        }
-        
-        console.log(`Found ${imageList.length} images to preload`)
-        
-        // Create promises for each image
-        const imagePromises = imageList.map((imagePath, index) => {
-          return new Promise<void>((resolve, reject) => {
-            const img = new Image()
-            img.onload = () => {
-              console.log(`Preloaded (${index + 1}/${imageList.length}): ${imagePath}`)
-              resolve()
-            }
-            img.onerror = (error) => {
-              console.warn(`Failed to preload: ${imagePath}`, error)
-              resolve() // Don't reject, just continue with other images
-            }
-            img.src = imagePath
-          })
-        })
-        
-        // Wait for all images to load
-        await Promise.all(imagePromises)
-        console.log('All images preloaded successfully!')
-        setImagesPreloaded(true)
-        
-      } catch (error) {
-        console.error('Error during image preloading:', error)
-        setImagesPreloaded(true) // Set to true anyway so app continues to work
-      }
-    }
-
-    preloadImages()
-  }, []) // Empty dependency array means this runs once on mount
-
   useEffect(() => {
     const fetchServerStatus = async () => {
       try {
-        const response = await fetch(`/api/server-status?address=${serverIP}`)
+        const response = await fetch(/api/server-status?address=${serverIP})
         const data = await response.json()
         setServerStatus(data)
       } catch (error) {
@@ -121,7 +66,6 @@ export default function ConcordSMPLanding() {
     const interval = setInterval(fetchServerStatus, 30000)
     return () => clearInterval(interval)
   }, [])
-
   const copyServerIP = async () => {
     try {
       await navigator.clipboard.writeText(serverIP)
@@ -131,29 +75,22 @@ export default function ConcordSMPLanding() {
       console.error("Failed to copy:", error)
     }
   }
-
   const getVersionInfo = () => {
     if (serverStatus?.version) {
       return serverStatus.version
     }
     return "1.21.7" // Default version if not fetched
   }
-
   const getSoftwareInfo = () => {
     if (serverStatus?.software) {
       return serverStatus.software
     }
     return "Paper" // Default software if not fetched
   }
-
   const handleMenuClick = (view: CurrentView) => {
     setCurrentView(view)
     setMenuOpen(false)
   }
-
-  // Rest of your component code would continue here...
-  // I'm showing just the key additions for preloading
-}
   const renderHomePage = () => (
     <>
       <section className="relative overflow-hidden bg-gradient-to-r from-blue-300/80 via-indigo-300/80 to-purple-300/80">
