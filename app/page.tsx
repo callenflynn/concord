@@ -425,28 +425,28 @@ const getVersionInfo = () => {
             </Card>
 
             <Card className="border-0 bg-white/70 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
-              <CardContent className="p-6">
-                <div className="flex items-start gap-4">
-                  <div className="w-8 h-8 bg-green-200 text-green-600 rounded-full flex items-center justify-center font-medium text-sm">
-                    5
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-lg font-medium text-slate-700 mb-2">download recommended mods (optional)</h3>
-                    <p className="text-slate-500 mb-3 font-light">
-                      mods are recommended for better experience, but not required - perfect for fabric users
-                    </p>
-                    
-                      href="https://drive.google.com/uc?export=download&id=1GDhZVefBYjC3ptIQaZzIYh-NOFqY7w6x"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <Button className="bg-green-500 hover:bg-green-600 text-white rounded-lg px-4 py-2 text-sm">
-                        Download for Fabric
-                      </Button>
-                    </a>
-                  </div>
-                </div>
-              </CardContent>
+<CardContent className="p-6">
+  <div className="flex items-start gap-4">
+    <div className="w-8 h-8 bg-green-200 text-green-600 rounded-full flex items-center justify-center font-medium text-sm">
+      5
+    </div>
+    <div className="flex-1">
+      <h3 className="text-lg font-medium text-slate-700 mb-2">download recommended mods (optional)</h3>
+      <p className="text-slate-500 mb-3 font-light">
+        mods are recommended for better experience, but not required - perfect for fabric users
+      </p>
+      
+        href="https://drive.google.com/uc?export=download&id=1GDhZVefBYjC3ptIQaZzIYh-NOFqY7w6x"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <Button className="bg-green-500 hover:bg-green-600 text-white rounded-lg px-4 py-2 text-sm">
+          Download for Fabric
+        </Button>
+      </a>
+    </div>
+  </div>
+</CardContent>
             </Card>
           </div>
         </div>
