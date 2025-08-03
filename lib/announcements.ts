@@ -6,10 +6,16 @@ export interface Announcement {
 }
 
 const announcementsData: Announcement[] = [
+      {
+      id: "announcement-6",
+    title: "uploaded reccomended modpack",
+    body: "Just click Download Reccomended Mods for the reccomended 1.21.7 mods for an overall better server experience!",
+    date: "2025-08-3",
+  },
     {
       id: "announcement-5",
     title: "Upgrading server",
-    body: "Season 3 will update the server to the latest version! Season 3 will be Origins",
+    body: "Season 3 will be Origins! Season 3 will remain on 1.21.7",
     date: "2025-07-30",
   },
   {
