@@ -91,12 +91,12 @@ useEffect(() => {
     '/images/screenshot-11.png',
     '/images/screenshot-12.png',
     '/images/screenshot-13.png',
-    '/images/screenshot-14.png'
-    '/images/screenshot-15.png'
-    '/images/screenshot-16.png'
-    '/images/screenshot-17.png'
-    '/images/screenshot-18.png'
-    '/images/screenshot-19.png'
+    '/images/screenshot-14.png',
+    '/images/screenshot-15.png',
+    '/images/screenshot-16.png',
+    '/images/screenshot-17.png',
+    '/images/screenshot-18.png',
+    '/images/screenshot-19.png',
     '/images/screenshot-20.png'
 
   ]
