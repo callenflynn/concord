@@ -942,7 +942,7 @@ const renderActivePlayers = () => {
               className="w-full h-auto object-cover rounded-t-2xl"
             />
           </Card>
-                               <Card className="border-0 bg-white/60 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
+                                 <Card className="border-0 bg-white/60 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
             <Image
               src="/images/screenshot-15.png"
               alt="Spawn screenshot from the air by cal"
