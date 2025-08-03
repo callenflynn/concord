@@ -436,7 +436,7 @@ const getVersionInfo = () => {
   mods are recommended for better experience, but not required - perfect for fabric users
 </p>
 
-  href="https://drive.google.com/uc?export=download&id=1GDhZVefBYjC3ptIQaZzIYh-NOFqY7w6x"
+<a  href="https://drive.google.com/uc?export=download&id=1GDhZVefBYjC3ptIQaZzIYh-NOFqY7w6x"
   target="_blank"
   rel="noopener noreferrer"
 >
