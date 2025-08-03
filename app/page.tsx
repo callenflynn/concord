@@ -110,7 +110,7 @@ useEffect(() => {
     }
   }
 
-  const getVersionInfo = () => {
+const getVersionInfo = () => {
     if (serverStatus?.version) {
       return serverStatus.version
     }
