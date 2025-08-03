@@ -448,7 +448,7 @@ const getVersionInfo = () => {
   rel="noopener noreferrer"
 >
         <Button className="bg-green-500 hover:bg-green-600 text-white rounded-lg px-4 py-2 text-sm">
-          Download for Fabric
+          Download Installer
         </Button>
       </a>
     </div>
