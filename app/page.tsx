@@ -432,14 +432,14 @@ const getVersionInfo = () => {
     </div>
     <div className="flex-1">
       <h3 className="text-lg font-medium text-slate-700 mb-2">download recommended mods (optional)</h3>
-      <p className="text-slate-500 mb-3 font-light">
-        mods are recommended for better experience, but not required - perfect for fabric users
-      </p>
-      
-        href="https://drive.google.com/uc?export=download&id=1GDhZVefBYjC3ptIQaZzIYh-NOFqY7w6x"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
+<p className="text-slate-500 mb-3 font-light">
+  mods are recommended for better experience, but not required - perfect for fabric users
+</p>
+
+  href="https://drive.google.com/uc?export=download&id=1GDhZVefBYjC3ptIQaZzIYh-NOFqY7w6x"
+  target="_blank"
+  rel="noopener noreferrer"
+>
         <Button className="bg-green-500 hover:bg-green-600 text-white rounded-lg px-4 py-2 text-sm">
           Download for Fabric
         </Button>
