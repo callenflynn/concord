@@ -438,12 +438,12 @@ const getVersionInfo = () => {
       5
     </div>
     <div className="flex-1">
-      <h3 className="text-lg font-medium text-slate-700 mb-2">download recommended mods (optional)</h3>
+      <h3 className="text-lg font-medium text-slate-700 mb-2">pre-configured client (recommended)</h3>
 <p className="text-slate-500 mb-3 font-light">
-  mods are recommended for better experience, but not required - perfect for fabric users
+  Downloads an exe that installs java, fabric, the mods, shaders, as well as auto joins the server.
 </p>
 
-<a  href="https://drive.google.com/uc?export=download&id=1GDhZVefBYjC3ptIQaZzIYh-NOFqY7w6x"
+<a  href="https://drive.google.com/uc?export=download&id=1SlF-lpNbD9HJwuqBOlAjncPiGwwjr_5U"
   target="_blank"
   rel="noopener noreferrer"
 >
