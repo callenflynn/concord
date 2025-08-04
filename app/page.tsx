@@ -458,7 +458,7 @@ const getVersionInfo = () => {
                       <Card className="border-0 bg-white/70 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
 <CardContent className="p-6">
   <div className="flex items-start gap-4">
-    <div className="w-8 h-8 bg-green-200 text-green-600 rounded-full flex items-center justify-center font-medium text-sm">
+    <div className="w-8 h-8 bg-blue-200 text-blue-600 rounded-full flex items-center justify-center font-medium text-sm">
       5 B
     </div>
     <div className="flex-1">
