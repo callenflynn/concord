@@ -464,7 +464,7 @@ const getVersionInfo = () => {
     <div className="flex-1">
       <h3 className="text-lg font-medium text-slate-700 mb-2">preconfigured client installer (recommended, optional)</h3>
 <p className="text-slate-500 mb-3 font-light">
- Installs Java 21 JDK, Fabric 1.21.7, and all the mods and shaders. Also includes server. Reccomeneded for those who have not yet modded minecraft.
+ Installs Java 21 JDK, Fabric 1.21.7, and all the mods and shaders. Reccomeneded for those who have not yet modded minecraft or do not know how.
 </p>
 
 <a  href="https://drive.google.com/uc?export=download&id=1CcZg0i2XB2E9zmw8F5YurTHEqIC9dTBn"
