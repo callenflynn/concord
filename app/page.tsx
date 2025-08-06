@@ -506,8 +506,8 @@ const getVersionInfo = () => {
           </video>
         </div>
         <div className="mt-4 text-center">
-          <h3 className="text-lg font-medium text-slate-700 mb-1">Seaspn 2 Trailer</h3>
-          <p className="text-slate-500 font-light">Experience the beauty and creativity of our world</p>
+          <h3 className="text-lg font-medium text-slate-700 mb-1">Season 2 Trailer</h3>
+          <p className="text-slate-500 font-light">Season 2 is vanilla+, with minor tweaks to the base game.</p>
         </div>
       </CardContent>
     </Card>
