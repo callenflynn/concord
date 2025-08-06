@@ -1,5 +1,5 @@
 'use client'
-//439 is the line with the reccomended mods download 
+//439 is the line with the reccomended mods download  clickable cards are around 459
 import { useState, useEffect } from "react"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
