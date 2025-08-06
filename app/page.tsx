@@ -455,30 +455,32 @@ const getVersionInfo = () => {
   </div>
 </CardContent>
             </Card>
-                      <Card className="border-0 bg-white/70 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
-<CardContent className="p-6">
-  <div className="flex items-start gap-4">
-    <div className="w-8 h-8 bg-blue-200 text-blue-600 rounded-full flex items-center justify-center font-medium text-sm">
-      5 B
-    </div>
-    <div className="flex-1">
-      <h3 className="text-lg font-medium text-slate-700 mb-2">preconfigured client installer (recommended, optional)</h3>
-<p className="text-slate-500 mb-3 font-light">
- Installs Java 21 JDK, Fabric 1.21.7, and all the mods and shaders. Reccomeneded for those who have not yet modded minecraft or do not know how. 
-<p className="text-slate-500 mb-3 font-light">
-      Also includes the files in modrinth format, and the modrinth installer for an easier install and smoother experience.</p>
-
-<a  href="https://drive.google.com/uc?export=download&id=1CcZg0i2XB2E9zmw8F5YurTHEqIC9dTBn"
-  target="_blank"
-  rel="noopener noreferrer"
->
-        <Button className="bg-green-500 hover:bg-green-600 text-white rounded-lg px-4 py-2 text-sm">
-          Download Installer
-        </Button>
-      </a>
-    </div>
-  </div>
-</CardContent>
+            <Card className="border-0 bg-white/70 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
+              <CardContent className="p-6">
+                <div className="flex items-start gap-4">
+                  <div className="w-8 h-8 bg-blue-200 text-blue-600 rounded-full flex items-center justify-center font-medium text-sm">
+                    5 B
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-lg font-medium text-slate-700 mb-2">preconfigured client installer (recommended, optional)</h3>
+                    <p className="text-slate-500 mb-3 font-light">
+                      Installs Java 21 JDK, Fabric 1.21.7, and all the mods and shaders. Recommended for those who have not yet modded minecraft or do not know how. 
+                    </p>
+                    <p className="text-slate-500 mb-3 font-light">
+                      Also includes the files in modrinth format, and the modrinth installer for an easier install and smoother experience.
+                    </p>
+                    <a  
+                      href="https://drive.google.com/uc?export=download&id=1CcZg0i2XB2E9zmw8F5YurTHEqIC9dTBn"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Button className="bg-green-500 hover:bg-green-600 text-white rounded-lg px-4 py-2 text-sm">
+                        Download Installer
+                      </Button>
+                    </a>
+                  </div>
+                </div>
+              </CardContent>
             </Card>
           </div>
         </div>
