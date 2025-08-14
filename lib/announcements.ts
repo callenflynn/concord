@@ -6,6 +6,12 @@ export interface Announcement {
 }
 
 const announcementsData: Announcement[] = [
+        {
+      id: "announcement-7",
+    title: "Upped view distance",
+    body: "Raised the maxiumum view distance from 20 to 27, allowing players to raise their render distance while still having smooth gameplay.",
+    date: "2025-08-14",
+  },
       {
       id: "announcement-6",
     title: "uploaded reccomended modpack",
