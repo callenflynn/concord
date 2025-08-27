@@ -1136,7 +1136,7 @@ const renderAffiliatesPage = () => (
                 className="w-16 h-16 object-contain rounded-full border border-slate-200"
               />
               <div className="flex-1">
-                <h3 className="text-lg font-medium text-slate-700 mb-1">Kings MC Network</h3>
+                <h3 className="text-lg font-medium text-slate-700 mb-1">Kings MC Network *WARNING: WEBSITE NO LONGER ACTIVE*</h3>
                 <p className="text-slate-500 font-light mb-2">
                   A network featuring both a traditional SMP and Lifesteal server.
                 </p>
