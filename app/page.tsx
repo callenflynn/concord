@@ -322,7 +322,7 @@ const getVersionInfo = () => {
                 </div>
                 <CardTitle className="text-lg font-medium text-slate-700">anti-griefing & rollbacks</CardTitle>
                 <CardDescription className="text-slate-500 font-light">
-                  we use coreprotect to log all block changes, allowing us to easily rollback any griefing.
+                  we use coreprotect to log all block changes, allowing us to easily rollback any major griefing.
                 </CardDescription>
               </CardHeader>
             </Card>
