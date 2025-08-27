@@ -97,7 +97,8 @@ useEffect(() => {
     '/images/screenshot-17.png',
     '/images/screenshot-18.png',
     '/images/screenshot-19.png',
-    '/images/screenshot-20.png'
+    '/images/screenshot-20.png',
+    'images/coreprotect.jpg'
 
   ]
 
@@ -307,6 +308,25 @@ const getVersionInfo = () => {
                 </CardDescription>
               </CardHeader>
             </Card>
+              <Card className="border-0 bg-white/60 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300 rounded-2xl">
+              <CardHeader className="pb-3">
+                <div className="w-10 h-10 bg-indigo-100 rounded-full flex items-center justify-center mb-3">
+                  {/* Using the image directly for the icon */}
+                  <Image
+                    src="/images/coreprotect.jpg"
+                    alt="CoreProtect Logo"
+                    width={20}
+                    height={20}
+                    className="w-5 h-5 object-contain rounded-full"
+                  />
+                </div>
+                <CardTitle className="text-lg font-medium text-slate-700">anti-griefing & rollbacks</CardTitle>
+                <CardDescription className="text-slate-500 font-light">
+                  we use coreprotect to log all block changes, allowing us to easily rollback any griefing.
+                </CardDescription>
+              </CardHeader>
+            </Card>
+
           </div>
         </div>
       </section>
