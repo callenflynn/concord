@@ -98,6 +98,11 @@ useEffect(() => {
     '/images/screenshot-18.png',
     '/images/screenshot-19.png',
     '/images/screenshot-20.png',
+    '/images/screenshot-21.png',
+    '/images/screenshot-22.png',
+    '/images/screenshot-23.png',
+    '/images/screenshot-24.png',
+    '/images/screenshot-25.png',
     'images/coreprotect.jpg'
 
   ]
