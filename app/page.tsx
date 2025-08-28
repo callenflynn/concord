@@ -1074,6 +1074,51 @@ const renderActivePlayers = () => {
               className="w-full h-auto object-cover rounded-t-2xl"
             />
           </Card>
+                   <Card className="border-0 bg-white/60 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
+            <Image
+              src="/images/screenshot-21.png"
+              alt="screenshot of sunset by cal"
+              width={600}
+              height={400}
+              className="w-full h-auto object-cover rounded-t-2xl"
+            />
+          </Card>
+                   <Card className="border-0 bg-white/60 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
+            <Image
+              src="/images/screenshot-22.png"
+              alt="Spawn screenshot of castle and microwave by cal"
+              width={600}
+              height={400}
+              className="w-full h-auto object-cover rounded-t-2xl"
+            />
+          </Card>
+                   <Card className="border-0 bg-white/60 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
+            <Image
+              src="/images/screenshot-23.png"
+              alt="Spawn screenshot from the air by cal during rain"
+              width={600}
+              height={400}
+              className="w-full h-auto object-cover rounded-t-2xl"
+            />
+          </Card>
+                   <Card className="border-0 bg-white/60 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
+            <Image
+              src="/images/screenshot-24.png"
+              alt="deep dark below spawn"
+              width={600}
+              height={400}
+              className="w-full h-auto object-cover rounded-t-2xl"
+            />
+          </Card>
+                   <Card className="border-0 bg-white/60 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
+            <Image
+              src="/images/screenshot-25.png"
+              alt="mineshaft above glowsquids"
+              width={600}
+              height={400}
+              className="w-full h-auto object-cover rounded-t-2xl"
+            />
+          </Card>
         </div>
       </div>
     </section>
