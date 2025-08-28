@@ -103,7 +103,8 @@ useEffect(() => {
     '/images/screenshot-23.png',
     '/images/screenshot-24.png',
     '/images/screenshot-25.png',
-    'images/coreprotect.jpg'
+    '/images/coreprotect.jpg',
+    '/images/distanthorizons.png'
 
   ]
 
@@ -328,6 +329,25 @@ const getVersionInfo = () => {
                 <CardTitle className="text-lg font-medium text-slate-700">anti-griefing & rollbacks</CardTitle>
                 <CardDescription className="text-slate-500 font-light">
                   we use CoreProtect to log block changes, allowing us to easily rollback any major griefing.
+                </CardDescription>
+              </CardHeader>
+            </Card>
+
+                <Card className="border-0 bg-white/60 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300 rounded-2xl">
+              <CardHeader className="pb-3">
+                <div className="w-10 h-10 bg-indigo-100 rounded-full flex items-center justify-center mb-3">
+                  {/* Using the image directly for the icon */}
+                  <Image
+                    src="/images/distanthorizons.png"
+                    alt="Distant Horizons Logo"
+                    width={20}
+                    height={20}
+                    className="w-10 h-10 object-cover rounded-full"
+                  />
+                </div>
+                <CardTitle className="text-lg font-medium text-slate-700">Distant Horizons</CardTitle>
+                <CardDescription className="text-slate-500 font-light">
+                  We have the Distant Horizons support plugin, allowing for Distant Horizons to be used client-side to the fullest potential.
                 </CardDescription>
               </CardHeader>
             </Card>
