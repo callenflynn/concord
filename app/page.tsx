@@ -317,7 +317,7 @@ const getVersionInfo = () => {
                     alt="CoreProtect Logo"
                     width={20}
                     height={20}
-                    className="w-5 h-5 object-contain rounded-full"
+                    className="w-5 h-5 object-contain"
                   />
                 </div>
                 <CardTitle className="text-lg font-medium text-slate-700">anti-griefing & rollbacks</CardTitle>
