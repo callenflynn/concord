@@ -97,12 +97,12 @@ useEffect(() => {
     '/images/screenshot-17.png',
     '/images/screenshot-18.png',
     '/images/screenshot-19.png',
-    '/images/screenshot-20.png',
-    '/images/screenshot-21.png',
-    '/images/screenshot-22.png',
-    '/images/screenshot-23.png',
-    '/images/screenshot-24.png',
-    '/images/screenshot-25.png',
+    '/images/screenshot-20.webp',
+    '/images/screenshot-21.webp',
+    '/images/screenshot-22.webp',
+    '/images/screenshot-23.webp',
+    '/images/screenshot-24.webp',
+    '/images/screenshot-25.webp',
     '/images/coreprotect.jpg',
     '/images/distanthorizons.png'
 
@@ -1092,7 +1092,7 @@ const renderActivePlayers = () => {
           </Card>
                    <Card className="border-0 bg-white/60 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
             <Image
-              src="/images/screenshot-20.png"
+              src="/images/screenshot-20.webp"
               alt="Spawn screenshot from the air by cal"
               width={600}
               height={400}
@@ -1101,7 +1101,7 @@ const renderActivePlayers = () => {
           </Card>
                    <Card className="border-0 bg-white/60 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
             <Image
-              src="/images/screenshot-21.png"
+              src="/images/screenshot-21.webp"
               alt="screenshot of sunset by cal"
               width={600}
               height={400}
@@ -1110,7 +1110,7 @@ const renderActivePlayers = () => {
           </Card>
                    <Card className="border-0 bg-white/60 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
             <Image
-              src="/images/screenshot-22.png"
+              src="/images/screenshot-22.webp"
               alt="Spawn screenshot of castle and microwave by cal"
               width={600}
               height={400}
@@ -1119,7 +1119,7 @@ const renderActivePlayers = () => {
           </Card>
                    <Card className="border-0 bg-white/60 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
             <Image
-              src="/images/screenshot-23.png"
+              src="/images/screenshot-23.webp"
               alt="Spawn screenshot from the air by cal during rain"
               width={600}
               height={400}
@@ -1128,7 +1128,7 @@ const renderActivePlayers = () => {
           </Card>
                    <Card className="border-0 bg-white/60 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
             <Image
-              src="/images/screenshot-24.png"
+              src="/images/screenshot-24.webp"
               alt="deep dark below spawn"
               width={600}
               height={400}
@@ -1137,7 +1137,7 @@ const renderActivePlayers = () => {
           </Card>
                    <Card className="border-0 bg-white/60 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
             <Image
-              src="/images/screenshot-25.png"
+              src="/images/screenshot-25.webp"
               alt="mineshaft above glowsquids"
               width={600}
               height={400}
