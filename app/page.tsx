@@ -32,13 +32,8 @@ import { getAnnouncements } from "@/lib/announcements"
 
 import concordLogo from './image.jpeg'
 import kingsmc from './kings.png'
+import concordmini from './concordmini.webp'
 
-<Image 
-  src="/concordmini.webp" 
-  alt="Concord Mini Logo" 
-  width={64} 
-  height={64} 
-/>
 
 
 interface ServerStatus {
@@ -1205,13 +1200,14 @@ const renderAffiliatesPage = () => (
 <Card className="border-0 bg-white/70 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
   <CardContent className="p-6">
     <div className="flex items-center gap-4">
-      <Image
-        src={concordmini} 
-        alt="Concord Mini Logo"
-        width={64}
-        height={64}
-        className="w-16 h-16 object-contain rounded-full border border-slate-200"
-      />
+     <Image 
+  src={concordmini} 
+  alt="Concord Mini Logo" 
+  width={64} 
+  height={64} 
+  className="w-16 h-16 object-contain rounded-full border border-slate-200"
+/>
+
       <div className="flex-1">
         <h3 className="text-lg font-medium text-slate-700 mb-1">Concord Mini</h3>
         <p className="text-slate-500 font-light mb-2">
