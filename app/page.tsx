@@ -1188,13 +1188,16 @@ const renderActivePlayers = () => {
     </section>
   )
 
-const renderAffiliatesPage = () => (
-  <section className="py-16 px-4 min-h-screen">
-    <div className="max-w-4xl mx-auto">
-      <div className="text-center mb-12">
-        <h2 className="text-3xl font-light text-slate-700 mb-3">our affiliates</h2>
-        <p className="text-lg text-slate-500 font-light">partnerships that make our community stronger</p>
-      </div>
+const renderAffiliatesPage = () => {
+  return (
+    <section className="py-16 px-4 min-h-screen">
+      <div className="max-w-4xl mx-auto">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-light text-slate-700 mb-3">our affiliates</h2>
+          <p className="text-lg text-slate-500 font-light">
+            partnerships that make our community stronger
+          </p>
+        </div>
 
 <Card className="border-0 bg-white/70 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
   <CardContent className="p-6">
@@ -1265,9 +1268,10 @@ src="/images/concordmini.webp
           </CardContent>
         </Card>
       </div>
-    </div>
-  </section>
-);
+      </div>
+    </section>
+  )
+}
   
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-100 via-indigo-100 to-purple-100 text-slate-800">
