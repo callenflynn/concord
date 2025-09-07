@@ -33,8 +33,6 @@ import { getAnnouncements } from "@/lib/announcements"
 import concordLogo from './image.jpeg'
 import kingsmc from './kings.png'
 
-
-
 interface ServerStatus {
   online: boolean
   version?: string
@@ -1188,53 +1186,14 @@ const renderActivePlayers = () => {
     </section>
   )
 
-const renderAffiliatesPage = () => {
-  return (
-    <section className="py-16 px-4 min-h-screen">
-      <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-light text-slate-700 mb-3">our affiliates</h2>
-          <p className="text-lg text-slate-500 font-light">
-            partnerships that make our community stronger
-          </p>
-        </div>
-
-<Card className="border-0 bg-white/70 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
-  <CardContent className="p-6">
-    <div className="flex items-center gap-4">
-     <Image 
-src="/images/concordmini.webp
-       alt="Concord Mini Logo" 
-  width={64} 
-  height={64} 
-  className="w-16 h-16 object-contain rounded-full border border-slate-200"
-/>
-
-      <div className="flex-1">
-        <h3 className="text-lg font-medium text-slate-700 mb-1">Concord Mini</h3>
-        <p className="text-slate-500 font-light mb-2">
-          A small vanilla Minecraft minigames server optimized for performance, supporting up to 3 players at a time.
-        </p>
-        <a
-          href="https://freemcserver.net/server/1782370"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-blue-500 hover:underline text-sm font-medium flex items-center gap-1"
-        >
-          Visit Server Page <ExternalLink className="w-3 h-3" />
-        </a>
-        <div className="mt-2 flex flex-wrap gap-2">
-          <Badge variant="secondary" className="bg-purple-100 text-purple-600">Vanilla</Badge>
-          <Badge variant="secondary" className="bg-green-100 text-green-600">Minigames</Badge>
-          <Badge variant="secondary" className="bg-yellow-100 text-yellow-600">5 Players Max</Badge>
-        </div>
+const renderAffiliatesPage = () => (
+  <section className="py-16 px-4 min-h-screen">
+    <div className="max-w-4xl mx-auto">
+      <div className="text-center mb-12">
+        <h2 className="text-3xl font-light text-slate-700 mb-3">our affiliates</h2>
+        <p className="text-lg text-slate-500 font-light">partnerships that make our community stronger</p>
       </div>
-    </div>
-  </CardContent>
-</Card>
 
-
-      
       <div className="space-y-6">
         <Card className="border-0 bg-white/70 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
           <CardContent className="p-6">
@@ -1268,10 +1227,9 @@ src="/images/concordmini.webp
           </CardContent>
         </Card>
       </div>
-      </div>
-    </section>
-  )
-}
+    </div>
+  </section>
+);
   
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-100 via-indigo-100 to-purple-100 text-slate-800">
