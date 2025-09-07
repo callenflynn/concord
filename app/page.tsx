@@ -47,7 +47,7 @@ interface ServerStatus {
   }
 }
 
-type CurrentView = "home" | "status" | "players" | "rules" | "screenshots" | "announcements" | "affiliates" 
+type CurrentView = "home" | "status" | "players" | "rules" | "screenshots" | "announcements" | "Discord" | "affiliates" 
 
 export default function ConcordSMPLanding() {
   const [serverStatus, setServerStatus] = useState<ServerStatus | null>(null)
