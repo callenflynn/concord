@@ -1194,6 +1194,39 @@ const renderAffiliatesPage = () => (
         <p className="text-lg text-slate-500 font-light">partnerships that make our community stronger</p>
       </div>
 
+      <Card className="border-0 bg-white/70 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
+  <CardContent className="p-6">
+    <div className="flex items-center gap-4">
+      <Image
+        src="/images/concordmini.webp" 
+        alt="Concord Mini Logo"
+        width={64}
+        height={64}
+        className="w-16 h-16 object-contain rounded-full border border-slate-200"
+      />
+      <div className="flex-1">
+        <h3 className="text-lg font-medium text-slate-700 mb-1">Concord Mini</h3>
+        <p className="text-slate-500 font-light mb-2">
+          A fast-paced 5v5 minigames server for small teams and intense competition.
+        </p>
+        <a
+          href="https://concord-mini.vercel.app"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-blue-500 hover:underline text-sm font-medium flex items-center gap-1"
+        >
+          Visit Website <ExternalLink className="w-3 h-3" />
+        </a>
+        <div className="mt-2 flex flex-wrap gap-2">
+          <Badge variant="secondary" className="bg-green-100 text-green-600">5v5 Minigames</Badge>
+          <Badge variant="secondary" className="bg-purple-100 text-purple-600">Multiplayer</Badge>
+        </div>
+      </div>
+    </div>
+  </CardContent>
+</Card>
+
+
       <div className="space-y-6">
         <Card className="border-0 bg-white/70 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
           <CardContent className="p-6">
