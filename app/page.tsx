@@ -1207,7 +1207,7 @@ const renderAffiliatesPage = () => (
       <div className="flex-1">
         <h3 className="text-lg font-medium text-slate-700 mb-1">Concord Mini</h3>
         <p className="text-slate-500 font-light mb-2">
-          A fast-paced 5v5 minigames server for small teams and intense competition.
+          A fast-paced 5v5 minigames server for small teams and intense competition. Version 1.8.8. 
         </p>
         <a
           href="https://concord-mini.vercel.app"
@@ -1220,6 +1220,10 @@ const renderAffiliatesPage = () => (
         <div className="mt-2 flex flex-wrap gap-2">
           <Badge variant="secondary" className="bg-green-100 text-green-600">5v5 Minigames</Badge>
           <Badge variant="secondary" className="bg-purple-100 text-purple-600">Multiplayer</Badge>
+          <Badge variant="secondary" className="bg-red-100 text-red-600">PVP</Badge>
+          <Badge variant="secondary" className="bg-orange-100 text-orange-600">V1.8.8</Badge>
+
+
         </div>
       </div>
     </div>
