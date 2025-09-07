@@ -32,7 +32,6 @@ import { getAnnouncements } from "@/lib/announcements"
 
 import concordLogo from './image.jpeg'
 import kingsmc from './kings.png'
-import concordmini from './concordmini.webp'
 
 
 
@@ -1201,8 +1200,8 @@ const renderAffiliatesPage = () => (
   <CardContent className="p-6">
     <div className="flex items-center gap-4">
      <Image 
-  src={concordmini} 
-  alt="Concord Mini Logo" 
+src="/images/concordmini.webp
+       alt="Concord Mini Logo" 
   width={64} 
   height={64} 
   className="w-16 h-16 object-contain rounded-full border border-slate-200"
