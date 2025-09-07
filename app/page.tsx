@@ -1226,7 +1226,9 @@ const renderAffiliatesPage = () => (
   </CardContent>
 </Card>
 
+<div className="my-6 border-t border-slate-300/50"></div>
 
+      
       <div className="space-y-6">
         <Card className="border-0 bg-white/70 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
           <CardContent className="p-6">
