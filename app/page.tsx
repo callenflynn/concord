@@ -123,13 +123,14 @@ useEffect(() => {
     '/images/screenshot-16.png',
     '/images/screenshot-17.png',
     '/images/screenshot-18.png',
-    '/images/screenshot-19.png',
+    '/images/screenshot-19.webp',
     '/images/screenshot-20.webp',
     '/images/screenshot-21.webp',
     '/images/screenshot-22.webp',
     '/images/screenshot-23.webp',
     '/images/screenshot-24.webp',
     '/images/screenshot-25.webp',
+    '/images/screenshot-26.webp',
     '/images/coreprotect.jpg',
     '/images/distanthorizons.png'
 
@@ -1151,7 +1152,7 @@ const renderActivePlayers = () => {
           </Card>
                    <Card className="border-0 bg-white/60 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
             <Image
-              src="/images/screenshot-19.png"
+              src="/images/screenshot-19.webp"
               alt="Spawn screenshot from the air by cal"
               width={600}
               height={400}
@@ -1212,6 +1213,16 @@ const renderActivePlayers = () => {
               className="w-full h-auto object-cover rounded-t-2xl"
             />
           </Card>
+                             <Card className="border-0 bg-white/60 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
+            <Image
+              src="/images/screenshot-26.webp"
+              alt="Whole peninsula. 32 render distance, bliss shaders 1800p (3k)."
+              width={600}
+              height={400}
+              className="w-full h-auto object-cover rounded-t-2xl"
+            />
+          </Card>
+          
         </div>
       </div>
     </section>
