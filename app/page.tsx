@@ -29,6 +29,9 @@ import {
   ExternalLink,
   Trophy,
   Music,
+  Moon,
+  Sun,
+  ChevronDown,
 } from "lucide-react"
 import { getAnnouncements } from "@/lib/announcements"
 
@@ -55,10 +58,32 @@ export default function ConcordSMPLanding() {
   const [serverStatus, setServerStatus] = useState<ServerStatus | null>(null)
   const [copied, setCopied] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
+  const [dropdownOpen, setDropdownOpen] = useState(false)
+  const [darkMode, setDarkMode] = useState(false)
   const [currentView, setCurrentView] = useState<CurrentView>("home")
   const serverIP = "concord.my.pebble.host"
   const announcements = getAnnouncements()
   const latestAnnouncement = announcements.length > 0 ? announcements[0] : null
+
+  // Initialize dark mode from localStorage
+  useEffect(() => {
+    const savedDarkMode = localStorage.getItem('darkMode') === 'true'
+    setDarkMode(savedDarkMode)
+    if (savedDarkMode) {
+      document.documentElement.classList.add('dark')
+    }
+  }, [])
+
+  const toggleDarkMode = () => {
+    const newDarkMode = !darkMode
+    setDarkMode(newDarkMode)
+    localStorage.setItem('darkMode', newDarkMode.toString())
+    if (newDarkMode) {
+      document.documentElement.classList.add('dark')
+    } else {
+      document.documentElement.classList.remove('dark')
+    }
+  }
 
   useEffect(() => {
     const fetchServerStatus = async () => {
@@ -143,7 +168,26 @@ const getVersionInfo = () => {
   const handleMenuClick = (view: CurrentView) => {
     setCurrentView(view)
     setMenuOpen(false)
+    setDropdownOpen(false)
   }
+
+  const toggleDropdown = () => {
+    setDropdownOpen(!dropdownOpen)
+  }
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownOpen && !(event.target as Element).closest('.dropdown-container')) {
+        setDropdownOpen(false)
+      }
+    }
+
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [dropdownOpen])
  
   const renderHomePage = () => (
     <>
@@ -196,7 +240,7 @@ const getVersionInfo = () => {
 
             <div className="flex flex-wrap justify-center gap-2">
               <Badge variant="secondary" className="bg-white/50 text-slate-600 border-white/30 rounded-full px-3 py-1">
-                {getSoftwareInfo()} {getVersionInfo()}
+                Versions 1.20-1.21.7
               </Badge>
               <Badge variant="secondary" className="bg-white/50 text-slate-600 border-white/30 rounded-full px-3 py-1">
                 always updated
@@ -350,6 +394,24 @@ const getVersionInfo = () => {
                 <CardTitle className="text-lg font-medium text-slate-700">Distant Horizons</CardTitle>
                 <CardDescription className="text-slate-500 font-light">
                   We have the Distant Horizons support plugin, allowing for Distant Horizons to be used client-side to the fullest potential.
+                </CardDescription>
+              </CardHeader>
+            </Card>
+
+            <Card className="border-0 bg-white/60 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300 rounded-2xl">
+              <CardHeader className="pb-3">
+                <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center mb-3">
+                  <Image
+                    src="/images/ViaVersion.png"
+                    alt="ViaVersion Logo"
+                    width={20}
+                    height={20}
+                    className="w-10 h-10 object-cover rounded-full"
+                  />
+                </div>
+                <CardTitle className="text-lg font-medium text-slate-700">ViaVersion & ViaBackwards</CardTitle>
+                <CardDescription className="text-slate-500 font-light">
+                  Join with any client version 1.20-1.21.7! Our ViaVersion and ViaBackwards plugins ensure compatibility across versions.
                 </CardDescription>
               </CardHeader>
             </Card>
@@ -587,10 +649,14 @@ const getVersionInfo = () => {
                 <code className="font-mono text-sm text-slate-600">{serverIP}</code>
               </div>
               <div className="flex justify-between items-center">
-                <span className="text-slate-500 font-light">version</span>
+                <span className="text-slate-500 font-light">server version</span>
                 <span className="text-slate-600">
                   {getSoftwareInfo()} {getVersionInfo()}
                 </span>
+              </div>
+              <div className="flex justify-between items-center">
+                <span className="text-slate-500 font-light">client support</span>
+                <span className="text-slate-600">1.20-1.21.7</span>
               </div>
               <div className="flex justify-between items-center">
                 <span className="text-slate-500 font-light">status</span>
@@ -1273,9 +1339,9 @@ const renderAffiliatesPage = () => (
 );
   
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-100 via-indigo-100 to-purple-100 text-slate-800">
+    <div className="min-h-screen bg-gradient-to-br from-blue-100 via-indigo-100 to-purple-100 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 text-slate-800 dark:text-slate-100 transition-colors duration-300">
       {/* Navbar */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/70 backdrop-blur-lg shadow-sm">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/70 dark:bg-slate-800/70 backdrop-blur-lg shadow-sm transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16 items-center">
             {/* Logo */}
@@ -1287,82 +1353,108 @@ const renderAffiliatesPage = () => (
                 height={32}
                 className="w-8 h-8 rounded-full mr-2"
               />
-              <span className="text-xl font-semibold text-slate-800">Concord SMP</span>
+              <span className="text-xl font-semibold text-slate-800 dark:text-slate-100">Concord SMP</span>
             </div>
 
-            {/* Desktop Navigation */}
-            <div className="hidden md:flex space-x-6">
-              <Button
-                variant="ghost"
-                onClick={() => handleMenuClick("home")}
-                className={`text-slate-600 hover:text-slate-900 ${currentView === "home" ? "font-bold text-slate-900" : ""}`}
-              >
-                <Home className="w-4 h-4 mr-2" /> Home
-              </Button>
-              <Button
-                variant="ghost"
-                onClick={() => handleMenuClick("status")}
-                className={`text-slate-600 hover:text-slate-900 ${currentView === "status" ? "font-bold text-slate-900" : ""}`}
-              >
-                <Cloud className="w-4 h-4 mr-2" /> Status
-              </Button>
-              <Button
-                variant="ghost"
-                onClick={() => handleMenuClick("players")}
-                className={`text-slate-600 hover:text-slate-900 ${currentView === "players" ? "font-bold text-slate-900" : ""}`}
-              >
-                <Users className="w-4 h-4 mr-2" /> Players
-              </Button>
-              <Button
-                variant="ghost"
-                onClick={() => handleMenuClick("rules")}
-                className={`text-slate-600 hover:text-slate-900 ${currentView === "rules" ? "font-bold text-slate-900" : ""}`}
-              >
-                <ScrollText className="w-4 h-4 mr-2" /> Rules
-              </Button>
-              <Button
-                variant="ghost"
-                onClick={() => handleMenuClick("screenshots")}
-                className={`text-slate-600 hover:text-slate-900 ${currentView === "screenshots" ? "font-bold text-slate-900" : ""}`}
-              >
-                <Camera className="w-4 h-4 mr-2" /> Screenshots
-              </Button>
-              <Button
-                variant="ghost"
-                onClick={() => handleMenuClick("announcements")}
-                className={`text-slate-600 hover:text-slate-900 ${currentView === "announcements" ? "font-bold text-slate-900" : ""}`}
-              >
-                <Megaphone className="w-4 h-4 mr-2" /> Announcements
-              </Button>
-              <a
-                href="https://discord.gg/V6xAeZecSr"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+            {/* Desktop Navigation Dropdown */}
+            <div className="hidden md:flex items-center space-x-4">
+              <div className="dropdown-container relative">
                 <Button
                   variant="ghost"
-                  className="text-slate-600 hover:text-slate-900"
+                  onClick={toggleDropdown}
+                  className="text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-slate-100 flex items-center"
                 >
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 127.14 96.36" className="w-4 h-4 mr-2" fill="currentColor">
-                    <path d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.79,32.65-1.71,56.6.54,80.21h0A105.73,105.73,0,0,0,32.71,96.36,77.7,77.7,0,0,0,39.6,85.25a68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a75.57,75.57,0,0,0,64.32,0c.87.71,1.76,1.39,2.66,2a68.68,68.68,0,0,1-10.87,5.19,77,77,0,0,0,6.89,11.1A105.25,105.25,0,0,0,126.6,80.22h0C129.24,52.84,122.09,29.11,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53s5-12.74,11.43-12.74S54,46,53.89,53,48.84,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.25,60,73.25,53s5-12.74,11.44-12.74S96.23,46,96.12,53,91.08,65.69,84.69,65.69Z"/>
-                  </svg>
-                  Discord
+                  Menu
+                  <ChevronDown className={`w-4 h-4 ml-2 transition-transform duration-200 ${dropdownOpen ? 'rotate-180' : ''}`} />
                 </Button>
-              </a>
+                
+                {dropdownOpen && (
+                  <div className="absolute right-0 mt-2 w-48 bg-white dark:bg-slate-800 rounded-lg shadow-lg border border-slate-200 dark:border-slate-700 py-2 animate-in slide-in-from-top-2 duration-200">
+                    <Button
+                      variant="ghost"
+                      onClick={() => handleMenuClick("home")}
+                      className={`w-full justify-start text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 ${currentView === "home" ? "font-bold bg-slate-100 dark:bg-slate-700" : ""}`}
+                    >
+                      <Home className="w-4 h-4 mr-2" /> Home
+                    </Button>
+                    <Button
+                      variant="ghost"
+                      onClick={() => handleMenuClick("status")}
+                      className={`w-full justify-start text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 ${currentView === "status" ? "font-bold bg-slate-100 dark:bg-slate-700" : ""}`}
+                    >
+                      <Cloud className="w-4 h-4 mr-2" /> Status
+                    </Button>
+                    <Button
+                      variant="ghost"
+                      onClick={() => handleMenuClick("players")}
+                      className={`w-full justify-start text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 ${currentView === "players" ? "font-bold bg-slate-100 dark:bg-slate-700" : ""}`}
+                    >
+                      <Users className="w-4 h-4 mr-2" /> Players
+                    </Button>
+                    <Button
+                      variant="ghost"
+                      onClick={() => handleMenuClick("rules")}
+                      className={`w-full justify-start text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 ${currentView === "rules" ? "font-bold bg-slate-100 dark:bg-slate-700" : ""}`}
+                    >
+                      <ScrollText className="w-4 h-4 mr-2" /> Rules
+                    </Button>
+                    <Button
+                      variant="ghost"
+                      onClick={() => handleMenuClick("screenshots")}
+                      className={`w-full justify-start text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 ${currentView === "screenshots" ? "font-bold bg-slate-100 dark:bg-slate-700" : ""}`}
+                    >
+                      <Camera className="w-4 h-4 mr-2" /> Screenshots
+                    </Button>
+                    <Button
+                      variant="ghost"
+                      onClick={() => handleMenuClick("announcements")}
+                      className={`w-full justify-start text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 ${currentView === "announcements" ? "font-bold bg-slate-100 dark:bg-slate-700" : ""}`}
+                    >
+                      <Megaphone className="w-4 h-4 mr-2" /> Announcements
+                    </Button>
+                    <Button
+                      variant="ghost"
+                      onClick={() => handleMenuClick("affiliates")}
+                      className={`w-full justify-start text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 ${currentView === "affiliates" ? "font-bold bg-slate-100 dark:bg-slate-700" : ""}`}
+                    >
+                      <Network className="w-4 h-4 mr-2" /> Affiliates
+                    </Button>
+                    <div className="border-t border-slate-200 dark:border-slate-700 my-2"></div>
+                    <a
+                      href="https://discord.gg/V6xAeZecSr"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block"
+                    >
+                      <Button
+                        variant="ghost"
+                        className="w-full justify-start text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700"
+                      >
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 127.14 96.36" className="w-4 h-4 mr-2" fill="currentColor">
+                          <path d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.79,32.65-1.71,56.6.54,80.21h0A105.73,105.73,0,0,0,32.71,96.36,77.7,77.7,0,0,0,39.6,85.25a68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a75.57,75.57,0,0,0,64.32,0c.87.71,1.76,1.39,2.66,2a68.68,68.68,0,0,1-10.87,5.19,77,77,0,0,0,6.89,11.1A105.25,105.25,0,0,0,126.6,80.22h0C129.24,52.84,122.09,29.11,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53s5-12.74,11.43-12.74S54,46,53.89,53,48.84,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.25,60,73.25,53s5-12.74,11.44-12.74S96.23,46,96.12,53,91.08,65.69,84.69,65.69Z"/>
+                        </svg>
+                        Discord
+                      </Button>
+                    </a>
+                    <div className="border-t border-slate-200 dark:border-slate-700 my-2"></div>
+                    <Button
+                      variant="ghost"
+                      onClick={toggleDarkMode}
+                      className="w-full justify-start text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700"
+                    >
+                      {darkMode ? <Sun className="w-4 h-4 mr-2" /> : <Moon className="w-4 h-4 mr-2" />}
+                      {darkMode ? 'Light Mode' : 'Dark Mode'}
+                    </Button>
+                  </div>
+                )}
+              </div>
             </div>
-             <Button 
-              variant="ghost"
-              className={`text-slate-600 hover:text-slate-900 ${currentView === "affiliates" ? "font-semibold text-slate-900" : ""}`}
-              onClick={() => handleMenuClick("affiliates")}
-            >
-              <Network className="w-5 h-5 mr-2" /> Affiliates
-            </Button>
             {/* Mobile Menu Button */}
             <div className="-mr-2 flex md:hidden">
               <Button
                 variant="ghost"
                 onClick={() => setMenuOpen(!menuOpen)}
-                className="inline-flex items-center justify-center p-2 rounded-md text-slate-600 hover:text-slate-900 hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
+                className="inline-flex items-center justify-center p-2 rounded-md text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-100 dark:hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
               >
                 <span className="sr-only">Open main menu</span>
                 {menuOpen ? (
@@ -1377,57 +1469,58 @@ const renderAffiliatesPage = () => (
 
         {/* Mobile Menu Panel */}
         {menuOpen && (
-          <div className="md:hidden">
+          <div className="md:hidden bg-white/95 dark:bg-slate-800/95 backdrop-blur-lg border-t border-slate-200 dark:border-slate-700 animate-in slide-in-from-top-2 duration-200">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
               <Button
                 variant="ghost"
                 onClick={() => handleMenuClick("home")}
-                className={`w-full justify-start text-slate-700 hover:bg-slate-100 ${currentView === "home" ? "font-bold bg-slate-100" : ""}`}
+                className={`w-full justify-start text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 ${currentView === "home" ? "font-bold bg-slate-100 dark:bg-slate-700" : ""}`}
               >
                 <Home className="w-4 h-4 mr-2" /> Home
               </Button>
               <Button
                 variant="ghost"
                 onClick={() => handleMenuClick("status")}
-                className={`w-full justify-start text-slate-700 hover:bg-slate-100 ${currentView === "status" ? "font-bold bg-slate-100" : ""}`}
+                className={`w-full justify-start text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 ${currentView === "status" ? "font-bold bg-slate-100 dark:bg-slate-700" : ""}`}
               >
                 <Cloud className="w-4 h-4 mr-2" /> Status
               </Button>
               <Button
                 variant="ghost"
                 onClick={() => handleMenuClick("players")}
-                className={`w-full justify-start text-slate-700 hover:bg-slate-100 ${currentView === "players" ? "font-bold bg-slate-100" : ""}`}
+                className={`w-full justify-start text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 ${currentView === "players" ? "font-bold bg-slate-100 dark:bg-slate-700" : ""}`}
               >
                 <Users className="w-4 h-4 mr-2" /> Players
               </Button>
               <Button
                 variant="ghost"
                 onClick={() => handleMenuClick("rules")}
-                className={`w-full justify-start text-slate-700 hover:bg-slate-100 ${currentView === "rules" ? "font-bold bg-slate-100" : ""}`}
+                className={`w-full justify-start text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 ${currentView === "rules" ? "font-bold bg-slate-100 dark:bg-slate-700" : ""}`}
               >
                 <ScrollText className="w-4 h-4 mr-2" /> Rules
               </Button>
               <Button
                 variant="ghost"
                 onClick={() => handleMenuClick("screenshots")}
-                className={`w-full justify-start text-slate-700 hover:bg-slate-100 ${currentView === "screenshots" ? "font-bold bg-slate-100" : ""}`}
+                className={`w-full justify-start text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 ${currentView === "screenshots" ? "font-bold bg-slate-100 dark:bg-slate-700" : ""}`}
               >
                 <Camera className="w-4 h-4 mr-2" /> Screenshots
               </Button>
               <Button
                 variant="ghost"
                 onClick={() => handleMenuClick("announcements")}
-                className={`w-full justify-start text-slate-700 hover:bg-slate-100 ${currentView === "announcements" ? "font-bold bg-slate-100" : ""}`}
+                className={`w-full justify-start text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 ${currentView === "announcements" ? "font-bold bg-slate-100 dark:bg-slate-700" : ""}`}
               >
                 <Megaphone className="w-4 h-4 mr-2" /> Announcements
               </Button>
               <Button
                 variant="ghost"
                 onClick={() => handleMenuClick("affiliates")}
-                className={`w-full justify-start text-slate-700 hover:bg-slate-100 ${currentView === "affiliates" ? "font-bold bg-slate-100" : ""}`}
+                className={`w-full justify-start text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 ${currentView === "affiliates" ? "font-bold bg-slate-100 dark:bg-slate-700" : ""}`}
               >
                 <Network className="w-4 h-4 mr-2" /> Affiliates
               </Button>
+              <div className="border-t border-slate-200 dark:border-slate-700 my-2"></div>
               <a
                 href="https://discord.gg/V6xAeZecSr"
                 target="_blank"
@@ -1436,7 +1529,7 @@ const renderAffiliatesPage = () => (
               >
                 <Button
                   variant="ghost"
-                  className="w-full justify-start text-slate-700 hover:bg-slate-100"
+                  className="w-full justify-start text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 127.14 96.36" className="w-4 h-4 mr-2" fill="currentColor">
                     <path d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.79,32.65-1.71,56.6.54,80.21h0A105.73,105.73,0,0,0,32.71,96.36,77.7,77.7,0,0,0,39.6,85.25a68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a75.57,75.57,0,0,0,64.32,0c.87.71,1.76,1.39,2.66,2a68.68,68.68,0,0,1-10.87,5.19,77,77,0,0,0,6.89,11.1A105.25,105.25,0,0,0,126.6,80.22h0C129.24,52.84,122.09,29.11,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53s5-12.74,11.43-12.74S54,46,53.89,53,48.84,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.25,60,73.25,53s5-12.74,11.44-12.74S96.23,46,96.12,53,91.08,65.69,84.69,65.69Z"/>
@@ -1444,6 +1537,15 @@ const renderAffiliatesPage = () => (
                   Discord
                 </Button>
               </a>
+              <div className="border-t border-slate-200 dark:border-slate-700 my-2"></div>
+              <Button
+                variant="ghost"
+                onClick={toggleDarkMode}
+                className="w-full justify-start text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700"
+              >
+                {darkMode ? <Sun className="w-4 h-4 mr-2" /> : <Moon className="w-4 h-4 mr-2" />}
+                {darkMode ? 'Light Mode' : 'Dark Mode'}
+              </Button>
             </div>
           </div>
         )}
