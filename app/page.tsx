@@ -1356,13 +1356,39 @@ const renderAffiliatesPage = () => (
               <span className="text-xl font-semibold text-slate-800 dark:text-slate-100">Concord SMP</span>
             </div>
 
-            {/* Desktop Navigation Dropdown */}
-            <div className="hidden md:flex items-center space-x-4">
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex items-center space-x-6">
+              {/* Horizontal Tabs */}
+              <div className="flex items-center space-x-1">
+                <Button
+                  variant="ghost"
+                  onClick={() => handleMenuClick("home")}
+                  className={`text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-slate-100 px-3 py-2 ${currentView === "home" ? "font-bold text-slate-900 dark:text-slate-100 bg-slate-100 dark:bg-slate-700" : ""}`}
+                >
+                  <Home className="w-4 h-4 mr-2" /> Home
+                </Button>
+                <Button
+                  variant="ghost"
+                  onClick={() => handleMenuClick("screenshots")}
+                  className={`text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-slate-100 px-3 py-2 ${currentView === "screenshots" ? "font-bold text-slate-900 dark:text-slate-100 bg-slate-100 dark:bg-slate-700" : ""}`}
+                >
+                  <Camera className="w-4 h-4 mr-2" /> Screenshots
+                </Button>
+                <Button
+                  variant="ghost"
+                  onClick={() => handleMenuClick("announcements")}
+                  className={`text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-slate-100 px-3 py-2 ${currentView === "announcements" ? "font-bold text-slate-900 dark:text-slate-100 bg-slate-100 dark:bg-slate-700" : ""}`}
+                >
+                  <Megaphone className="w-4 h-4 mr-2" /> Announcements
+                </Button>
+              </div>
+              
+              {/* Dropdown Menu */}
               <div className="dropdown-container relative">
                 <Button
                   variant="ghost"
                   onClick={toggleDropdown}
-                  className="text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-slate-100 flex items-center"
+                  className="text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-slate-100 flex items-center px-3 py-2"
                 >
                   Menu
                   <ChevronDown className={`w-4 h-4 ml-2 transition-transform duration-200 ${dropdownOpen ? 'rotate-180' : ''}`} />
@@ -1370,13 +1396,6 @@ const renderAffiliatesPage = () => (
                 
                 {dropdownOpen && (
                   <div className="absolute right-0 mt-2 w-48 bg-white dark:bg-slate-800 rounded-lg shadow-lg border border-slate-200 dark:border-slate-700 py-2 animate-in slide-in-from-top-2 duration-200">
-                    <Button
-                      variant="ghost"
-                      onClick={() => handleMenuClick("home")}
-                      className={`w-full justify-start text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 ${currentView === "home" ? "font-bold bg-slate-100 dark:bg-slate-700" : ""}`}
-                    >
-                      <Home className="w-4 h-4 mr-2" /> Home
-                    </Button>
                     <Button
                       variant="ghost"
                       onClick={() => handleMenuClick("status")}
@@ -1397,20 +1416,6 @@ const renderAffiliatesPage = () => (
                       className={`w-full justify-start text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 ${currentView === "rules" ? "font-bold bg-slate-100 dark:bg-slate-700" : ""}`}
                     >
                       <ScrollText className="w-4 h-4 mr-2" /> Rules
-                    </Button>
-                    <Button
-                      variant="ghost"
-                      onClick={() => handleMenuClick("screenshots")}
-                      className={`w-full justify-start text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 ${currentView === "screenshots" ? "font-bold bg-slate-100 dark:bg-slate-700" : ""}`}
-                    >
-                      <Camera className="w-4 h-4 mr-2" /> Screenshots
-                    </Button>
-                    <Button
-                      variant="ghost"
-                      onClick={() => handleMenuClick("announcements")}
-                      className={`w-full justify-start text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 ${currentView === "announcements" ? "font-bold bg-slate-100 dark:bg-slate-700" : ""}`}
-                    >
-                      <Megaphone className="w-4 h-4 mr-2" /> Announcements
                     </Button>
                     <Button
                       variant="ghost"
