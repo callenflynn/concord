@@ -240,7 +240,7 @@ const getVersionInfo = () => {
 
             <div className="flex flex-wrap justify-center gap-2">
               <Badge variant="secondary" className="bg-white/50 text-slate-600 border-white/30 rounded-full px-3 py-1">
-                Versions 1.20-1.21.7
+                Versions 1.20-1.21.8
               </Badge>
               <Badge variant="secondary" className="bg-white/50 text-slate-600 border-white/30 rounded-full px-3 py-1">
                 always updated
@@ -411,7 +411,7 @@ const getVersionInfo = () => {
                 </div>
                 <CardTitle className="text-lg font-medium text-slate-700">ViaVersion & ViaBackwards</CardTitle>
                 <CardDescription className="text-slate-500 font-light">
-                  Join with any client version 1.20-1.21.7! Our ViaVersion and ViaBackwards plugins ensure compatibility across versions.
+                  Join with any client version 1.20-1.21.8! Our ViaVersion and ViaBackwards plugins ensure compatibility across versions.
                 </CardDescription>
               </CardHeader>
             </Card>
@@ -656,7 +656,7 @@ const getVersionInfo = () => {
               </div>
               <div className="flex justify-between items-center">
                 <span className="text-slate-500 font-light">client support</span>
-                <span className="text-slate-600">1.20-1.21.7</span>
+                <span className="text-slate-600">1.20-1.21.8</span>
               </div>
               <div className="flex justify-between items-center">
                 <span className="text-slate-500 font-light">status</span>
