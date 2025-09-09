@@ -402,7 +402,7 @@ const getVersionInfo = () => {
               <CardHeader className="pb-3">
                 <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center mb-3">
                   <Image
-                    src="/images/ViaVersion.png"
+                    src="/images/viaversion.png"
                     alt="ViaVersion Logo"
                     width={20}
                     height={20}
