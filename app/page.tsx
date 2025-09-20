@@ -1222,6 +1222,15 @@ const renderActivePlayers = () => {
               className="w-full h-auto object-cover rounded-t-2xl"
             />
           </Card>
+                             <Card className="border-0 bg-white/60 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
+            <Image
+              src="/images/screenshot-27.webp"
+              alt="WIP underground hallways. bliss shaders 1800p (3k) with glowing ores and connected textures resource packs."
+              width={600}
+              height={400}
+              className="w-full h-auto object-cover rounded-t-2xl"
+            />
+          </Card>
           
         </div>
       </div>
