@@ -61,6 +61,8 @@ export default function ConcordSMPLanding() {
   const [dropdownOpen, setDropdownOpen] = useState(false)
   const [darkMode, setDarkMode] = useState(false)
   const [currentView, setCurrentView] = useState<CurrentView>("home")
+  const [enlargedImage, setEnlargedImage] = useState<string | null>(null)
+  const [isMobile, setIsMobile] = useState(false)
   const serverIP = "concord.my.pebble.host"
   const announcements = getAnnouncements()
   const latestAnnouncement = announcements.length > 0 ? announcements[0] : null
@@ -73,6 +75,31 @@ export default function ConcordSMPLanding() {
       document.documentElement.classList.add('dark')
     }
   }, [])
+
+  // Mobile detection
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768)
+    }
+    
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
+
+  // Close enlarged image on escape key
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setEnlargedImage(null)
+      }
+    }
+
+    if (enlargedImage) {
+      document.addEventListener('keydown', handleEscape)
+      return () => document.removeEventListener('keydown', handleEscape)
+    }
+  }, [enlargedImage])
 
   const toggleDarkMode = () => {
     const newDarkMode = !darkMode
@@ -179,6 +206,18 @@ const getVersionInfo = () => {
 
   const toggleDropdown = () => {
     setDropdownOpen(!dropdownOpen)
+  }
+
+  // Handle image click for enlargement (desktop only)
+  const handleImageClick = (imageSrc: string) => {
+    if (!isMobile) {
+      setEnlargedImage(imageSrc)
+    }
+  }
+
+  // Close enlarged image
+  const closeEnlargedImage = () => {
+    setEnlargedImage(null)
   }
 
   // Close dropdown when clicking outside
@@ -979,313 +1018,71 @@ const renderActivePlayers = () => {
     </section>
   )
 
-  const renderScreenshotsPage = () => (
-    <section className="py-16 px-4 min-h-screen">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-light text-slate-700 mb-3">server screenshots</h2>
-          <p className="text-lg text-slate-500 font-light">moments from our world</p>
+  const renderScreenshotsPage = () => {
+    const screenshots = [
+      { src: "/images/screenshot-1.png", alt: "Minecraft interior with sunset view and campfire" },
+      { src: "/images/screenshot-2.jpeg", alt: "Aerial view of Minecraft coastline with clear water" },
+      { src: "/images/screenshot-3.png", alt: "Minecraft player in golden armor in a cozy room" },
+      { src: "/images/screenshot-4.png", alt: "Nighttime Minecraft landscape with glowing purple structure" },
+      { src: "/images/screenshot-5.png", alt: "A view of spawn without shaders (July 13, 2025)" },
+      { src: "/images/screenshot-6.png", alt: "scenery (July 25, 2025)" },
+      { src: "/images/screenshot-7.png", alt: "AIDEN (July 25, 2025)" },
+      { src: "/images/screenshot-8.png", alt: "Minecraft player in golden armor in a cozy room" },
+      { src: "/images/screenshot-9.png", alt: "too lazy to add placeholder text LOL" },
+      { src: "/images/screenshot-10.png", alt: "too lazy to add placeholder text LOL" },
+      { src: "/images/screenshot-11.png", alt: "Callen's screenshot with shaders" },
+      { src: "/images/screenshot-12.png", alt: "Spawn screenshot from the air by cal" },
+      { src: "/images/screenshot-13.png", alt: "Spawn screenshot from the air by cal" },
+      { src: "/images/screenshot-14.png", alt: "Spawn screenshot from the air by cal" },
+      { src: "/images/screenshot-15.png", alt: "Spawn screenshot from the air by cal" },
+      { src: "/images/screenshot-16.png", alt: "Spawn screenshot from the air by cal" },
+      { src: "/images/screenshot-17.png", alt: "Spawn screenshot from the air by cal" },
+      { src: "/images/screenshot-18.png", alt: "Spawn screenshot from the air by cal" },
+      { src: "/images/screenshot-19.webp", alt: "Spawn screenshot from the air by cal" },
+      { src: "/images/screenshot-20.webp", alt: "Spawn screenshot from the air by cal" },
+      { src: "/images/screenshot-21.webp", alt: "screenshot of sunset by cal" },
+      { src: "/images/screenshot-22.webp", alt: "Spawn screenshot of castle and microwave by cal" },
+      { src: "/images/screenshot-23.webp", alt: "Spawn screenshot from the air by cal during rain" },
+      { src: "/images/screenshot-24.webp", alt: "deep dark below spawn" },
+      { src: "/images/screenshot-25.webp", alt: "mineshaft above glowsquids" },
+      { src: "/images/screenshot-26.webp", alt: "Whole peninsula. 32 render distance, bliss shaders 1800p (3k)." },
+      { src: "/images/screenshot-27.webp", alt: "WIP underground hallways. bliss shaders 1800p (3k) with glowing ores and connected textures resource packs." },
+      { src: "/images/screenshot-28.webp", alt: "too lazy to add alternate text" },
+      { src: "/images/screenshot-29.webp", alt: "too lazy to add alternate text" },
+      { src: "/images/screenshot-30.webp", alt: "too lazy to add alternate text" },
+      { src: "/images/screenshot-31.webp", alt: "new build blah blah blah" },
+      { src: "/images/screenshot-32.webp", alt: "New shaders!!!" }
+    ]
+
+    return (
+      <section className="py-16 px-4 min-h-screen">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-light text-slate-700 dark:text-slate-300 mb-3">server screenshots</h2>
+            <p className="text-lg text-slate-500 dark:text-slate-400 font-light">moments from our world</p>
+            {!isMobile && (
+              <p className="text-sm text-slate-400 dark:text-slate-500 mt-2">Click any image to enlarge</p>
+            )}
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {screenshots.map((screenshot, index) => (
+              <Card key={index} className="border-0 bg-white/60 dark:bg-slate-800/60 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
+                <Image
+                  src={screenshot.src}
+                  alt={screenshot.alt}
+                  width={600}
+                  height={400}
+                  className={`w-full h-auto object-cover rounded-t-2xl ${!isMobile ? 'cursor-pointer hover:opacity-90 transition-opacity' : ''}`}
+                  onClick={() => handleImageClick(screenshot.src)}
+                />
+              </Card>
+            ))}
+          </div>
         </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <Card className="border-0 bg-white/60 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
-            <Image
-              src="/images/screenshot-1.png"
-              alt="Minecraft interior with sunset view and campfire"
-              width={600}
-              height={400}
-              className="w-full h-auto object-cover rounded-t-2xl"
-            />
-          </Card>
-
-          <Card className="border-0 bg-white/60 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
-            <Image
-              src="/images/screenshot-2.jpeg"
-              alt="Aerial view of Minecraft coastline with clear water"
-              width={600}
-              height={400}
-              className="w-full h-auto object-cover rounded-t-2xl"
-            />
-          </Card>
-
-          <Card className="border-0 bg-white/60 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
-            <Image
-              src="/images/screenshot-3.png"
-              alt="Minecraft player in golden armor in a cozy room"
-              width={600}
-              height={400}
-              className="w-full h-auto object-cover rounded-t-2xl"
-            />
-          </Card>
-
-          <Card className="border-0 bg-white/60 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
-            <Image
-              src="/images/screenshot-4.png"
-              alt="Nighttime Minecraft landscape with glowing purple structure"
-              width={600}
-              height={400}
-              className="w-full h-auto object-cover rounded-t-2xl"
-            />
-          </Card>
-
-                    <Card className="border-0 bg-white/60 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
-            <Image
-              src="/images/screenshot-5.png"
-              alt="A view of spawn without shaders (July 13, 2025)"
-              width={600}
-              height={400}
-              className="w-full h-auto object-cover rounded-t-2xl"
-            />
-          </Card>
-
-                       <Card className="border-0 bg-white/60 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
-            <Image
-              src="/images/screenshot-6.png" 
-              alt="scenery (July 25, 2025)"
-              width={600}
-              height={400}
-              className="w-full h-auto object-cover rounded-t-2xl"
-            />
-          </Card>
-                    <Card className="border-0 bg-white/60 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
-            <Image
-              src="/images/screenshot-7.png"
-              alt="AIDEN (July 25, 2025)"
-              width={600}
-              height={400}
-              className="w-full h-auto object-cover rounded-t-2xl"
-            />
-          </Card>
-            <Card className="border-0 bg-white/60 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
-            <Image
-              src="/images/screenshot-8.png"
-              alt="Minecraft player in golden armor in a cozy room"
-              width={600}
-              height={400}
-              className="w-full h-auto object-cover rounded-t-2xl"
-            />
-          </Card>
-                      <Card className="border-0 bg-white/60 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
-            <Image
-              src="/images/screenshot-9.png"
-              alt="too lazy to add placeholder text LOL"
-              width={600}
-              height={400}
-              className="w-full h-auto object-cover rounded-t-2xl"
-            />
-          </Card>
-                      <Card className="border-0 bg-white/60 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
-            <Image
-              src="/images/screenshot-10.png"
-              alt="too lazy to add placeholder text LOL"
-              width={600}
-              height={400}
-              className="w-full h-auto object-cover rounded-t-2xl"
-            />
-          </Card>
-                      <Card className="border-0 bg-white/60 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
-            <Image
-              src="/images/screenshot-11.png"
-              alt="Callen's screenshot with shaders"
-              width={600}
-              height={400}
-              className="w-full h-auto object-cover rounded-t-2xl"
-            />
-          </Card>
-                       <Card className="border-0 bg-white/60 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
-            <Image
-              src="/images/screenshot-12.png"
-              alt="Spawn screenshot from the air by cal"
-              width={600}
-              height={400}
-              className="w-full h-auto object-cover rounded-t-2xl"
-            />
-          </Card>
-                          <Card className="border-0 bg-white/60 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
-            <Image
-              src="/images/screenshot-13.png"
-              alt="Spawn screenshot from the air by cal"
-              width={600}
-              height={400}
-              className="w-full h-auto object-cover rounded-t-2xl"
-            />
-          </Card>
-                                 <Card className="border-0 bg-white/60 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
-            <Image
-              src="/images/screenshot-14.png"
-              alt="Spawn screenshot from the air by cal"
-              width={600}
-              height={400}
-              className="w-full h-auto object-cover rounded-t-2xl"
-            />
-          </Card>
-                                 <Card className="border-0 bg-white/60 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
-            <Image
-              src="/images/screenshot-15.png"
-              alt="Spawn screenshot from the air by cal"
-              width={600}
-              height={400}
-              className="w-full h-auto object-cover rounded-t-2xl"
-            />
-          </Card>
-                   <Card className="border-0 bg-white/60 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
-            <Image
-              src="/images/screenshot-16.png"
-              alt="Spawn screenshot from the air by cal"
-              width={600}
-              height={400}
-              className="w-full h-auto object-cover rounded-t-2xl"
-            />
-          </Card>
-                   <Card className="border-0 bg-white/60 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
-            <Image
-              src="/images/screenshot-17.png"
-              alt="Spawn screenshot from the air by cal"
-              width={600}
-              height={400}
-              className="w-full h-auto object-cover rounded-t-2xl"
-            />
-          </Card>
-                   <Card className="border-0 bg-white/60 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
-            <Image
-              src="/images/screenshot-18.png"
-              alt="Spawn screenshot from the air by cal"
-              width={600}
-              height={400}
-              className="w-full h-auto object-cover rounded-t-2xl"
-            />
-          </Card>
-                   <Card className="border-0 bg-white/60 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
-            <Image
-              src="/images/screenshot-19.webp"
-              alt="Spawn screenshot from the air by cal"
-              width={600}
-              height={400}
-              className="w-full h-auto object-cover rounded-t-2xl"
-            />
-          </Card>
-                   <Card className="border-0 bg-white/60 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
-            <Image
-              src="/images/screenshot-20.webp"
-              alt="Spawn screenshot from the air by cal"
-              width={600}
-              height={400}
-              className="w-full h-auto object-cover rounded-t-2xl"
-            />
-          </Card>
-                   <Card className="border-0 bg-white/60 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
-            <Image
-              src="/images/screenshot-21.webp"
-              alt="screenshot of sunset by cal"
-              width={600}
-              height={400}
-              className="w-full h-auto object-cover rounded-t-2xl"
-            />
-          </Card>
-                   <Card className="border-0 bg-white/60 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
-            <Image
-              src="/images/screenshot-22.webp"
-              alt="Spawn screenshot of castle and microwave by cal"
-              width={600}
-              height={400}
-              className="w-full h-auto object-cover rounded-t-2xl"
-            />
-          </Card>
-                   <Card className="border-0 bg-white/60 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
-            <Image
-              src="/images/screenshot-23.webp"
-              alt="Spawn screenshot from the air by cal during rain"
-              width={600}
-              height={400}
-              className="w-full h-auto object-cover rounded-t-2xl"
-            />
-          </Card>
-                   <Card className="border-0 bg-white/60 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
-            <Image
-              src="/images/screenshot-24.webp"
-              alt="deep dark below spawn"
-              width={600}
-              height={400}
-              className="w-full h-auto object-cover rounded-t-2xl"
-            />
-          </Card>
-                   <Card className="border-0 bg-white/60 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
-            <Image
-              src="/images/screenshot-25.webp"
-              alt="mineshaft above glowsquids"
-              width={600}
-              height={400}
-              className="w-full h-auto object-cover rounded-t-2xl"
-            />
-          </Card>
-                             <Card className="border-0 bg-white/60 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
-            <Image
-              src="/images/screenshot-26.webp"
-              alt="Whole peninsula. 32 render distance, bliss shaders 1800p (3k)."
-              width={600}
-              height={400}
-              className="w-full h-auto object-cover rounded-t-2xl"
-            />
-          </Card>
-                             <Card className="border-0 bg-white/60 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
-            <Image
-              src="/images/screenshot-27.webp"
-              alt="WIP underground hallways. bliss shaders 1800p (3k) with glowing ores and connected textures resource packs."
-              width={600}
-              height={400}
-              className="w-full h-auto object-cover rounded-t-2xl"
-            />
-          </Card>
-                             <Card className="border-0 bg-white/60 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
-            <Image
-              src="/images/screenshot-28.webp"
-              alt="too lazy to add alternate text"
-              width={600}
-              height={400}
-              className="w-full h-auto object-cover rounded-t-2xl"
-            />
-          </Card>
-                             <Card className="border-0 bg-white/60 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
-            <Image
-              src="/images/screenshot-29.webp"
-              alt="too lazy to add alternate text"
-              width={600}
-              height={400}
-              className="w-full h-auto object-cover rounded-t-2xl"
-            />
-          </Card>
-                             <Card className="border-0 bg-white/60 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
-            <Image
-              src="/images/screenshot-30.webp"
-              alt="too lazy to add alternate text"
-              width={600}
-              height={400}
-              className="w-full h-auto object-cover rounded-t-2xl"
-            />
-          </Card>
-                             <Card className="border-0 bg-white/60 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
-            <Image
-              src="/images/screenshot-31.webp"
-              alt="new build blah blah blah"
-              width={600}
-              height={400}
-              className="w-full h-auto object-cover rounded-t-2xl"
-            />
-          </Card>
-                          <Card className="border-0 bg-white/60 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
-            <Image
-              src="/images/screenshot-32.webp"
-              alt="New shaders!!!"
-              width={600}
-              height={400}
-              className="w-full h-auto object-cover rounded-t-2xl"
-            />
-          </Card>
-
-        </div>
-      </div>
-    </section>
-  )
+      </section>
+    )
+  }
 
   const renderAnnouncementsPage = () => (
     <section className="py-16 px-4 min-h-screen">
@@ -1666,6 +1463,31 @@ const renderAffiliatesPage = () => (
     <p className="text-lg font-mono text-blue-300">concord.my.pebble.host</p>
   </div>
 </footer>
+
+      {/* Image Modal */}
+      {enlargedImage && (
+        <div 
+          className="fixed inset-0 z-[100] bg-black/80 backdrop-blur-sm flex items-center justify-center p-4"
+          onClick={closeEnlargedImage}
+        >
+          <div className="relative max-w-[90vw] max-h-[90vh]">
+            <Image
+              src={enlargedImage}
+              alt="Enlarged screenshot"
+              width={1200}
+              height={800}
+              className="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
+            />
+            <button
+              onClick={closeEnlargedImage}
+              className="absolute top-4 right-4 bg-black/50 hover:bg-black/70 text-white rounded-full p-2 transition-colors"
+            >
+              <X className="w-6 h-6" />
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
