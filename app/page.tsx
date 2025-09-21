@@ -1467,10 +1467,10 @@ const renderAffiliatesPage = () => (
       {/* Image Modal */}
       {enlargedImage && (
         <div 
-          className="fixed inset-0 z-[100] bg-black/80 backdrop-blur-sm flex items-center justify-center p-4"
+          className="fixed inset-0 z-[100] bg-black/80 backdrop-blur-sm flex items-center justify-center p-8"
           onClick={closeEnlargedImage}
         >
-          <div className="relative max-w-[90vw] max-h-[90vh]">
+          <div className="relative max-w-[80vw] max-h-[80vh]">
             <Image
               src={enlargedImage}
               alt="Enlarged screenshot"
