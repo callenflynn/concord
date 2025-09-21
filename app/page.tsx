@@ -131,6 +131,11 @@ useEffect(() => {
     '/images/screenshot-24.webp',
     '/images/screenshot-25.webp',
     '/images/screenshot-26.webp',
+    '/images/screenshot-27.webp',
+    '/images/screenshot-28.webp',
+    '/images/screenshot-29.webp',
+    '/images/screenshot-30.webp',
+    '/images/screenshot-31.webp',
     '/images/coreprotect.jpg',
     '/images/distanthorizons.png'
 
@@ -1262,6 +1267,15 @@ const renderActivePlayers = () => {
             <Image
               src="/images/screenshot-31.webp"
               alt="new build blah blah blah"
+              width={600}
+              height={400}
+              className="w-full h-auto object-cover rounded-t-2xl"
+            />
+          </Card>
+                          <Card className="border-0 bg-white/60 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
+            <Image
+              src="/images/screenshot-32.webp"
+              alt="New shaders!!!"
               width={600}
               height={400}
               className="w-full h-auto object-cover rounded-t-2xl"
