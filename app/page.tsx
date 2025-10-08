@@ -1051,7 +1051,9 @@ const renderActivePlayers = () => {
       { src: "/images/screenshot-29.webp", alt: "too lazy to add alternate text" },
       { src: "/images/screenshot-30.webp", alt: "too lazy to add alternate text" },
       { src: "/images/screenshot-31.webp", alt: "new build blah blah blah" },
-      { src: "/images/screenshot-32.webp", alt: "New shaders!!!" }
+      { src: "/images/screenshot-32.webp", alt: "New shaders!!!" },
+      { src: "/images/screenshot-33.webp", alt: "Jame" },
+      { src: "/images/screenshot-34.webp", alt: "cal's new fountain" }
     ]
 
     return (
@@ -1464,7 +1466,6 @@ const renderAffiliatesPage = () => (
   </div>
 </footer>
 
-      {/* Image Modal */}
       {enlargedImage && (
         <div 
           className="fixed inset-0 z-[100] bg-black/80 backdrop-blur-sm flex items-center justify-center p-8"
