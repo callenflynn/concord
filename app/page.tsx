@@ -1029,6 +1029,8 @@ const renderActivePlayers = () => {
       { src: "/images/screenshot-31.webp", alt: "new build blah blah blah" },
       { src: "/images/screenshot-1.png", alt: "Minecraft interior with sunset view and campfire" },
       { src: "/images/screenshot-30.webp", alt: "too lazy to add alternate text" },
+      { src: "/images/screenshot-40.png", alt: "Server screenshot" },
+      { src: "/images/screenshot-41.png", alt: "Server screenshot" },
       { src: "/images/screenshot-29.webp", alt: "too lazy to add alternate text" },
       { src: "/images/screenshot-28.webp", alt: "too lazy to add alternate text" },
       { src: "/images/screenshot-27.webp", alt: "WIP underground hallways. bliss shaders 1800p (3k) with glowing ores and connected textures resource packs." },
