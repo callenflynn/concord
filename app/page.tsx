@@ -63,6 +63,7 @@ export default function ConcordSMPLanding() {
   const [currentView, setCurrentView] = useState<CurrentView>("home")
   const [enlargedImage, setEnlargedImage] = useState<string | null>(null)
   const [isMobile, setIsMobile] = useState(false)
+  const [bannerVisible, setBannerVisible] = useState(true)
   const serverIP = "concord.my.pebble.host"
   const announcements = getAnnouncements()
   const latestAnnouncement = announcements.length > 0 ? announcements[0] : null
@@ -1432,8 +1433,40 @@ const renderAffiliatesPage = () => (
         )}
       </nav>
 
+      {/* Server Move Banner */}
+      {bannerVisible && (
+        <div className="fixed top-16 left-0 right-0 z-40 bg-red-600 text-white py-3 px-4 shadow-lg">
+          <div className="max-w-7xl mx-auto flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <div className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center">
+                <span className="text-sm font-bold">!</span>
+              </div>
+              <span className="font-medium">Server address being moved</span>
+            </div>
+            <div className="flex items-center gap-3">
+              <Button
+                variant="outline"
+                size="sm"
+                className="bg-white/10 border-white/30 text-white hover:bg-white/20 text-sm"
+                onClick={() => window.open('/articles/server-moved-1012/', '_blank')}
+              >
+                Read More
+              </Button>
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => setBannerVisible(false)}
+                className="text-white hover:bg-white/10 p-1"
+              >
+                <X className="w-4 h-4" />
+              </Button>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Main Content based on currentView */}
-      <main className="pt-16"> {/* Add padding-top to account for fixed navbar */}
+      <main className={bannerVisible ? "pt-28" : "pt-16"}> {/* Add padding-top to account for fixed navbar */}
         {(() => {
           switch (currentView) {
             case "home":
