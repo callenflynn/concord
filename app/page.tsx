@@ -68,7 +68,6 @@ export default function ConcordSMPLanding() {
   const announcements = getAnnouncements()
   const latestAnnouncement = announcements.length > 0 ? announcements[0] : null
 
-  // Initialize dark mode from localStorage
   useEffect(() => {
     const savedDarkMode = localStorage.getItem('darkMode') === 'true'
     setDarkMode(savedDarkMode)
@@ -77,7 +76,6 @@ export default function ConcordSMPLanding() {
     }
   }, [])
 
-  // Mobile detection
   useEffect(() => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 768)
@@ -1021,6 +1019,7 @@ const renderActivePlayers = () => {
 
   const renderScreenshotsPage = () => {
     const screenshots = [
+      { src: "/images/screenshot-42.png", alt: "Overview of spawn and surrounding areas showcasing countless amazing builds" },
       { src: "/images/screenshot-39.webp", alt: "Server screenshot" },
       { src: "/images/screenshot-38.webp", alt: "Server screenshot" },
       { src: "/images/screenshot-37.webp", alt: "Server screenshot" },
