@@ -52,7 +52,7 @@ interface ServerStatus {
   }
 }
 
-type CurrentView = "home" | "status" | "players" | "rules" | "screenshots" | "announcements" | "Discord" | "affiliates" 
+type CurrentView = "home" | "status" | "players" | "rules" | "screenshots" | "announcements" | "Discord" | "affiliates" | "wiki" 
 
 export default function ConcordSMPLanding() {
   const [serverStatus, setServerStatus] = useState<ServerStatus | null>(null)
@@ -1213,6 +1213,28 @@ const renderAffiliatesPage = () => (
     </div>
   </section>
 );
+
+const renderWikiPage = () => (
+  <section className="py-16 px-4 min-h-screen">
+    <div className="max-w-7xl mx-auto">
+      <div className="text-center mb-12">
+        <h2 className="text-3xl font-light text-slate-700 dark:text-slate-300 mb-3">wiki</h2>
+        <p className="text-lg text-slate-500 dark:text-slate-400 font-light">community knowledge base and guides</p>
+      </div>
+
+      <div className="bg-white/70 dark:bg-slate-800/70 backdrop-blur-sm rounded-2xl shadow-sm overflow-hidden">
+        <iframe 
+          src="https://global-worm-2be.notion.site/ebd/28e4905203e28033ac59ecad9c63c898?v=28e4905203e2804cb92e000c7dd04bfb" 
+          width="100%" 
+          height="800" 
+          className="w-full"
+          frameBorder="0" 
+          allowFullScreen
+        />
+      </div>
+    </div>
+  </section>
+);
   
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-100 via-indigo-100 to-purple-100 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 text-slate-800 dark:text-slate-100 transition-colors duration-300">
@@ -1299,6 +1321,13 @@ const renderAffiliatesPage = () => (
                       className={`w-full justify-start text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 ${currentView === "affiliates" ? "font-bold bg-slate-100 dark:bg-slate-700" : ""}`}
                     >
                       <Network className="w-4 h-4 mr-2" /> Affiliates
+                    </Button>
+                    <Button
+                      variant="ghost"
+                      onClick={() => handleMenuClick("wiki")}
+                      className={`w-full justify-start text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 ${currentView === "wiki" ? "font-bold bg-slate-100 dark:bg-slate-700" : ""}`}
+                    >
+                      <ScrollText className="w-4 h-4 mr-2" /> Wiki
                     </Button>
                     <div className="border-t border-slate-200 dark:border-slate-700 my-2"></div>
                     <a
@@ -1401,6 +1430,13 @@ const renderAffiliatesPage = () => (
               >
                 <Network className="w-4 h-4 mr-2" /> Affiliates
               </Button>
+              <Button
+                variant="ghost"
+                onClick={() => handleMenuClick("wiki")}
+                className={`w-full justify-start text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 ${currentView === "wiki" ? "font-bold bg-slate-100 dark:bg-slate-700" : ""}`}
+              >
+                <ScrollText className="w-4 h-4 mr-2" /> Wiki
+              </Button>
               <div className="border-t border-slate-200 dark:border-slate-700 my-2"></div>
               <a
                 href="https://discord.gg/V6xAeZecSr"
@@ -1481,7 +1517,9 @@ const renderAffiliatesPage = () => (
             case "announcements":
               return renderAnnouncementsPage()
             case "affiliates": 
-              return renderAffiliatesPage() 
+              return renderAffiliatesPage()
+            case "wiki":
+              return renderWikiPage()
             default:
               return renderHomePage()
           }
