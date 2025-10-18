@@ -1223,6 +1223,19 @@ const renderWikiPage = () => (
       </div>
 
       <div className="bg-white/70 dark:bg-slate-800/70 backdrop-blur-sm rounded-2xl shadow-sm overflow-hidden">
+        <div className="p-4 flex items-center justify-end">
+          <a
+            href="https://global-worm-2be.notion.site/28e4905203e28033ac59ecad9c63c898?v=28e4905203e28016aa6d000c54b119e4"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="ml-2"
+          >
+            <Button variant="outline" className="flex items-center">
+              <ExternalLink className="w-4 h-4 mr-2" />
+              Comment On The Wiki & See More resources
+            </Button>
+          </a>
+        </div>
         <iframe 
           src="https://global-worm-2be.notion.site/ebd/28e4905203e28033ac59ecad9c63c898?v=28e4905203e2804cb92e000c7dd04bfb" 
           width="100%" 
