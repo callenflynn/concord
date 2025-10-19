@@ -1490,7 +1490,7 @@ const renderWikiPage = () => (
                 variant="outline"
                 size="sm"
                 className="bg-white/10 border-white/30 text-white hover:bg-white/20 text-sm"
-                onClick={() => window.open('/articles/server-moved-1012/', '_blank')}
+                onClick={() => window.open('/articles/server-moved-1018/', '_blank')}
               >
                 Read More
               </Button>
