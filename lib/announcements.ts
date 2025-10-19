@@ -2,15 +2,15 @@ export interface Announcement {
   id: string
   title: string
   body: string
-  date: string // YYYY-MM-DD format for easy sorting
+  date: string // YYYY-MM-DD 
 }
 
 const announcementsData: Announcement[] = [
           {
       id: "announcement-9",
-      title: "new ip and hardware!"
-      body: "new ip concord.play.minekube.net. and moved hardware"
-      date: "2025-10-18"
+      title: "new ip and hardware!",
+      body: "new ip concord.play.minekube.net. and moved hardware",
+      date: "2025-10-18",
   },
           {
       id: "announcement-8",

@@ -86,7 +86,6 @@ export default function ConcordSMPLanding() {
     return () => window.removeEventListener('resize', checkMobile)
   }, [])
 
-  // Close enlarged image on escape key
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
@@ -128,7 +127,6 @@ export default function ConcordSMPLanding() {
     return () => clearInterval(interval)
   }, [])
 
- // Preload all screenshots
 useEffect(() => {
   const screenshotPaths = [
     '/images/screenshot-1.png',
@@ -207,19 +205,16 @@ const getVersionInfo = () => {
     setDropdownOpen(!dropdownOpen)
   }
 
-  // Handle image click for enlargement (desktop only)
   const handleImageClick = (imageSrc: string) => {
     if (!isMobile) {
       setEnlargedImage(imageSrc)
     }
   }
 
-  // Close enlarged image
   const closeEnlargedImage = () => {
     setEnlargedImage(null)
   }
 
-  // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (dropdownOpen && !(event.target as Element).closest('.dropdown-container')) {
@@ -1481,7 +1476,6 @@ const renderWikiPage = () => (
         )}
       </nav>
 
-      {/* Server Move Banner */}
       {bannerVisible && (
         <div className="fixed top-16 left-0 right-0 z-40 bg-red-600 text-white py-3 px-4 shadow-lg">
           <div className="max-w-7xl mx-auto flex items-center justify-between">
@@ -1489,7 +1483,7 @@ const renderWikiPage = () => (
               <div className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center">
                 <span className="text-sm font-bold">!</span>
               </div>
-              <span className="font-medium">Server address being moved</span>
+              <span className="font-medium">server address moved</span>
             </div>
             <div className="flex items-center gap-3">
               <Button
@@ -1513,8 +1507,7 @@ const renderWikiPage = () => (
         </div>
       )}
 
-      {/* Main Content based on currentView */}
-      <main className={bannerVisible ? "pt-28" : "pt-16"}> {/* Add padding-top to account for fixed navbar */}
+      <main className={bannerVisible ? "pt-28" : "pt-16"}> 
         {(() => {
           switch (currentView) {
             case "home":
