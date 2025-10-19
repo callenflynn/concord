@@ -64,7 +64,7 @@ export default function ConcordSMPLanding() {
   const [enlargedImage, setEnlargedImage] = useState<string | null>(null)
   const [isMobile, setIsMobile] = useState(false)
   const [bannerVisible, setBannerVisible] = useState(true)
-  const serverIP = "concord.my.pebble.host"
+  const serverIP = "concord.play.minekube.net"
   const announcements = getAnnouncements()
   const latestAnnouncement = announcements.length > 0 ? announcements[0] : null
 
@@ -1552,7 +1552,7 @@ const renderWikiPage = () => (
       />
     </div>
     <p className="text-xl font-light text-white">Concord SMP</p>
-    <p className="text-lg font-mono text-blue-300">concord.my.pebble.host</p>
+    <p className="text-lg font-mono text-blue-300">{serverIP}</p>
   </div>
 </footer>
 

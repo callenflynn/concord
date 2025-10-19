@@ -7,6 +7,12 @@ export interface Announcement {
 
 const announcementsData: Announcement[] = [
           {
+      id: "announcement-9",
+      title: "new ip and hardware!"
+      body: "new ip concord.play.minekube.net. and moved hardware"
+      date: "2025-10-18"
+  },
+          {
       id: "announcement-8",
     title: "New Plugins",
     body: "Added CoreProtect to log block changes and help prevent spawn griefing. This will not be used for small incidents like someone breaking a wall or a creeper. Logs will only be checked if there is an incident. Also added Distant Horizons support plugin, sending the necessary data to the client allowing Distant Horizons to work. Did however, add a plugin that allows higher render distance without lag that DOES NOT require Distant Horizons to be installed client-side.",
