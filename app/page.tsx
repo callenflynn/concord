@@ -64,7 +64,7 @@ export default function ConcordSMPLanding() {
   const [enlargedImage, setEnlargedImage] = useState<string | null>(null)
   const [isMobile, setIsMobile] = useState(false)
   const [bannerVisible, setBannerVisible] = useState(true)
-  const serverIP = "concord.play.minekube.net"
+  const serverIP = "147.185.221.212:30055"
   const announcements = getAnnouncements()
   const latestAnnouncement = announcements.length > 0 ? announcements[0] : null
 

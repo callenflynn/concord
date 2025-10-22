@@ -9,7 +9,7 @@ const announcementsData: Announcement[] = [
           {
       id: "announcement-9",
       title: "new ip and hardware!",
-      body: "new ip concord.play.minekube.net. and moved hardware",
+  body: "new ip 147.185.221.212:30055 and moved hardware",
       date: "2025-10-18",
   },
           {
