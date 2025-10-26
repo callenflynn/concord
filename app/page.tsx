@@ -1452,6 +1452,13 @@ const renderWikiPage = () => (
               >
                 <ScrollText className="w-4 h-4 mr-2" /> Wiki
               </Button>
+              <Button
+                variant="ghost"
+                onClick={() => window.open('https://callenflynn.github.io/Modpacks/', '_blank')}
+                className="w-full justify-start text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700"
+              >
+                <ExternalLink className="w-4 h-4 mr-2" /> Cal's Modpacks
+              </Button>
               <div className="border-t border-slate-200 dark:border-slate-700 my-2"></div>
               <a
                 href="https://discord.gg/V6xAeZecSr"
