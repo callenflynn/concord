@@ -9,7 +9,7 @@ const announcementsData: Announcement[] = [
           {
       id: "announcement-9",
       title: "new ip and hardware!",
-  body: "new primary ip concord-smp.duckdns.org:30055 with fallback those-boring.gl.joinmc.link:30055 and moved hardware",
+  body: "new primary ip concord-smp.duckdns.org with fallback those-boring.gl.joinmc.link and moved hardware",
       date: "2025-10-18",
   },
           {

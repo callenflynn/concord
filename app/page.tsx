@@ -64,8 +64,8 @@ export default function ConcordSMPLanding() {
   const [enlargedImage, setEnlargedImage] = useState<string | null>(null)
   const [isMobile, setIsMobile] = useState(false)
   const [bannerVisible, setBannerVisible] = useState(true)
-  const serverIP = "concord-smp.duckdns.org:30055"
-  const fallbackIP = "those-boring.gl.joinmc.link:30055"
+  const serverIP = "concord-smp.duckdns.org"
+  const fallbackIP = "those-boring.gl.joinmc.link"
   const announcements = getAnnouncements()
   const latestAnnouncement = announcements.length > 0 ? announcements[0] : null
 
