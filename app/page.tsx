@@ -8,12 +8,8 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import {
-  Server,
-  Users,
   Shield,
   Zap,
-  Copy,
-  CheckCircle,
   Heart,
   Home,
   Compass,
@@ -21,7 +17,6 @@ import {
   Cloud,
   Menu,
   X,
-  Activity,
   ScrollText,
   Camera,
   Megaphone,
@@ -38,24 +33,9 @@ import { getAnnouncements } from "@/lib/announcements"
 import concordLogo from './image.jpeg'
 import kingsmc from './kings.png'
 
-interface ServerStatus {
-  online: boolean
-  version?: string
-  players?: {
-    online: number
-    max: number
-    list?: string[]
-  }
-  software?: string
-  motd?: {
-    clean: string[]
-  }
-}
-
-type CurrentView = "home" | "wiki" | "status" | "players" | "rules" | "screenshots" | "announcements" | "Discord" | "affiliates" 
+type CurrentView = "home" | "wiki" | "rules" | "screenshots" | "announcements" | "Discord" | "affiliates"
 
 export default function ConcordSMPLanding() {
-  const [serverStatus, setServerStatus] = useState<ServerStatus | null>(null)
   const [copied, setCopied] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const [dropdownOpen, setDropdownOpen] = useState(false)
@@ -64,7 +44,6 @@ export default function ConcordSMPLanding() {
   const [enlargedImage, setEnlargedImage] = useState<string | null>(null)
   const [isMobile, setIsMobile] = useState(false)
   const [bannerVisible, setBannerVisible] = useState(true)
-  const serverIP = "those-boring.gl.joinmc.link"
   const announcements = getAnnouncements()
   const latestAnnouncement = announcements.length > 0 ? announcements[0] : null
 
@@ -110,23 +89,6 @@ export default function ConcordSMPLanding() {
     }
   }
 
-  useEffect(() => {
-    const fetchServerStatus = async () => {
-      try {
-        const response = await fetch(`/api/server-status`)
-        const data = await response.json()
-        setServerStatus(data)
-      } catch (error) {
-        console.error("Failed to fetch server status:", error)
-      }
-    }
-
-    fetchServerStatus()
-    const interval = setInterval(fetchServerStatus, 30000)
-
-    return () => clearInterval(interval)
-  }, [])
-
 useEffect(() => {
   const screenshotPaths = [
     '/images/screenshot-1.png',
@@ -170,30 +132,6 @@ useEffect(() => {
     img.src = path
   })
 }, [])
-
-  const copyServerIP = async () => {
-    try {
-      await navigator.clipboard.writeText(serverIP)
-      setCopied(true)
-      setTimeout(() => setCopied(false), 2000)
-    } catch (error) {
-      console.error("Failed to copy:", error)
-    }
-  }
-
-const getVersionInfo = () => {
-    if (serverStatus?.version) {
-      return serverStatus.version
-    }
-    return "1.21.7" // Default version if not fetched
-  }
-
-  const getSoftwareInfo = () => {
-    if (serverStatus?.software) {
-      return serverStatus.software
-    }
-    return "Paper" // Default software if not fetched
-  }
 
   const handleMenuClick = (view: CurrentView) => {
     setCurrentView(view)
@@ -251,30 +189,6 @@ const getVersionInfo = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-              <div className="flex items-center gap-2 bg-white/60 backdrop-blur-sm rounded-full px-5 py-2 shadow-sm">
-                <Server className="w-4 h-4 text-slate-500" />
-                <span className="font-mono text-slate-700">{serverIP}</span>
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  onClick={copyServerIP}
-                  className="text-slate-500 hover:bg-white/50 p-1 h-auto rounded-full"
-                >
-                  {copied ? <CheckCircle className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
-                </Button>
-              </div>
-
-              {serverStatus && (
-                <div className="flex items-center gap-2 bg-white/60 backdrop-blur-sm rounded-full px-5 py-2 shadow-sm">
-                  <div
-                    className={`w-2 h-2 rounded-full ${serverStatus.online ? "bg-emerald-400" : "bg-rose-400"}`}
-                  ></div>
-                  <span className="text-slate-700 text-sm">
-                    {serverStatus.online ? "online" : "offline"}
-                    {serverStatus.players && ` • ${serverStatus.players.online} playing`}
-                  </span>
-                </div>
-              )}
             </div>
 
             <div className="flex flex-wrap justify-center gap-2">
@@ -512,19 +426,6 @@ const getVersionInfo = () => {
                     <p className="text-slate-500 mb-3 font-light">
                       add our server to your list and join with any minecraft client you like
                     </p>
-                    <div className="flex items-center gap-2">
-                      <code className="bg-slate-100 px-3 py-2 rounded-lg font-mono text-sm text-slate-600">
-                        {serverIP}
-                      </code>
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        onClick={copyServerIP}
-                        className="rounded-lg border-slate-200 bg-transparent"
-                      >
-                        {copied ? <CheckCircle className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
-                      </Button>
-                    </div>
                   </div>
                 </div>
               </CardContent>
@@ -666,230 +567,6 @@ const getVersionInfo = () => {
 </section>
     </>
   )
-  const renderServerStatus = () => (
-    <section className="py-16 px-4 min-h-screen">
-      <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-light text-slate-700 mb-3">server status</h2>
-          <p className="text-lg text-slate-500 font-light">real-time information about concord smp</p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <Card className="border-0 bg-white/60 backdrop-blur-sm shadow-sm rounded-2xl">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2 text-lg font-medium text-slate-700">
-                <Server className="w-5 h-5 text-slate-400" />
-                technical info
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-3">
-              <div className="flex justify-between items-center">
-                <span className="text-slate-500 font-light">server ip</span>
-                <code className="font-mono text-sm text-slate-600">{serverIP}</code>
-              </div>
-              <div className="flex justify-between items-center">
-                <span className="text-slate-500 font-light">server version</span>
-                <span className="text-slate-600">
-                  {getSoftwareInfo()} {getVersionInfo()}
-                </span>
-              </div>
-              <div className="flex justify-between items-center">
-                <span className="text-slate-500 font-light">client support</span>
-                <span className="text-slate-600">1.20-1.21.8</span>
-              </div>
-              <div className="flex justify-between items-center">
-                <span className="text-slate-500 font-light">status</span>
-                <div className="flex items-center gap-2">
-                  <div
-                    className={`w-2 h-2 rounded-full ${serverStatus?.online ? "bg-emerald-400" : "bg-rose-400"}`}
-                  ></div>
-                  <span className="text-slate-600">{serverStatus?.online ? "online" : "offline"}</span>
-                </div>
-              </div>
-              <div className="flex justify-between items-center">
-                <span className="text-slate-500 font-light">players</span>
-                <span className="text-slate-600">
-                  {serverStatus?.players ? `${serverStatus.players.online}/${serverStatus.players.max}` : "0/0"}
-                </span>
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card className="border-0 bg-white/60 backdrop-blur-sm shadow-sm rounded-2xl">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2 text-lg font-medium text-slate-700">
-                <Activity className="w-5 h-5 text-slate-400" />
-                server details
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-3">
-              <div className="flex justify-between items-center">
-                <span className="text-slate-500 font-light">updates</span>
-                <span className="text-slate-600">always latest</span>
-              </div>
-              <div className="flex justify-between items-center">
-                <span className="text-slate-500 font-light">clients</span>
-                <span className="text-slate-600">all supported</span>
-              </div>
-              <div className="flex justify-between items-center">
-                <span className="text-slate-500 font-light">anticheat</span>
-                <span className="text-slate-600">none</span>
-              </div>
-              <div className="flex justify-between items-center">
-                <span className="text-slate-500 font-light">permissions</span>
-                <span className="text-slate-600">owner approval</span>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-
-        {serverStatus?.motd && (
-          <Card className="border-0 bg-white/60 backdrop-blur-sm shadow-sm rounded-2xl mt-6">
-            <CardHeader>
-              <CardTitle className="text-lg font-medium text-slate-700">message of the day</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="bg-slate-100 p-4 rounded-lg">
-                {serverStatus.motd.clean?.map((line, index) => (
-                  <div key={index} className="text-sm text-slate-600">
-                    {line || "\u00A0"}
-                  </div>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
-        )}
-      </div>
-    </section>
-  )
-const renderActivePlayers = () => {
-  // Early return with loading state if no server status
-  if (!serverStatus) {
-    return (
-      <section className="py-16 px-4 min-h-screen">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-light text-slate-700 mb-3">active players</h2>
-            <p className="text-lg text-slate-500 font-light">who's currently online</p>
-          </div>
-          <Card className="border-0 bg-white/60 backdrop-blur-sm shadow-sm rounded-2xl">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2 text-lg font-medium text-slate-700">
-                <Users className="w-5 h-5 text-slate-400" />
-                checking server status...
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="text-center py-8">
-                <div className="animate-pulse">
-                  <Users className="w-12 h-12 text-slate-300 mx-auto mb-3" />
-                </div>
-                <p className="text-slate-500 font-light">loading player information...</p>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-      </section>
-    )
-  }
-
-  return (
-    <section className="py-16 px-4 min-h-screen">
-      <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-light text-slate-700 mb-3">active players</h2>
-          <p className="text-lg text-slate-500 font-light">who's currently online</p>
-        </div>
-
-        <Card className="border-0 bg-white/60 backdrop-blur-sm shadow-sm rounded-2xl">
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2 text-lg font-medium text-slate-700">
-              <Users className="w-5 h-5 text-slate-400" />
-              online now ({(serverStatus?.players?.online ?? 0)}/{(serverStatus?.players?.max ?? 0)})
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            {/* Server offline state */}
-            {!serverStatus.online ? (
-              <div className="text-center py-12">
-                <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Server className="w-8 h-8 text-red-400" />
-                </div>
-                <h3 className="text-lg font-medium text-slate-700 mb-2">server is offline</h3>
-                <p className="text-slate-500 font-light">the server is currently not responding</p>
-              </div>
-            ) : /* No players online */ (serverStatus?.players?.online ?? 0) === 0 ? (
-              <div className="text-center py-12">
-                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Users className="w-8 h-8 text-blue-400" />
-                </div>
-                <h3 className="text-lg font-medium text-slate-700 mb-2">no players online</h3>
-                <p className="text-slate-500 font-light">be the first to join and start playing!</p>
-              </div>
-            ) : /* Players are online */ (
-              <div className="text-center py-12">
-                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Users className="w-8 h-8 text-green-500" />
-                </div>
-                <h3 className="text-xl font-medium text-slate-700 mb-2">
-                  {serverStatus?.players?.online ?? 0} player{(serverStatus?.players?.online ?? 0) !== 1 ? 's' : ''} online
-                </h3>
-                <p className="text-slate-500 font-light mb-6">join them in the world of concord smp!</p>
-                
-                {/* Server details */}
-                <div className="bg-white/50 rounded-lg p-4 max-w-md mx-auto">
-                  <div className="flex items-center justify-between text-sm">
-                    <span className="text-slate-500">server capacity:</span>
-                    <span className="font-mono text-slate-700">
-                      {serverStatus?.players?.online ?? 0}/{serverStatus?.players?.max ?? 0}
-                    </span>
-                  </div>
-                  <div className="mt-2 bg-slate-200 rounded-full h-2 overflow-hidden">
-                    <div 
-                      className="bg-green-400 h-full transition-all duration-300"
-                      style={{ 
-                        width: `${Math.min(100, ((serverStatus?.players?.online ?? 0) / Math.max(1, serverStatus?.players?.max ?? 1)) * 100)}%` 
-                      }}
-                    ></div>
-                  </div>
-                </div>
-
-                {/* Join button */}
-                <div className="mt-6">
-                  <div className="flex items-center justify-center gap-2 bg-slate-100 rounded-full px-4 py-2 max-w-fit mx-auto">
-                    <code className="font-mono text-sm text-slate-600">{serverIP}</code>
-                    <Button
-                      variant="ghost"
-                      size="sm"
-                      onClick={copyServerIP}
-                      className="text-slate-500 hover:bg-white/50 p-1 h-auto rounded-full"
-                    >
-                      {copied ? <CheckCircle className="w-3 h-3" /> : <Copy className="w-3 h-3" />}
-                    </Button>
-                  </div>
-                </div>
-              </div>
-            )}
-          </CardContent>
-        </Card>
-
-        {/* Additional info card */}
-        <Card className="border-0 bg-white/40 backdrop-blur-sm shadow-sm rounded-2xl mt-6">
-          <CardContent className="p-6">
-            <div className="text-center">
-              <h4 className="text-sm font-medium text-slate-600 mb-2">privacy notice</h4>
-              <p className="text-xs text-slate-500 font-light">
-                individual player names are kept private for security and privacy reasons. 
-                only player count is displayed publicly.
-              </p>
-            </div>
-          </CardContent>
-        </Card>
-      </div>
-    </section>
-  )
-}
-
   const renderRulesPage = () => (
     <section className="py-16 px-4 min-h-screen">
       <div className="max-w-4xl mx-auto">
@@ -1011,7 +688,6 @@ const renderActivePlayers = () => {
       </div>
     </section>
   )
-
   const renderScreenshotsPage = () => {
     const screenshots = [
       { src: "/images/screenshot-42.png", alt: "Overview of spawn and surrounding areas showcasing countless amazing builds" },
@@ -1304,20 +980,6 @@ const renderWikiPage = () => (
                   <div className="absolute right-0 mt-2 w-48 bg-white dark:bg-slate-800 rounded-lg shadow-lg border border-slate-200 dark:border-slate-700 py-2 animate-in slide-in-from-top-2 duration-200">
                     <Button
                       variant="ghost"
-                      onClick={() => handleMenuClick("status")}
-                      className={`w-full justify-start text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 ${currentView === "status" ? "font-bold bg-slate-100 dark:bg-slate-700" : ""}`}
-                    >
-                      <Cloud className="w-4 h-4 mr-2" /> Status
-                    </Button>
-                    <Button
-                      variant="ghost"
-                      onClick={() => handleMenuClick("players")}
-                      className={`w-full justify-start text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 ${currentView === "players" ? "font-bold bg-slate-100 dark:bg-slate-700" : ""}`}
-                    >
-                      <Users className="w-4 h-4 mr-2" /> Players
-                    </Button>
-                    <Button
-                      variant="ghost"
                       onClick={() => handleMenuClick("rules")}
                       className={`w-full justify-start text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 ${currentView === "rules" ? "font-bold bg-slate-100 dark:bg-slate-700" : ""}`}
                     >
@@ -1402,20 +1064,6 @@ const renderWikiPage = () => (
                 className={`w-full justify-start text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 ${currentView === "home" ? "font-bold bg-slate-100 dark:bg-slate-700" : ""}`}
               >
                 <Home className="w-4 h-4 mr-2" /> Home
-              </Button>
-              <Button
-                variant="ghost"
-                onClick={() => handleMenuClick("status")}
-                className={`w-full justify-start text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 ${currentView === "status" ? "font-bold bg-slate-100 dark:bg-slate-700" : ""}`}
-              >
-                <Cloud className="w-4 h-4 mr-2" /> Status
-              </Button>
-              <Button
-                variant="ghost"
-                onClick={() => handleMenuClick("players")}
-                className={`w-full justify-start text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 ${currentView === "players" ? "font-bold bg-slate-100 dark:bg-slate-700" : ""}`}
-              >
-                <Users className="w-4 h-4 mr-2" /> Players
               </Button>
               <Button
                 variant="ghost"
@@ -1526,10 +1174,6 @@ const renderWikiPage = () => (
           switch (currentView) {
             case "home":
               return renderHomePage()
-            case "status":
-              return renderServerStatus()
-            case "players":
-              return renderActivePlayers()
             case "rules":
               return renderRulesPage()
             case "screenshots":
@@ -1559,7 +1203,6 @@ const renderWikiPage = () => (
       />
     </div>
     <p className="text-xl font-light text-white">Concord SMP</p>
-    <p className="text-lg font-mono text-blue-300">{serverIP}</p>
   </div>
 </footer>
 
