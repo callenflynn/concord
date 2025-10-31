@@ -113,7 +113,7 @@ export default function ConcordSMPLanding() {
   useEffect(() => {
     const fetchServerStatus = async () => {
       try {
-        const response = await fetch(`/api/server-status?address=${serverIP}`)
+        const response = await fetch(`/api/server-status`)
         const data = await response.json()
         setServerStatus(data)
       } catch (error) {
