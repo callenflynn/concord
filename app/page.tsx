@@ -27,6 +27,8 @@ import {
   Moon,
   Sun,
   ChevronDown,
+  Copy,
+  CheckCircle,
 } from "lucide-react"
 import { getAnnouncements } from "@/lib/announcements"
 
@@ -46,6 +48,18 @@ export default function ConcordSMPLanding() {
   const [bannerVisible, setBannerVisible] = useState(true)
   const announcements = getAnnouncements()
   const latestAnnouncement = announcements.length > 0 ? announcements[0] : null
+
+  const serverIP = "boring.gl.joinmc.link"
+
+  const copyServerIP = async () => {
+    try {
+      await navigator.clipboard.writeText(serverIP)
+      setCopied(true)
+      setTimeout(() => setCopied(false), 2000)
+    } catch (err) {
+      console.error('Failed to copy: ', err)
+    }
+  }
 
   useEffect(() => {
     const savedDarkMode = localStorage.getItem('darkMode') === 'true'
@@ -189,6 +203,22 @@ useEffect(() => {
             </div>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+              <Button
+                onClick={copyServerIP}
+                className="bg-white/80 hover:bg-white/90 text-slate-700 border border-slate-300/50 rounded-full px-6 py-3 shadow-sm backdrop-blur-sm flex items-center gap-2"
+              >
+                {copied ? (
+                  <>
+                    <CheckCircle className="w-4 h-4" />
+                    Copied!
+                  </>
+                ) : (
+                  <>
+                    <Copy className="w-4 h-4" />
+                    Copy IP: {serverIP}
+                  </>
+                )}
+              </Button>
             </div>
 
             <div className="flex flex-wrap justify-center gap-2">
