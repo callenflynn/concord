@@ -49,7 +49,7 @@ export default function ConcordSMPLanding() {
   const announcements = getAnnouncements()
   const latestAnnouncement = announcements.length > 0 ? announcements[0] : null
 
-  const serverIP = "boring.gl.joinmc.link"
+  const serverIP = "those-boring.gl.joinmc.link"
 
   const copyServerIP = async () => {
     try {
