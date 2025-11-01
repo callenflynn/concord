@@ -132,7 +132,7 @@
     <script>
         async function loadTOS() {
             try {
-                const response = await fetch('/Docs/CI/TOS/TOS.md');
+                const response = await fetch('TOS.md');
                 if (!response.ok) {
                     throw new Error('Failed to load TOS.md');
                 }
