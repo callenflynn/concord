@@ -1,125 +1,162 @@
 # Callen Industries – Terms & Conditions
-
 **Effective Date:** Current Date  
-**Entity:** Callen Industries, including its subsidiaries Innovative Postal (IP) and Callen Security Industries (CSI) (“Callen Industries,” “we,” “us,” or “our”).
+**Entity:** Callen Industries, including subsidiaries Innovative Postal (IP) and Callen Security Industries (CSI)  
+(“Callen Industries,” “we,” “us,” or “our”).
 
-These Terms & Conditions govern all services provided by Callen Industries and its subsidiaries. By obtaining or using our services, you (“Client,” “Customer,” or “You”) agree to the terms stated herein.
+These Terms & Conditions govern all services provided by Callen Industries and its subsidiaries. By using our services, you (“Client,” “Customer,” or “You”) agree to these terms.
 
 ---
 
 ## 1. Scope of Services
+Callen Industries provides the following services:
 
-Callen Industries provides:
-
-- Insurance and risk management services
-- Postal and mailing services through **Innovative Postal (IP)**
-- Security services through **Callen Security Industries (CSI)**, including:
+- **Insurance and risk management**
+- **Postal and mail handling** through Innovative Postal (IP)
+- **Security and protection services** through Callen Security Industries (CSI)
   - Private security
   - Property protection
-  - Homeland support services
+  - Homeland support assistance
 
-Service details, limitations, and obligations may also be defined in specific contracts or service-level agreements (SLAs).
-
----
-
-## 2. Access and Inspection Rights
-
-To properly administer insurance claims, postal operations, or security services, Callen Industries may require:
-
-- Access to customer premises for inspection or assessment
-- The ability to review and verify items that are stored, insured, mailed, or secured
-- Documentation or proof of ownership, loss, or value when applicable
-
-The Customer grants Callen Industries the right to enter relevant locations or review relevant items at reasonable times for the purposes of service delivery, verification, and loss assessment.
+Additional details may be defined in service agreements or insurance level documentation.
 
 ---
 
-## 3. Insurance Rate Adjustments
+## 2. Access and Item Inspection Rights
+To provide delivery, transportation, storage, postal, or insurance services, the Client acknowledges and agrees that:
 
-Insurance service pricing is based on risk evaluation and ongoing client activity.  
-Callen Industries reserves the right to adjust insurance rates if:
-
-- Claims increase in frequency or amount
-- The value or nature of insured items changes
-- Risk level, security requirements, or threat exposure increases
-- Fraud, misrepresentation, or withholding of information is identified or suspected
-
-Rate modifications will be communicated in writing whenever practical.
+- CI staff may **view and record** items being transported or stored for documentation, security, or insurance purposes.
+- **Written books or personal documents will not be opened, read, or copied**, unless explicitly requested by the client.
+- CI may enter relevant in-game locations at reasonable times to **assess claims or verify insured property**.
 
 ---
 
-## 4. Client Responsibilities
+## 3. Insurance Claim Process
+Insurance claims must be submitted by requesting a meeting through **Discord or text**.
 
+- During the meeting, we will record claim details.
+- Damage or loss will be **assessed in-game within several days**, depending on availability.
+- Insurance coverage amounts and limits are listed in the **CI Insurance Spreadsheet**.
+
+---
+
+## 4. Insurance Coverage Limitations
+Insurance **does not cover** item loss or damage caused by:
+
+- Server crashes, rollbacks, lag, plugin bugs, dupe wipes, or any technical issue outside our control.
+- Glitches, exploits, or unintended game behavior.
+- Clients using **unapproved mods or hacked clients**, including but not limited to: LiquidBounce, Meteor, or similar cheats.
+
+We may choose to assist in these cases **voluntarily**, but we are not obligated to.
+
+---
+
+## 5. Risk Transfer
+Once items are delivered to the Client’s **PO Box**, designated mailbox, or agreed storage/delivery location:
+
+- **Responsibility for the items transfers to the Client.**
+- CI is no longer liable for theft, griefing, or loss after delivery is confirmed.
+
+---
+
+## 6. Postal Operations & Invoicing
+- On the **Concord SMP**, invoices and deliveries are placed in the Client’s **Innovative Postal PO Box** located in the **CI Tower**.
+- In special cases only, invoices may be placed directly into a player’s personal mailbox.
+- On other servers/realms, CI will use the local postal system or the mutually agreed delivery drop-off point.
+- **Invoices are always delivered through a PO Box system, regardless of server.**
+
+---
+
+## 7. Insurance Rate Adjustment
+Insurance pricing may change if:
+
+- Claims increase in frequency or severity
+- Risk exposure changes
+- Item value changes
+- Fraud, misrepresentation, or withheld information is suspected
+
+Rate changes will be communicated when practical.
+
+---
+
+## 8. Client Responsibilities
 Clients agree to:
 
-- Provide accurate, complete, and truthful information at all times
-- Promptly report changes that affect risk, property value, location, or service needs
-- Use all Callen Industries services in compliance with local, state, and federal law
-- Ensure that any items submitted for mailing, security, or insurance are lawful and properly declared
+- Provide accurate and honest information
+- Maintain lawful use of CI services
+- Report changes that affect service or insurance needs
+- Avoid using unapproved mods or hacked clients
 
-Failure to adhere to these responsibilities may result in service suspension, additional fees, or termination.
-
----
-
-## 5. Handling of Property and Mail
-
-For postal and security-related operations:
-
-- Callen Industries will exercise reasonable care in handling, storing, transporting, and securing items entrusted to us
-- However, we do not guarantee uninterrupted service or absolute protection from loss, damage, or delay caused by factors outside our reasonable control
-
-Claims will be processed in accordance with applicable insurance or service agreements.
+Failure to comply may result in suspended services or termination.
 
 ---
 
-## 6. Limitation of Liability
+## 9. Property Handling and Liability
+CI will take reasonable care when transporting, storing, or securing items.  
+However, CI is **not liable for**:
 
-Callen Industries is **not** liable for:
+- Loss caused by server failure, outside interference, or events beyond our control
+- Client negligence or failure to secure their own property
+- Indirect or consequential damages
 
-- Loss, delay, or damage resulting from natural disasters, third-party criminal acts, or circumstances beyond our control
-- Customer negligence, incomplete declarations, improper packaging, or failure to disclose relevant information
-- Indirect, incidental, or consequential damages unless specifically required by law
-
-Our liability is at all times limited to the terms stated in the applicable service contract or insurance policy.
-
----
-
-## 7. Payment and Billing
-
-- Payments must be made according to the agreed billing schedule
-- Late payments may incur service fees and/or suspension of services
-- Continued non-payment may result in termination of services and debt recovery procedures
+Liability is limited to the applicable insurance level or service agreement.
 
 ---
 
-## 8. Privacy and Confidentiality
-
-Callen Industries will maintain customer confidentiality to the fullest extent permitted by law.  
-Information may be disclosed only:
-
-- To fulfill service operations
-- To comply with legal or regulatory obligations
-- With the Customer’s explicit consent
-
-Callen Industries does **not** sell or distribute customer information for marketing or external commercial use.
+## 10. Payment and Billing
+- Payments must follow the agreed schedule.
+- Late payments may result in additional fees or suspended services.
+- Continued non-payment may lead to service termination.
+- **Prices are listed in invoices. It is the Client’s responsibility to read and understand the invoice before payment.**
 
 ---
 
-## 9. Termination of Services
+## 11. Privacy and Confidentiality
+We do not sell, share, or distribute client information.  
+Information is only used for:
 
-Either party may terminate services with prior notice in accordance with the governing service agreement.  
-Callen Industries reserves the right to immediately terminate services in the event of:
-
-- Fraudulent behavior
-- Violation of law
-- Breach of contract
-- Threats to personnel, operations, or public safety
+- Service operation
+- Claim processing
+- Legal or administrative requirements
+- With explicit client consent
 
 ---
 
-## 10. Amendments
+## 12. Termination of Services
+CI or the Client may terminate services with proper notice.  
+CI may terminate services immediately if:
 
-Callen Industries reserves the right to update or revise these Terms & Conditions at any time.  
-Continued use of services constitutes acceptance of the revised terms.
+- Fraud occurs
+- Laws or server rules are violated
+- Personnel are threatened or harassed
+- Contracts or agreements are breached
+
+---
+
+## 13. Amendments
+Callen Industries may update these Terms at any time.  
+Continued use of services constitutes acceptance.
+
+---
+
+## 14. Severability
+If any part of these Terms is found invalid or unenforceable, the remaining sections remain in full effect.
+
+---
+
+## 15. Staff & Subcontracting
+Callen Industries may assign or subcontract tasks to authorized CI staff or trusted third-party partners.  
+All personnel acting on behalf of CI operate under CI supervision and are expected to follow the same conduct and confidentiality requirements.
+
+---
+
+## 16. Dispute Resolution
+If a disagreement occurs regarding service quality, delivery, billing, or insurance evaluation, the Client agrees to:
+
+1. Attempt resolution first through a meeting with CI staff.
+2. If no agreement is reached, final interpretation may be made by:
+   - The highest-ranking CI administrator involved, or
+   - The server owner or governing admin authority, where applicable.
+
+All decisions made through this process are final.
 
 ---
