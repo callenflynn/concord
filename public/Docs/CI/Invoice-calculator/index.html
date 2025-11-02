@@ -52,6 +52,12 @@
 <body>
     <h1>CI Invoice Calculator</h1>
 
+    <div style="margin-bottom: 20px;">
+        <label for="due-date">Due Date: </label>
+        <input type="date" id="due-date" style="padding: 5px; margin-left: 10px;">
+        <small style="margin-left: 10px; color: #666;">(Leave empty to use today's date)</small>
+    </div>
+
     <button onclick="addRow()">Add Service</button>
     <button onclick="generateInvoice()">Generate Invoice</button>
 
@@ -104,6 +110,11 @@
             const rows = document.querySelectorAll('#table-body tr');
             let total = 0;
             let invoiceText = 'CI INVOICE\n\n';
+
+            // Get due date
+            const dueDateInput = document.getElementById('due-date').value;
+            const dueDate = dueDateInput || new Date().toISOString().split('T')[0];
+            invoiceText += `Due Date: ${dueDate}\n\n`;
 
             rows.forEach(row => {
                 const serviceName = row.cells[0].querySelector('input').value.trim();
