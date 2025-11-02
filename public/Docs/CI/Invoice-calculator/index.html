@@ -98,7 +98,6 @@
             const row = button.parentElement.parentElement;
             const tableBody = document.getElementById('table-body');
 
-            // Don't remove if it's the last row
             if (tableBody.children.length > 1) {
                 row.remove();
             } else {
@@ -111,10 +110,9 @@
             let total = 0;
             let invoiceText = 'CI INVOICE\n\n';
 
-            // Get due date
             const dueDateInput = document.getElementById('due-date').value;
             const dueDate = dueDateInput || new Date().toISOString().split('T')[0];
-            invoiceText += `Due Date: ${dueDate}\n\n`;
+            invoiceText += `Date Due: ${dueDate}\n\n`;
 
             rows.forEach(row => {
                 const serviceName = row.cells[0].querySelector('input').value.trim();
