@@ -47,6 +47,33 @@
             white-space: pre-line;
             font-family: monospace;
         }
+        .autocomplete-container {
+            position: relative;
+        }
+        .autocomplete-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            border: 1px solid #ddd;
+            border-top: none;
+            max-height: 200px;
+            overflow-y: auto;
+            z-index: 1000;
+            display: none;
+        }
+        .autocomplete-item {
+            padding: 8px 12px;
+            cursor: pointer;
+            border-bottom: 1px solid #eee;
+        }
+        .autocomplete-item:hover {
+            background-color: #f0f0f0;
+        }
+        .autocomplete-item:last-child {
+            border-bottom: none;
+        }
     </style>
 </head>
 <body>
@@ -71,7 +98,12 @@
         </thead>
         <tbody id="table-body">
             <tr>
-                <td><input type="text" placeholder="Enter service name"></td>
+                <td>
+                    <div class="autocomplete-container">
+                        <input type="text" placeholder="Enter service name" oninput="handleAutocomplete(this)">
+                        <div class="autocomplete-dropdown"></div>
+                    </div>
+                </td>
                 <td><input type="number" step="1" placeholder="0"></td>
                 <td><button class="remove-btn" onclick="removeRow(this)">Remove</button></td>
             </tr>
@@ -79,14 +111,30 @@
     </table>
 
     <div id="invoice-output" style="display: none;"></div>
-
+// 
+//
+// RECCOMEDNATIONS
+//
+//
     <script>
+        const SERVICE_RECOMMENDATIONS = [
+            "Callen Industries",
+            "CSI",
+            "IP",
+            "CI Storage Solutions"
+        ];
+
         function addRow() {
             const tableBody = document.getElementById('table-body');
             const newRow = document.createElement('tr');
 
             newRow.innerHTML = `
-                <td><input type="text" placeholder="Enter service name"></td>
+                <td>
+                    <div class="autocomplete-container">
+                        <input type="text" placeholder="Enter service name" oninput="handleAutocomplete(this)">
+                        <div class="autocomplete-dropdown"></div>
+                    </div>
+                </td>
                 <td><input type="number" step="1" placeholder="0"></td>
                 <td><button class="remove-btn" onclick="removeRow(this)">Remove</button></td>
             `;
@@ -135,6 +183,54 @@
             outputDiv.textContent = invoiceText;
             outputDiv.style.display = 'block';
         }
+
+        function handleAutocomplete(input) {
+            const container = input.parentElement;
+            const dropdown = container.querySelector('.autocomplete-dropdown');
+            const query = input.value.toLowerCase().trim();
+
+            // Clear previous suggestions
+            dropdown.innerHTML = '';
+
+            if (query.length === 0) {
+                dropdown.style.display = 'none';
+                return;
+            }
+
+            // Filter recommendations
+            const matches = SERVICE_RECOMMENDATIONS.filter(item =>
+                item.toLowerCase().includes(query)
+            );
+
+            if (matches.length > 0) {
+                matches.forEach(match => {
+                    const item = document.createElement('div');
+                    item.className = 'autocomplete-item';
+                    item.textContent = match;
+                    item.onclick = () => selectAutocomplete(input, match);
+                    dropdown.appendChild(item);
+                });
+                dropdown.style.display = 'block';
+            } else {
+                dropdown.style.display = 'none';
+            }
+        }
+
+        function selectAutocomplete(input, value) {
+            input.value = value;
+            const container = input.parentElement;
+            const dropdown = container.querySelector('.autocomplete-dropdown');
+            dropdown.style.display = 'none';
+        }
+
+        // Close dropdowns when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.autocomplete-container')) {
+                document.querySelectorAll('.autocomplete-dropdown').forEach(dropdown => {
+                    dropdown.style.display = 'none';
+                });
+            }
+        });
     </script>
 </body>
 </html></content>
