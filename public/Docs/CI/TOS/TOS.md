@@ -164,3 +164,13 @@ If a disagreement occurs regarding service quality, delivery, billing, or insura
   - The server owner or governing admin authority, where applicable.  
 
 All decisions made through this process are final.
+
+---
+
+## 17. Collateral and Repossession
+If a Client's insurance payment is overdue and the Client is unable to pay:
+
+CI reserves the right to repossess insured items or property until the outstanding balance is settled.
+Repossession will be conducted in a reasonable manner, with prior notice where practical.
+The Client remains responsible for any costs associated with repossession or storage during non-payment.
+Repossession does not absolve the Client of their obligation to pay the outstanding insurance balance.
