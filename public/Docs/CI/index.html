@@ -138,6 +138,57 @@
         .footer a:hover {
             text-decoration: underline;
         }
+        .affiliates-section {
+            background: rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 40px 30px;
+            margin: 60px 0;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        .affiliates-section h2 {
+            color: white;
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+        .affiliate-card {
+            background: rgba(255,255,255,0.95);
+            border-radius: 8px;
+            padding: 25px;
+            margin: 20px auto;
+            max-width: 600px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .affiliate-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 24px rgba(0,0,0,0.15);
+        }
+        .affiliate-card h3 {
+            color: #2d3748;
+            margin-bottom: 10px;
+            font-size: 1.5em;
+        }
+        .affiliate-card p {
+            color: #718096;
+            margin-bottom: 15px;
+        }
+        .affiliate-card a {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        .affiliate-card a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2.5em;
@@ -258,6 +309,15 @@
             <p>Join countless satisfied customers who trust Callen Industries for their complete business and protection needs.</p>
             <a href="/Docs/CI/signup/index.html" class="button">Sign Up Now</a>
             <a href="/Docs/CI/TOS/index.html" class="button secondary">View Terms & Conditions</a>
+        </section>
+
+        <section class="affiliates-section">
+            <h2>Our Affiliates</h2>
+            <div class="affiliate-card">
+                <h3>ShoeGum</h3>
+                <p>An Unturned server offering unique gameplay experiences and community-driven content. Join a thriving community in this popular survival game.</p>
+                <a href="https://callenflynn.github.io/shoegum/" target="_blank">Visit ShoeGum →</a>
+            </div>
         </section>
     </div>
 
