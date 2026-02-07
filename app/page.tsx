@@ -722,6 +722,7 @@ useEffect(() => {
     const screenshots = [
       { src: "/images/screenshot-42.png", alt: "Overview of spawn and surrounding areas showcasing countless amazing builds" },
       { src: "/images/screenshot-39.webp", alt: "Server screenshot" },
+      { src: "/images/screenshot-43.png", alt: "Server screenshot" },
       { src: "/images/screenshot-38.webp", alt: "Server screenshot" },
       { src: "/images/screenshot-37.webp", alt: "Server screenshot" },
       { src: "/images/screenshot-34.webp", alt: "cal's new fountain" },

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Server Downtime Update 2/6/26 - Concord SMP</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gradient-to-br from-blue-100 via-indigo-100 to-purple-100 min-h-screen">
+    <div class="container mx-auto px-4 py-16">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-12">
+                <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <span class="text-2xl">🛠️</span>
+                </div>
+                <h1 class="text-4xl font-light text-slate-700 mb-3">Server Downtime Update</h1>
+                <p class="text-lg text-slate-500 font-light">Status update for Concord SMP maintenance and recovery</p>
+                <div class="text-sm text-slate-400 mt-2">Published: February 6, 2026</div>
+            </div>
+
+            <div class="bg-white/70 backdrop-blur-sm rounded-2xl shadow-sm p-8 space-y-6">
+                <div class="bg-red-50 border-l-4 border-red-400 p-4 rounded">
+                    <div class="flex">
+                        <div class="ml-3">
+                            <h3 class="text-sm font-medium text-red-800">Important Notice</h3>
+                            <div class="mt-2 text-sm text-red-700">
+                                <p>The Concord SMP server experienced downtime from 2/6 to 2/7 while infrastructure updates were completed. Details below.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="prose prose-slate max-w-none">
+                    <h2 class="text-2xl font-medium text-slate-700 mb-4">What Happened?</h2>
+                    <p class="text-slate-600 mb-6">
+                        On 02/06/2026, the server was taken offline to install and configure Proxmox on the host machine. 
+                        The Minecraft server has been moved into a Debian VM inside Proxmox to improve reliability, 
+                        isolation, and long-term maintainability.
+                    </p>
+
+                    <h2 class="text-2xl font-medium text-slate-700 mb-4">Timeline</h2>
+                    <ul class="list-disc list-inside text-slate-600 space-y-2 mb-6">
+                        <li><strong>Start:</strong> 2/6 — maintenance window began</li>
+                        <li><strong>Downtime:</strong> 2/6 to 2/7</li>
+                        <li><strong>Change:</strong> Proxmox installed on the host</li>
+                        <li><strong>Result:</strong> Minecraft server now runs in a Proxmox Debian VM</li>
+                    </ul>
+
+                    <h2 class="text-2xl font-medium text-slate-700 mb-4">Important</h2>
+                    <div class="bg-green-50 border-l-4 border-green-400 p-4 rounded mb-6">
+                        <div class="flex">
+                            <div class="ml-3">
+                                <h3 class="text-sm font-medium text-green-800">Your Progress is Safe</h3>
+                                <div class="mt-2 text-sm text-green-700">
+                                    <p><strong>All player data and the world were preserved.</strong> This was an infrastructure change only.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h2 class="text-2xl font-medium text-slate-700 mb-4">Current Status</h2>
+                    <div class="bg-slate-100 p-4 rounded-lg mb-6">
+                        <p class="text-slate-600 mb-2">The server is back online in its new VM environment:</p>
+                        <code class="bg-slate-200 px-3 py-2 rounded text-slate-800 font-mono">
+                            Online after 2/7 maintenance window
+                        </code>
+                    </div>
+
+                    <h2 class="text-2xl font-medium text-slate-700 mb-4">What You Need to Do</h2>
+                    <ol class="list-decimal list-inside text-slate-600 space-y-2 mb-6">
+                        <li>Reconnect and play normally</li>
+                        <li>If you notice issues, report them in Discord</li>
+                        <li>Keep an eye on this page for follow-up notes</li>
+                    </ol>
+
+                    <h2 class="text-2xl font-medium text-slate-700 mb-4">Benefits of the Upgrade</h2>
+                    <ul class="list-disc list-inside text-slate-600 space-y-2 mb-6">
+                        <li>Improved stability through VM isolation</li>
+                        <li>Faster recovery and snapshot support</li>
+                        <li>Cleaner maintenance and safer updates</li>
+                        <li>Better long-term reliability for the community</li>
+                    </ul>
+
+                    <div class="bg-blue-50 border-l-4 border-blue-400 p-4 rounded">
+                        <div class="flex">
+                            <div class="ml-3">
+                                <h3 class="text-sm font-medium text-blue-800">Stay Connected</h3>
+                                <div class="mt-2 text-sm text-blue-700">
+                                    <p>Join our Discord server for real-time updates and community discussion during the move.</p>
+                                    <a href="https://discord.gg/V6xAeZecSr" class="text-blue-600 hover:underline font-medium" target="_blank">
+                                        Join Discord →
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-8">
+                <button 
+                    onclick="window.close()" 
+                    class="bg-slate-600 hover:bg-slate-700 text-white px-6 py-3 rounded-lg font-medium transition-colors"
+                >
+                    Back to Concord SMP
+                </button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
