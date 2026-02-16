@@ -130,9 +130,19 @@
     </div>
 
     <script>
+        function getTosUrl() {
+            const { origin, pathname } = window.location;
+            if (pathname.endsWith('.html')) {
+                const directory = pathname.replace(/[^/]+$/, '');
+                return new URL('TOS.md', origin + directory).toString();
+            }
+            const basePath = pathname.endsWith('/') ? pathname : pathname + '/';
+            return new URL('TOS.md', origin + basePath).toString();
+        }
+
         async function loadTOS() {
             try {
-                const response = await fetch('TOS.md');
+                const response = await fetch(getTosUrl());
                 if (!response.ok) {
                     throw new Error('Failed to load TOS.md');
                 }
