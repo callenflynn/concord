@@ -184,7 +184,7 @@ useEffect(() => {
   const renderHomePage = () => (
     <>
       <section className="relative overflow-hidden bg-[url('/images/screenshot-44.png')] bg-cover bg-center">
-        <div className="absolute inset-0 bg-black/30 backdrop-blur-sm"></div>
+        <div className="absolute inset-0 bg-black/40 backdrop-blur-sm"></div>
         <div className="relative max-w-7xl mx-auto px-4 py-16 sm:py-24">
           <div className="text-center space-y-6">
             <div className="space-y-3">
@@ -197,8 +197,8 @@ useEffect(() => {
                   className="w-16 h-16 object-contain rounded-full"
                 />
               </div>
-              <h1 className="text-4xl sm:text-6xl font-light tracking-wide text-slate-700">Concord SMP</h1>
-              <p className="text-lg sm:text-xl text-slate-600 max-w-2xl mx-auto font-light">
+              <h1 className="text-4xl sm:text-6xl font-light tracking-wide text-slate-700 dark:text-slate-100">Concord SMP</h1>
+              <p className="text-lg sm:text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto font-light">
                 A peaceful Minecraft community where creativity flows freely
               </p>
             </div>
@@ -206,7 +206,7 @@ useEffect(() => {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
               <Button
                 onClick={copyServerIP}
-                className="bg-white/80 hover:bg-white/90 text-slate-700 border border-slate-300/50 rounded-full px-6 py-3 shadow-sm backdrop-blur-sm flex items-center gap-2"
+                className="bg-white/80 hover:bg-white/90 text-slate-700 border border-slate-300/50 rounded-full px-6 py-3 shadow-sm backdrop-blur-sm flex items-center gap-2 dark:bg-slate-900/70 dark:hover:bg-slate-900/80 dark:text-slate-100 dark:border-slate-700/60"
               >
                 {copied ? (
                   <>
@@ -223,16 +223,16 @@ useEffect(() => {
             </div>
 
             <div className="flex flex-wrap justify-center gap-2">
-              <Badge variant="secondary" className="bg-white/50 text-slate-600 border-white/30 rounded-full px-3 py-1">
+              <Badge variant="secondary" className="bg-white/50 text-slate-600 border-white/30 rounded-full px-3 py-1 dark:bg-slate-900/60 dark:text-slate-200 dark:border-slate-800/60">
                 Versions 1.20-1.21.8
               </Badge>
-              <Badge variant="secondary" className="bg-white/50 text-slate-600 border-white/30 rounded-full px-3 py-1">
+              <Badge variant="secondary" className="bg-white/50 text-slate-600 border-white/30 rounded-full px-3 py-1 dark:bg-slate-900/60 dark:text-slate-200 dark:border-slate-800/60">
                 always updated
               </Badge>
-              <Badge variant="secondary" className="bg-white/50 text-slate-600 border-white/30 rounded-full px-3 py-1">
+              <Badge variant="secondary" className="bg-white/50 text-slate-600 border-white/30 rounded-full px-3 py-1 dark:bg-slate-900/60 dark:text-slate-200 dark:border-slate-800/60">
                 trust-based
               </Badge>
-              <Badge variant="secondary" className="bg-white/50 text-slate-600 border-white/30 rounded-full px-3 py-1">
+              <Badge variant="secondary" className="bg-white/50 text-slate-600 border-white/30 rounded-full px-3 py-1 dark:bg-slate-900/60 dark:text-slate-200 dark:border-slate-800/60">
                 chill vibes
               </Badge>
             </div>
@@ -249,102 +249,102 @@ useEffect(() => {
             </p>
           </div>
 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <Card className="border-0 bg-white/60 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300 rounded-2xl">
+            <Card className="border-0 bg-white/60 dark:bg-slate-900/60 dark:border-slate-800/60 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300 rounded-2xl">
               <CardHeader className="pb-3">
                 <div className="w-10 h-10 bg-rose-100 rounded-full flex items-center justify-center mb-3">
                   <Heart className="w-5 h-5 text-rose-400" />
                 </div>
-                <CardTitle className="text-lg font-medium text-slate-700">built on trust</CardTitle>
-                <CardDescription className="text-slate-500 font-light">
+                <CardTitle className="text-lg font-medium text-slate-700 dark:text-slate-100">built on trust</CardTitle>
+                <CardDescription className="text-slate-500 dark:text-slate-400 font-light">
                   no strict rules or harsh punishments. just good people doing good things together.
                 </CardDescription>
               </CardHeader>
             </Card>
 
-            <Card className="border-0 bg-white/60 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300 rounded-2xl">
+            <Card className="border-0 bg-white/60 dark:bg-slate-900/60 dark:border-slate-800/60 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300 rounded-2xl">
               <CardHeader className="pb-3">
                 <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mb-3">
                   <Settings className="w-5 h-5 text-blue-400" />
                 </div>
-                <CardTitle className="text-lg font-medium text-slate-700">any client works</CardTitle>
-                <CardDescription className="text-slate-500 font-light">
+                <CardTitle className="text-lg font-medium text-slate-700 dark:text-slate-100">any client works</CardTitle>
+                <CardDescription className="text-slate-500 dark:text-slate-400 font-light">
                   vanilla, fabric, optifine, neoforge - use whatever you want.
                 </CardDescription>
               </CardHeader>
             </Card>
 
-            <Card className="border-0 bg-white/60 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300 rounded-2xl">
+            <Card className="border-0 bg-white/60 dark:bg-slate-900/60 dark:border-slate-800/60 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300 rounded-2xl">
               <CardHeader className="pb-3">
                 <div className="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center mb-3">
                   <Shield className="w-5 h-5 text-purple-400" />
                 </div>
-                <CardTitle className="text-lg font-medium text-slate-700">no anticheat stress</CardTitle>
-                <CardDescription className="text-slate-500 font-light">
+                <CardTitle className="text-lg font-medium text-slate-700 dark:text-slate-100">no anticheat stress</CardTitle>
+                <CardDescription className="text-slate-500 dark:text-slate-400 font-light">
                   play freely without worrying about false flags or restrictions.
                 </CardDescription>
               </CardHeader>
             </Card>
 
-            <Card className="border-0 bg-white/60 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300 rounded-2xl">
+            <Card className="border-0 bg-white/60 dark:bg-slate-900/60 dark:border-slate-800/60 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300 rounded-2xl">
               <CardHeader className="pb-3">
                 <div className="w-10 h-10 bg-amber-100 rounded-full flex items-center justify-center mb-3">
                   <Home className="w-5 h-5 text-amber-400" />
                 </div>
-                <CardTitle className="text-lg font-medium text-slate-700">amazing builds</CardTitle>
-                <CardDescription className="text-slate-500 font-light">
+                <CardTitle className="text-lg font-medium text-slate-700 dark:text-slate-100">amazing builds</CardTitle>
+                <CardDescription className="text-slate-500 dark:text-slate-400 font-light">
                   explore incredible creations from our talented community members.
                 </CardDescription>
               </CardHeader>
             </Card>
 
-            <Card className="border-0 bg-white/60 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300 rounded-2xl">
+            <Card className="border-0 bg-white/60 dark:bg-slate-900/60 dark:border-slate-800/60 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300 rounded-2xl">
               <CardHeader className="pb-3">
                 <div className="w-10 h-10 bg-teal-100 rounded-full flex items-center justify-center mb-3">
                   <Compass className="w-5 h-5 text-teal-400" />
                 </div>
-                <CardTitle className="text-lg font-medium text-slate-700">endless exploration</CardTitle>
-                <CardDescription className="text-slate-500 font-light">
+                <CardTitle className="text-lg font-medium text-slate-700 dark:text-slate-100">endless exploration</CardTitle>
+                <CardDescription className="text-slate-500 dark:text-slate-400 font-light">
                   vast worlds with hidden treasures and peaceful adventures.
                 </CardDescription>
               </CardHeader>
             </Card>
 
-            <Card className="border-0 bg-white/60 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300 rounded-2xl">
+            <Card className="border-0 bg-white/60 dark:bg-slate-900/60 dark:border-slate-800/60 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300 rounded-2xl">
               <CardHeader className="pb-3">
                 <div className="w-10 h-10 bg-emerald-100 rounded-full flex items-center justify-center mb-3">
                   <Zap className="w-5 h-5 text-emerald-400" />
                 </div>
-                <CardTitle className="text-lg font-medium text-slate-700">redstone friendly</CardTitle>
-                <CardDescription className="text-slate-500 font-light">
+                <CardTitle className="text-lg font-medium text-slate-700 dark:text-slate-100">redstone friendly</CardTitle>
+                <CardDescription className="text-slate-500 dark:text-slate-400 font-light">
                   perfect for engineers - no lag, no limits, just pure creativity.
                 </CardDescription>
               </CardHeader>
             </Card>
 
-            <Card className="border-0 bg-white/60 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300 rounded-2xl">
+            <Card className="border-0 bg-white/60 dark:bg-slate-900/60 dark:border-slate-800/60 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300 rounded-2xl">
               <CardHeader className="pb-3">
                 <div className="w-10 h-10 bg-orange-100 rounded-full flex items-center justify-center mb-3">
                   <Trophy className="w-5 h-5 text-orange-400" />
                 </div>
-                <CardTitle className="text-lg font-medium text-slate-700">custom achievements</CardTitle>
-                <CardDescription className="text-slate-500 font-light">
+                <CardTitle className="text-lg font-medium text-slate-700 dark:text-slate-100">custom achievements</CardTitle>
+                <CardDescription className="text-slate-500 dark:text-slate-400 font-light">
                   unlock unique challenges and milestones designed just for our community.
                 </CardDescription>
               </CardHeader>
             </Card>
 
-            <Card className="border-0 bg-white/60 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300 rounded-2xl">
+            <Card className="border-0 bg-white/60 dark:bg-slate-900/60 dark:border-slate-800/60 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300 rounded-2xl">
               <CardHeader className="pb-3">
                 <div className="w-10 h-10 bg-pink-100 rounded-full flex items-center justify-center mb-3">
                   <Music className="w-5 h-5 text-pink-400" />
                 </div>
-                <CardTitle className="text-lg font-medium text-slate-700">custom music</CardTitle>
-                <CardDescription className="text-slate-500 font-light">
+                <CardTitle className="text-lg font-medium text-slate-700 dark:text-slate-100">custom music</CardTitle>
+                <CardDescription className="text-slate-500 dark:text-slate-400 font-light">
                   immerse yourself with our carefully curated soundtrack and ambient sounds.
                 </CardDescription>
               </CardHeader>
             </Card>
-              <Card className="border-0 bg-white/60 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300 rounded-2xl">
+              <Card className="border-0 bg-white/60 dark:bg-slate-900/60 dark:border-slate-800/60 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300 rounded-2xl">
               <CardHeader className="pb-3">
                 <div className="w-10 h-10 bg-indigo-100 rounded-full flex items-center justify-center mb-3">
                   {/* Using the image directly for the icon */}
@@ -356,14 +356,14 @@ useEffect(() => {
                     className="w-10 h-10 object-cover rounded-full"
                   />
                 </div>
-                <CardTitle className="text-lg font-medium text-slate-700">anti-griefing & rollbacks</CardTitle>
-                <CardDescription className="text-slate-500 font-light">
+                <CardTitle className="text-lg font-medium text-slate-700 dark:text-slate-100">anti-griefing & rollbacks</CardTitle>
+                <CardDescription className="text-slate-500 dark:text-slate-400 font-light">
                   we use CoreProtect to log block changes, allowing us to easily rollback any major griefing.
                 </CardDescription>
               </CardHeader>
             </Card>
 
-                <Card className="border-0 bg-white/60 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300 rounded-2xl">
+                <Card className="border-0 bg-white/60 dark:bg-slate-900/60 dark:border-slate-800/60 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300 rounded-2xl">
               <CardHeader className="pb-3">
                 <div className="w-10 h-10 bg-indigo-100 rounded-full flex items-center justify-center mb-3">
                   {/* Using the image directly for the icon */}
@@ -375,14 +375,14 @@ useEffect(() => {
                     className="w-10 h-10 object-cover rounded-full"
                   />
                 </div>
-                <CardTitle className="text-lg font-medium text-slate-700">Distant Horizons</CardTitle>
-                <CardDescription className="text-slate-500 font-light">
+                <CardTitle className="text-lg font-medium text-slate-700 dark:text-slate-100">Distant Horizons</CardTitle>
+                <CardDescription className="text-slate-500 dark:text-slate-400 font-light">
                   We have the Distant Horizons support plugin, allowing for Distant Horizons to be used client-side to the fullest potential.
                 </CardDescription>
               </CardHeader>
             </Card>
 
-            <Card className="border-0 bg-white/60 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300 rounded-2xl">
+            <Card className="border-0 bg-white/60 dark:bg-slate-900/60 dark:border-slate-800/60 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300 rounded-2xl">
               <CardHeader className="pb-3">
                 <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center mb-3">
                   <Image
@@ -393,8 +393,8 @@ useEffect(() => {
                     className="w-10 h-10 object-cover rounded-full"
                   />
                 </div>
-                <CardTitle className="text-lg font-medium text-slate-700">ViaVersion & ViaBackwards</CardTitle>
-                <CardDescription className="text-slate-500 font-light">
+                <CardTitle className="text-lg font-medium text-slate-700 dark:text-slate-100">ViaVersion & ViaBackwards</CardTitle>
+                <CardDescription className="text-slate-500 dark:text-slate-400 font-light">
                   Join with any client version 1.20-1.21.8! Our ViaVersion and ViaBackwards plugins ensure compatibility across versions.
                 </CardDescription>
               </CardHeader>
@@ -411,7 +411,7 @@ useEffect(() => {
               <p className="text-lg text-slate-500 font-light">stay informed with our most recent update</p>
             </div>
 
-            <Card className="border-0 bg-white/70 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
+            <Card className="border-0 bg-white/70 dark:bg-slate-900/70 dark:border-slate-800/60 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
               <CardContent className="p-6">
                 <div className="flex items-start gap-4">
                   <div className="w-8 h-8 bg-blue-200 text-blue-600 rounded-full flex items-center justify-center font-medium text-sm">
@@ -428,7 +428,7 @@ useEffect(() => {
             <div className="text-center mt-6">
               <Button
                 variant="outline"
-                className="bg-white/70 backdrop-blur-sm text-slate-700 hover:bg-white/90 rounded-full px-6 py-3 shadow-sm border-0"
+                className="bg-white/70 backdrop-blur-sm text-slate-700 hover:bg-white/90 rounded-full px-6 py-3 shadow-sm border-0 dark:bg-slate-900/70 dark:text-slate-100 dark:hover:bg-slate-900/80"
                 onClick={() => handleMenuClick("announcements")}
               >
                 Click to see more announcements
@@ -446,7 +446,7 @@ useEffect(() => {
           </div>
 
           <div className="space-y-6">
-            <Card className="border-0 bg-white/70 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
+            <Card className="border-0 bg-white/70 dark:bg-slate-900/70 dark:border-slate-800/60 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
               <CardContent className="p-6">
                 <div className="flex items-start gap-4">
                   <div className="w-8 h-8 bg-blue-200 text-blue-600 rounded-full flex items-center justify-center font-medium text-sm">
@@ -462,7 +462,7 @@ useEffect(() => {
               </CardContent>
             </Card>
 
-            <Card className="border-0 bg-white/70 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
+            <Card className="border-0 bg-white/70 dark:bg-slate-900/70 dark:border-slate-800/60 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
               <CardContent className="p-6">
                 <div className="flex items-start gap-4">
                   <div className="w-8 h-8 bg-purple-200 text-purple-600 rounded-full flex items-center justify-center font-medium text-sm">
@@ -478,7 +478,7 @@ useEffect(() => {
               </CardContent>
             </Card>
 
-            <Card className="border-0 bg-white/70 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
+            <Card className="border-0 bg-white/70 dark:bg-slate-900/70 dark:border-slate-800/60 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
               <CardContent className="p-6">
                 <div className="flex items-start gap-4">
                   <div className="w-8 h-8 bg-emerald-200 text-emerald-600 rounded-full flex items-center justify-center font-medium text-sm">
@@ -495,7 +495,7 @@ useEffect(() => {
               </CardContent>
             </Card>
 
-<Card className="border-0 bg-white/70 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
+<Card className="border-0 bg-white/70 dark:bg-slate-900/70 dark:border-slate-800/60 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
               <CardContent className="p-6">
                 <div className="flex items-start gap-4">
                   <div className="w-8 h-8 bg-rose-200 text-rose-600 rounded-full flex items-center justify-center font-medium text-sm">
@@ -511,7 +511,7 @@ useEffect(() => {
               </CardContent>
             </Card>
 
-            <Card className="border-0 bg-white/70 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
+            <Card className="border-0 bg-white/70 dark:bg-slate-900/70 dark:border-slate-800/60 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
 <CardContent className="p-6">
   <div className="flex items-start gap-4">
     <div className="w-8 h-8 bg-green-200 text-green-600 rounded-full flex items-center justify-center font-medium text-sm">
@@ -535,7 +535,7 @@ useEffect(() => {
   </div>
 </CardContent>
             </Card>
-            <Card className="border-0 bg-white/70 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
+            <Card className="border-0 bg-white/70 dark:bg-slate-900/70 dark:border-slate-800/60 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
               <CardContent className="p-6">
                 <div className="flex items-start gap-4">
                   <div className="w-8 h-8 bg-blue-200 text-blue-600 rounded-full flex items-center justify-center font-medium text-sm">
@@ -572,7 +572,7 @@ useEffect(() => {
       <p className="text-lg text-slate-500 font-light">see concord smp in action</p>
     </div>
 
-    <Card className="border-0 bg-white/70 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
+    <Card className="border-0 bg-white/70 dark:bg-slate-900/70 dark:border-slate-800/60 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
       <CardContent className="p-6">
         <div className="aspect-video rounded-lg overflow-hidden bg-slate-100">
           <video
@@ -607,7 +607,7 @@ useEffect(() => {
         </div>
 
         <div className="space-y-6">
-          <Card className="border-0 bg-white/70 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
+          <Card className="border-0 bg-white/70 dark:bg-slate-900/70 dark:border-slate-800/60 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
             <CardContent className="p-6">
               <div className="flex items-start gap-4">
                 <div className="w-8 h-8 bg-blue-200 text-blue-600 rounded-full flex items-center justify-center font-medium text-sm">
@@ -623,7 +623,7 @@ useEffect(() => {
             </CardContent>
           </Card>
 
-          <Card className="border-0 bg-white/70 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
+          <Card className="border-0 bg-white/70 dark:bg-slate-900/70 dark:border-slate-800/60 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
             <CardContent className="p-6">
               <div className="flex items-start gap-4">
                 <div className="w-8 h-8 bg-purple-200 text-purple-600 rounded-full flex items-center justify-center font-medium text-sm">
@@ -637,7 +637,7 @@ useEffect(() => {
             </CardContent>
           </Card>
 
-          <Card className="border-0 bg-white/70 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
+          <Card className="border-0 bg-white/70 dark:bg-slate-900/70 dark:border-slate-800/60 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
             <CardContent className="p-6">
               <div className="flex items-start gap-4">
                 <div className="w-8 h-8 bg-emerald-200 text-emerald-600 rounded-full flex items-center justify-center font-medium text-sm">
@@ -654,7 +654,7 @@ useEffect(() => {
             </CardContent>
           </Card>
 
-          <Card className="border-0 bg-white/70 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
+          <Card className="border-0 bg-white/70 dark:bg-slate-900/70 dark:border-slate-800/60 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
             <CardContent className="p-6">
               <div className="flex items-start gap-4">
                 <div className="w-8 h-8 bg-rose-200 text-rose-600 rounded-full flex items-center justify-center font-medium text-sm">
@@ -684,7 +684,7 @@ useEffect(() => {
             </CardContent>
           </Card>
 
-                    <Card className="border-0 bg-white/70 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
+                    <Card className="border-0 bg-white/70 dark:bg-slate-900/70 dark:border-slate-800/60 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
             <CardContent className="p-6">
               <div className="flex items-start gap-4">
                 <div className="w-8 h-8 bg-purple-200 text-purple-600 rounded-full flex items-center justify-center font-medium text-sm">
@@ -700,7 +700,7 @@ useEffect(() => {
             </CardContent>
           </Card>
 
-          <Card className="border-0 bg-white/70 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
+          <Card className="border-0 bg-white/70 dark:bg-slate-900/70 dark:border-slate-800/60 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
             <CardContent className="p-6">
               <div className="flex items-start gap-4">
                 <div className="w-8 h-8 bg-teal-200 text-teal-600 rounded-full flex items-center justify-center font-medium text-sm">
@@ -780,7 +780,7 @@ useEffect(() => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {screenshots.map((screenshot, index) => (
-              <Card key={index} className="border-0 bg-white/60 dark:bg-slate-800/60 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
+              <Card key={index} className="border-0 bg-white/60 dark:bg-slate-900/60 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
                 <Image
                   src={screenshot.src}
                   alt={screenshot.alt}
@@ -808,7 +808,7 @@ useEffect(() => {
         {announcements.length > 0 ? (
           <div className="space-y-6">
             {announcements.map((announcement, index) => (
-              <Card key={index} className="border-0 bg-white/70 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
+              <Card key={index} className="border-0 bg-white/70 dark:bg-slate-900/70 dark:border-slate-800/60 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
                 <CardContent className="p-6">
                   <div className="flex items-start gap-4">
                     <div className="w-8 h-8 bg-blue-200 text-blue-600 rounded-full flex items-center justify-center font-medium text-sm">
@@ -842,7 +842,7 @@ const renderAffiliatesPage = () => (
         <p className="text-lg text-slate-500 font-light">partnerships that make our community stronger</p>
       </div>
 
-      <Card className="border-0 bg-white/70 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
+      <Card className="border-0 bg-white/70 dark:bg-slate-900/70 dark:border-slate-800/60 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
   <CardContent className="p-6">
     <div className="flex items-center gap-4">
       <Image
@@ -882,7 +882,7 @@ const renderAffiliatesPage = () => (
 
       
       <div className="space-y-6">
-        <Card className="border-0 bg-white/70 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
+        <Card className="border-0 bg-white/70 dark:bg-slate-900/70 dark:border-slate-800/60 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
           <CardContent className="p-6">
             <div className="flex items-center gap-4">
               <Image
@@ -926,7 +926,7 @@ const renderWikiPage = () => (
         <p className="text-lg text-slate-500 dark:text-slate-400 font-light">community knowledge base and guides</p>
       </div>
 
-      <div className="bg-white/70 dark:bg-slate-800/70 backdrop-blur-sm rounded-2xl shadow-sm overflow-hidden">
+      <div className="bg-white/70 dark:bg-slate-900/70 backdrop-blur-sm rounded-2xl shadow-sm overflow-hidden">
         <div className="p-4 flex items-center justify-end">
           <a
             href="https://global-worm-2be.notion.site/28e4905203e28033ac59ecad9c63c898?v=28e4905203e28016aa6d000c54b119e4"
@@ -954,9 +954,9 @@ const renderWikiPage = () => (
 );
   
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-100 via-indigo-100 to-purple-100 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 text-slate-800 dark:text-slate-100 transition-colors duration-300">
+    <div className="min-h-screen bg-gradient-to-br from-blue-100 via-indigo-100 to-purple-100 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 text-slate-800 dark:text-slate-100 transition-colors duration-300">
       {/* Navbar */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/70 dark:bg-slate-800/70 backdrop-blur-lg shadow-sm transition-colors duration-300">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/70 dark:bg-slate-950/70 backdrop-blur-lg shadow-sm transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16 items-center">
             {/* Logo */}
@@ -978,21 +978,21 @@ const renderWikiPage = () => (
                 <Button
                   variant="ghost"
                   onClick={() => handleMenuClick("home")}
-                  className={`text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-slate-100 px-3 py-2 ${currentView === "home" ? "font-bold text-slate-900 dark:text-slate-100 bg-slate-100 dark:bg-slate-700" : ""}`}
+                  className={`text-slate-600 dark:text-slate-200 hover:text-slate-900 dark:hover:text-slate-50 px-3 py-2 ${currentView === "home" ? "font-bold text-slate-900 dark:text-slate-50 bg-slate-100 dark:bg-slate-800/70" : ""}`}
                 >
                   <Home className="w-4 h-4 mr-2" /> Home
                 </Button>
                 <Button
                   variant="ghost"
                   onClick={() => handleMenuClick("screenshots")}
-                  className={`text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-slate-100 px-3 py-2 ${currentView === "screenshots" ? "font-bold text-slate-900 dark:text-slate-100 bg-slate-100 dark:bg-slate-700" : ""}`}
+                  className={`text-slate-600 dark:text-slate-200 hover:text-slate-900 dark:hover:text-slate-50 px-3 py-2 ${currentView === "screenshots" ? "font-bold text-slate-900 dark:text-slate-50 bg-slate-100 dark:bg-slate-800/70" : ""}`}
                 >
                   <Camera className="w-4 h-4 mr-2" /> Screenshots
                 </Button>
                 <Button
                   variant="ghost"
                   onClick={() => handleMenuClick("announcements")}
-                  className={`text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-slate-100 px-3 py-2 ${currentView === "announcements" ? "font-bold text-slate-900 dark:text-slate-100 bg-slate-100 dark:bg-slate-700" : ""}`}
+                  className={`text-slate-600 dark:text-slate-200 hover:text-slate-900 dark:hover:text-slate-50 px-3 py-2 ${currentView === "announcements" ? "font-bold text-slate-900 dark:text-slate-50 bg-slate-100 dark:bg-slate-800/70" : ""}`}
                 >
                   <Megaphone className="w-4 h-4 mr-2" /> Announcements
                 </Button>
@@ -1003,43 +1003,43 @@ const renderWikiPage = () => (
                 <Button
                   variant="ghost"
                   onClick={toggleDropdown}
-                  className="text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-slate-100 flex items-center px-3 py-2"
+                  className="text-slate-600 dark:text-slate-200 hover:text-slate-900 dark:hover:text-slate-50 flex items-center px-3 py-2"
                 >
                   Menu
                   <ChevronDown className={`w-4 h-4 ml-2 transition-transform duration-200 ${dropdownOpen ? 'rotate-180' : ''}`} />
                 </Button>
                 
                 {dropdownOpen && (
-                  <div className="absolute right-0 mt-2 w-48 bg-white dark:bg-slate-800 rounded-lg shadow-lg border border-slate-200 dark:border-slate-700 py-2 animate-in slide-in-from-top-2 duration-200">
+                  <div className="absolute right-0 mt-2 w-48 bg-white dark:bg-slate-950 rounded-lg shadow-lg border border-slate-200 dark:border-slate-800 py-2 animate-in slide-in-from-top-2 duration-200">
                     <Button
                       variant="ghost"
                       onClick={() => handleMenuClick("rules")}
-                      className={`w-full justify-start text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 ${currentView === "rules" ? "font-bold bg-slate-100 dark:bg-slate-700" : ""}`}
+                      className={`w-full justify-start text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800/60 ${currentView === "rules" ? "font-bold bg-slate-100 dark:bg-slate-800/70" : ""}`}
                     >
                       <ScrollText className="w-4 h-4 mr-2" /> Rules
                     </Button>
                     <Button
                       variant="ghost"
                       onClick={() => handleMenuClick("affiliates")}
-                      className={`w-full justify-start text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 ${currentView === "affiliates" ? "font-bold bg-slate-100 dark:bg-slate-700" : ""}`}
+                      className={`w-full justify-start text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800/60 ${currentView === "affiliates" ? "font-bold bg-slate-100 dark:bg-slate-800/70" : ""}`}
                     >
                       <Network className="w-4 h-4 mr-2" /> Affiliates
                     </Button>
                     <Button
                       variant="ghost"
                       onClick={() => handleMenuClick("wiki")}
-                      className={`w-full justify-start text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 ${currentView === "wiki" ? "font-bold bg-slate-100 dark:bg-slate-700" : ""}`}
+                      className={`w-full justify-start text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800/60 ${currentView === "wiki" ? "font-bold bg-slate-100 dark:bg-slate-800/70" : ""}`}
                     >
                       <ScrollText className="w-4 h-4 mr-2" /> Wiki
                     </Button>
                     <Button
                       variant="ghost"
                       onClick={() => window.open('https://callenflynn.github.io/Modpacks/', '_blank')}
-                      className={`w-full justify-start text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700`}
+                      className={`w-full justify-start text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800/60`}
                     >
                       <ExternalLink className="w-4 h-4 mr-2" /> Cal's Modpacks
                     </Button>
-                    <div className="border-t border-slate-200 dark:border-slate-700 my-2"></div>
+                    <div className="border-t border-slate-200 dark:border-slate-800 my-2"></div>
                     <a
                       href="https://discord.gg/V6xAeZecSr"
                       target="_blank"
@@ -1048,7 +1048,7 @@ const renderWikiPage = () => (
                     >
                       <Button
                         variant="ghost"
-                        className="w-full justify-start text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700"
+                        className="w-full justify-start text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800/60"
                       >
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 127.14 96.36" className="w-4 h-4 mr-2" fill="currentColor">
                           <path d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.79,32.65-1.71,56.6.54,80.21h0A105.73,105.73,0,0,0,32.71,96.36,77.7,77.7,0,0,0,39.6,85.25a68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a75.57,75.57,0,0,0,64.32,0c.87.71,1.76,1.39,2.66,2a68.68,68.68,0,0,1-10.87,5.19,77,77,0,0,0,6.89,11.1A105.25,105.25,0,0,0,126.6,80.22h0C129.24,52.84,122.09,29.11,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53s5-12.74,11.43-12.74S54,46,53.89,53,48.84,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.25,60,73.25,53s5-12.74,11.44-12.74S96.23,46,96.12,53,91.08,65.69,84.69,65.69Z"/>
@@ -1056,11 +1056,11 @@ const renderWikiPage = () => (
                         Discord
                       </Button>
                     </a>
-                    <div className="border-t border-slate-200 dark:border-slate-700 my-2"></div>
+                    <div className="border-t border-slate-200 dark:border-slate-800 my-2"></div>
                     <Button
                       variant="ghost"
                       onClick={toggleDarkMode}
-                      className="w-full justify-start text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700"
+                      className="w-full justify-start text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800/60"
                     >
                       {darkMode ? <Sun className="w-4 h-4 mr-2" /> : <Moon className="w-4 h-4 mr-2" />}
                       {darkMode ? 'Light Mode' : 'Dark Mode'}
@@ -1074,7 +1074,7 @@ const renderWikiPage = () => (
               <Button
                 variant="ghost"
                 onClick={() => setMenuOpen(!menuOpen)}
-                className="inline-flex items-center justify-center p-2 rounded-md text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-100 dark:hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
+                className="inline-flex items-center justify-center p-2 rounded-md text-slate-600 dark:text-slate-200 hover:text-slate-900 dark:hover:text-slate-50 hover:bg-slate-100 dark:hover:bg-slate-800/60 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
               >
                 <span className="sr-only">Open main menu</span>
                 {menuOpen ? (
@@ -1089,58 +1089,58 @@ const renderWikiPage = () => (
 
         {/* Mobile Menu Panel */}
         {menuOpen && (
-          <div className="md:hidden bg-white/95 dark:bg-slate-800/95 backdrop-blur-lg border-t border-slate-200 dark:border-slate-700 animate-in slide-in-from-top-2 duration-200">
+          <div className="md:hidden bg-white/95 dark:bg-slate-950/95 backdrop-blur-lg border-t border-slate-200 dark:border-slate-800 animate-in slide-in-from-top-2 duration-200">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
               <Button
                 variant="ghost"
                 onClick={() => handleMenuClick("home")}
-                className={`w-full justify-start text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 ${currentView === "home" ? "font-bold bg-slate-100 dark:bg-slate-700" : ""}`}
+                className={`w-full justify-start text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800/60 ${currentView === "home" ? "font-bold bg-slate-100 dark:bg-slate-800/70" : ""}`}
               >
                 <Home className="w-4 h-4 mr-2" /> Home
               </Button>
               <Button
                 variant="ghost"
                 onClick={() => handleMenuClick("rules")}
-                className={`w-full justify-start text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 ${currentView === "rules" ? "font-bold bg-slate-100 dark:bg-slate-700" : ""}`}
+                className={`w-full justify-start text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800/60 ${currentView === "rules" ? "font-bold bg-slate-100 dark:bg-slate-800/70" : ""}`}
               >
                 <ScrollText className="w-4 h-4 mr-2" /> Rules
               </Button>
               <Button
                 variant="ghost"
                 onClick={() => handleMenuClick("screenshots")}
-                className={`w-full justify-start text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 ${currentView === "screenshots" ? "font-bold bg-slate-100 dark:bg-slate-700" : ""}`}
+                className={`w-full justify-start text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800/60 ${currentView === "screenshots" ? "font-bold bg-slate-100 dark:bg-slate-800/70" : ""}`}
               >
                 <Camera className="w-4 h-4 mr-2" /> Screenshots
               </Button>
               <Button
                 variant="ghost"
                 onClick={() => handleMenuClick("announcements")}
-                className={`w-full justify-start text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 ${currentView === "announcements" ? "font-bold bg-slate-100 dark:bg-slate-700" : ""}`}
+                className={`w-full justify-start text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800/60 ${currentView === "announcements" ? "font-bold bg-slate-100 dark:bg-slate-800/70" : ""}`}
               >
                 <Megaphone className="w-4 h-4 mr-2" /> Announcements
               </Button>
               <Button
                 variant="ghost"
                 onClick={() => handleMenuClick("affiliates")}
-                className={`w-full justify-start text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 ${currentView === "affiliates" ? "font-bold bg-slate-100 dark:bg-slate-700" : ""}`}
+                className={`w-full justify-start text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800/60 ${currentView === "affiliates" ? "font-bold bg-slate-100 dark:bg-slate-800/70" : ""}`}
               >
                 <Network className="w-4 h-4 mr-2" /> Affiliates
               </Button>
               <Button
                 variant="ghost"
                 onClick={() => handleMenuClick("wiki")}
-                className={`w-full justify-start text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 ${currentView === "wiki" ? "font-bold bg-slate-100 dark:bg-slate-700" : ""}`}
+                className={`w-full justify-start text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800/60 ${currentView === "wiki" ? "font-bold bg-slate-100 dark:bg-slate-800/70" : ""}`}
               >
                 <ScrollText className="w-4 h-4 mr-2" /> Wiki
               </Button>
               <Button
                 variant="ghost"
                 onClick={() => window.open('https://callenflynn.github.io/Modpacks/', '_blank')}
-                className="w-full justify-start text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700"
+                className="w-full justify-start text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800/60"
               >
                 <ExternalLink className="w-4 h-4 mr-2" /> Cal's Modpacks
               </Button>
-              <div className="border-t border-slate-200 dark:border-slate-700 my-2"></div>
+              <div className="border-t border-slate-200 dark:border-slate-800 my-2"></div>
               <a
                 href="https://discord.gg/V6xAeZecSr"
                 target="_blank"
@@ -1149,7 +1149,7 @@ const renderWikiPage = () => (
               >
                 <Button
                   variant="ghost"
-                  className="w-full justify-start text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700"
+                  className="w-full justify-start text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800/60"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 127.14 96.36" className="w-4 h-4 mr-2" fill="currentColor">
                     <path d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.79,32.65-1.71,56.6.54,80.21h0A105.73,105.73,0,0,0,32.71,96.36,77.7,77.7,0,0,0,39.6,85.25a68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a75.57,75.57,0,0,0,64.32,0c.87.71,1.76,1.39,2.66,2a68.68,68.68,0,0,1-10.87,5.19,77,77,0,0,0,6.89,11.1A105.25,105.25,0,0,0,126.6,80.22h0C129.24,52.84,122.09,29.11,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53s5-12.74,11.43-12.74S54,46,53.89,53,48.84,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.25,60,73.25,53s5-12.74,11.44-12.74S96.23,46,96.12,53,91.08,65.69,84.69,65.69Z"/>
@@ -1157,11 +1157,11 @@ const renderWikiPage = () => (
                   Discord
                 </Button>
               </a>
-              <div className="border-t border-slate-200 dark:border-slate-700 my-2"></div>
+              <div className="border-t border-slate-200 dark:border-slate-800 my-2"></div>
               <Button
                 variant="ghost"
                 onClick={toggleDarkMode}
-                className="w-full justify-start text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700"
+                className="w-full justify-start text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800/60"
               >
                 {darkMode ? <Sun className="w-4 h-4 mr-2" /> : <Moon className="w-4 h-4 mr-2" />}
                 {darkMode ? 'Light Mode' : 'Dark Mode'}
