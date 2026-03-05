@@ -136,6 +136,7 @@ useEffect(() => {
     '/images/screenshot-29.webp',
     '/images/screenshot-30.webp',
     '/images/screenshot-31.webp',
+    '/images/screenshot-44.png',
     '/images/coreprotect.jpg',
     '/images/distanthorizons.png'
 
@@ -182,8 +183,8 @@ useEffect(() => {
  
   const renderHomePage = () => (
     <>
-      <section className="relative overflow-hidden bg-gradient-to-r from-blue-300/80 via-indigo-300/80 to-purple-300/80">
-        <div className="absolute inset-0 bg-white/30 backdrop-blur-sm"></div>
+      <section className="relative overflow-hidden bg-[url('/images/screenshot-44.png')] bg-cover bg-center">
+        <div className="absolute inset-0 bg-black/30 backdrop-blur-sm"></div>
         <div className="relative max-w-7xl mx-auto px-4 py-16 sm:py-24">
           <div className="text-center space-y-6">
             <div className="space-y-3">
@@ -720,6 +721,7 @@ useEffect(() => {
   )
   const renderScreenshotsPage = () => {
     const screenshots = [
+      { src: "/images/screenshot-44.png", alt: "Server screenshot" },
       { src: "/images/screenshot-42.png", alt: "Overview of spawn and surrounding areas showcasing countless amazing builds" },
       { src: "/images/screenshot-39.webp", alt: "Server screenshot" },
       { src: "/images/screenshot-43.png", alt: "Server screenshot" },
