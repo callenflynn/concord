@@ -243,8 +243,8 @@ useEffect(() => {
       <section className="py-16 px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-light text-slate-700 mb-3">what makes us special</h2>
-            <p className="text-lg text-slate-500 max-w-2xl mx-auto font-light">
+            <h2 className="text-3xl font-light text-slate-700 dark:text-slate-100 mb-3">what makes us special</h2>
+            <p className="text-lg text-slate-500 dark:text-slate-400 max-w-2xl mx-auto font-light">
               a different kind of minecraft experience, built on trust and creativity
             </p>
           </div>
@@ -404,11 +404,11 @@ useEffect(() => {
         </div>
       </section>
       {latestAnnouncement && (
-        <section className="py-16 px-4 bg-white/40 backdrop-blur-sm">
+        <section className="py-16 px-4 bg-white/40 dark:bg-slate-950/40 backdrop-blur-sm">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-light text-slate-700 mb-3">latest news</h2>
-              <p className="text-lg text-slate-500 font-light">stay informed with our most recent update</p>
+              <h2 className="text-3xl font-light text-slate-700 dark:text-slate-100 mb-3">latest news</h2>
+              <p className="text-lg text-slate-500 dark:text-slate-400 font-light">stay informed with our most recent update</p>
             </div>
 
             <Card className="border-0 bg-white/70 dark:bg-slate-900/70 dark:border-slate-800/60 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
@@ -418,9 +418,9 @@ useEffect(() => {
                     <Megaphone className="w-4 h-4" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-lg font-medium text-slate-700 mb-1">{latestAnnouncement.title}</h3>
-                    <p className="text-sm text-slate-500 mb-3 font-light">{latestAnnouncement.date}</p>
-                    <p className="text-slate-600 font-light">{latestAnnouncement.body}</p>
+                    <h3 className="text-lg font-medium text-slate-700 dark:text-slate-100 mb-1">{latestAnnouncement.title}</h3>
+                    <p className="text-sm text-slate-500 dark:text-slate-400 mb-3 font-light">{latestAnnouncement.date}</p>
+                    <p className="text-slate-600 dark:text-slate-300 font-light">{latestAnnouncement.body}</p>
                   </div>
                 </div>
               </CardContent>
@@ -441,8 +441,8 @@ useEffect(() => {
       <section className="py-16 px-4">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-light text-slate-700 mb-3">joining is easy</h2>
-            <p className="text-lg text-slate-500 font-light">just a few simple steps to become part of our community</p>
+            <h2 className="text-3xl font-light text-slate-700 dark:text-slate-100 mb-3">joining is easy</h2>
+            <p className="text-lg text-slate-500 dark:text-slate-400 font-light">just a few simple steps to become part of our community</p>
           </div>
 
           <div className="space-y-6">
@@ -453,8 +453,8 @@ useEffect(() => {
                     1
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-lg font-medium text-slate-700 mb-2">connect to the server</h3>
-                    <p className="text-slate-500 mb-3 font-light">
+                    <h3 className="text-lg font-medium text-slate-700 dark:text-slate-100 mb-2">connect to the server</h3>
+                    <p className="text-slate-500 dark:text-slate-400 mb-3 font-light">
                       add our server to your list and join with any minecraft client you like
                     </p>
                   </div>
@@ -469,8 +469,8 @@ useEffect(() => {
                     2
                   </div>
                   <div>
-                    <h3 className="text-lg font-medium text-slate-700 mb-2">explore in adventure mode</h3>
-                    <p className="text-slate-500 font-light">
+                    <h3 className="text-lg font-medium text-slate-700 dark:text-slate-100 mb-2">explore in adventure mode</h3>
+                    <p className="text-slate-500 dark:text-slate-400 font-light">
                       take your time to wander around, check out the builds, and get a feel for our peaceful community
                     </p>
                   </div>
@@ -485,8 +485,8 @@ useEffect(() => {
                     3
                   </div>
                   <div>
-                    <h3 className="text-lg font-medium text-slate-700 mb-2">ask the owner for permissions</h3>
-                    <p className="text-slate-500 font-light">
+                    <h3 className="text-lg font-medium text-slate-700 dark:text-slate-100 mb-2">ask the owner for permissions</h3>
+                    <p className="text-slate-500 dark:text-slate-400 font-light">
                       when you're ready to start building and playing in survival, ask the server owner to add you to
                       the permissions list
                     </p>
@@ -502,8 +502,8 @@ useEffect(() => {
                     4
                   </div>
                   <div>
-                    <h3 className="text-lg font-medium text-slate-700 mb-2">start playing in survival</h3>
-                    <p className="text-slate-500 font-light">
+                    <h3 className="text-lg font-medium text-slate-700 dark:text-slate-100 mb-2">start playing in survival</h3>
+                    <p className="text-slate-500 dark:text-slate-400 font-light">
                       once added to the list, you'll have full building permissions and can play in survival mode
                     </p>
                   </div>
@@ -518,8 +518,8 @@ useEffect(() => {
       5 A
     </div>
     <div className="flex-1">
-      <h3 className="text-lg font-medium text-slate-700 mb-2">Manual client setup (optional)</h3>
-<p className="text-slate-500 mb-3 font-light">
+      <h3 className="text-lg font-medium text-slate-700 dark:text-slate-100 mb-2">Manual client setup (optional)</h3>
+    <p className="text-slate-500 dark:text-slate-400 mb-3 font-light">
  Downloads the mods and shaders for 1.21.7 Fabric.
 </p>
 
@@ -542,11 +542,11 @@ useEffect(() => {
                     5 B
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-lg font-medium text-slate-700 mb-2">preconfigured client installer (recommended, optional)</h3>
-                    <p className="text-slate-500 mb-3 font-light">
+                    <h3 className="text-lg font-medium text-slate-700 dark:text-slate-100 mb-2">preconfigured client installer (recommended, optional)</h3>
+                    <p className="text-slate-500 dark:text-slate-400 mb-3 font-light">
                       Installs Java 21 JDK, Fabric 1.21.7, and all the mods and shaders. Recommended for those who have not yet modded minecraft or do not know how. After ran, please go to your Minecraft launcher and create a new instance with the 1.21.7 FABRIC version.
                     </p>
-                    <p className="text-slate-500 mb-3 font-light">
+                    <p className="text-slate-500 dark:text-slate-400 mb-3 font-light">
                       Also includes the files in modrinth format, and the modrinth installer for an easier install and smoother experience.
                     </p>
                     <a  
@@ -565,16 +565,16 @@ useEffect(() => {
           </div>
         </div>
       </section>
-      <section className="py-16 px-4 bg-white/40 backdrop-blur-sm">
+      <section className="py-16 px-4 bg-white/40 dark:bg-slate-950/40 backdrop-blur-sm">
   <div className="max-w-4xl mx-auto">
     <div className="text-center mb-12">
-      <h2 className="text-3xl font-light text-slate-700 mb-3">server trailers</h2>
-      <p className="text-lg text-slate-500 font-light">see concord smp in action</p>
+      <h2 className="text-3xl font-light text-slate-700 dark:text-slate-100 mb-3">server trailers</h2>
+      <p className="text-lg text-slate-500 dark:text-slate-400 font-light">see concord smp in action</p>
     </div>
 
     <Card className="border-0 bg-white/70 dark:bg-slate-900/70 dark:border-slate-800/60 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
       <CardContent className="p-6">
-        <div className="aspect-video rounded-lg overflow-hidden bg-slate-100">
+        <div className="aspect-video rounded-lg overflow-hidden bg-slate-100 dark:bg-slate-900">
           <video
             autoPlay
             muted
@@ -589,8 +589,8 @@ useEffect(() => {
           </video>
         </div>
         <div className="mt-4 text-center">
-          <h3 className="text-lg font-medium text-slate-700 mb-1">Season 2 Trailer</h3>
-          <p className="text-slate-500 font-light">Season 2 is vanilla+, with minor tweaks to the base game.</p>
+          <h3 className="text-lg font-medium text-slate-700 dark:text-slate-100 mb-1">Season 2 Trailer</h3>
+          <p className="text-slate-500 dark:text-slate-400 font-light">Season 2 is vanilla+, with minor tweaks to the base game.</p>
         </div>
       </CardContent>
     </Card>
@@ -602,8 +602,8 @@ useEffect(() => {
     <section className="py-16 px-4 min-h-screen">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-light text-slate-700 mb-3">server rules</h2>
-          <p className="text-lg text-slate-500 font-light">keeping concord smp fun and fair</p>
+          <h2 className="text-3xl font-light text-slate-700 dark:text-slate-100 mb-3">server rules</h2>
+          <p className="text-lg text-slate-500 dark:text-slate-400 font-light">keeping concord smp fun and fair</p>
         </div>
 
         <div className="space-y-6">
@@ -614,8 +614,8 @@ useEffect(() => {
                   1
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-lg font-medium text-slate-700 mb-2">no griefing</h3>
-                  <p className="text-slate-500 font-light">
+                  <h3 className="text-lg font-medium text-slate-700 dark:text-slate-100 mb-2">no griefing</h3>
+                  <p className="text-slate-500 dark:text-slate-400 font-light">
                     do not grief spawn. do not grief other players' builds unless.
                   </p>
                 </div>
@@ -630,8 +630,8 @@ useEffect(() => {
                   2
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-lg font-medium text-slate-700 mb-2">no hacks</h3>
-                  <p className="text-slate-500 font-light">using any form of hacks will result in an immediate ban.</p>
+                  <h3 className="text-lg font-medium text-slate-700 dark:text-slate-100 mb-2">no hacks</h3>
+                  <p className="text-slate-500 dark:text-slate-400 font-light">using any form of hacks will result in an immediate ban.</p>
                 </div>
               </div>
             </CardContent>
@@ -644,8 +644,8 @@ useEffect(() => {
                   3
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-lg font-medium text-slate-700 mb-2">fair play with mods</h3>
-                  <p className="text-slate-500 font-light">
+                  <h3 className="text-lg font-medium text-slate-700 dark:text-slate-100 mb-2">fair play with mods</h3>
+                  <p className="text-slate-500 dark:text-slate-400 font-light">
                     any mods that give an unfair advantage will result in a temporary ban or kick, depending on
                     severity.
                   </p>
@@ -661,22 +661,22 @@ useEffect(() => {
                   4
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-lg font-medium text-slate-700 mb-2">be kind and respectful</h3>
-                  <p className="text-slate-500 font-light">treat all other players with kindness and respect.</p>
+                  <h3 className="text-lg font-medium text-slate-700 dark:text-slate-100 mb-2">be kind and respectful</h3>
+                  <p className="text-slate-500 dark:text-slate-400 font-light">treat all other players with kindness and respect.</p>
                 </div>
               </div>
             </CardContent>
           </Card>
 
-          <Card className="border-0 bg-white/70 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
+          <Card className="border-0 bg-white/70 dark:bg-slate-900/70 dark:border-slate-800/60 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
             <CardContent className="p-6">
               <div className="flex items-start gap-4">
                 <div className="w-8 h-8 bg-amber-200 text-amber-600 rounded-full flex items-center justify-center font-medium text-sm">
                   5
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-lg font-medium text-slate-700 mb-2">no stealing</h3>
-                  <p className="text-slate-500 font-light">
+                  <h3 className="text-lg font-medium text-slate-700 dark:text-slate-100 mb-2">no stealing</h3>
+                  <p className="text-slate-500 dark:text-slate-400 font-light">
                     do not steal items from players in the "spawn" area.
                   </p>
                 </div>
@@ -691,8 +691,8 @@ useEffect(() => {
                   6
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-lg font-medium text-slate-700 mb-2">no netherite armor</h3>
-                  <p className="text-slate-500 font-light">
+                  <h3 className="text-lg font-medium text-slate-700 dark:text-slate-100 mb-2">no netherite armor</h3>
+                  <p className="text-slate-500 dark:text-slate-400 font-light">
                     Netherite armor is not allowed and is not possible to make, however netherite tools are allowed.
                   </p>
                 </div>
@@ -707,8 +707,8 @@ useEffect(() => {
                   7
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-lg font-medium text-slate-700 mb-2">spawn protection</h3>
-                  <p className="text-slate-500 font-light">
+                  <h3 className="text-lg font-medium text-slate-700 dark:text-slate-100 mb-2">spawn protection</h3>
+                  <p className="text-slate-500 dark:text-slate-400 font-light">
                     spawn is a safe zone and should not be messed with in terms of griefing, robbing, or spawnkilling.
                   </p>
                 </div>
@@ -801,8 +801,8 @@ useEffect(() => {
     <section className="py-16 px-4 min-h-screen">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-light text-slate-700 mb-3">latest announcements</h2>
-          <p className="text-lg text-slate-500 font-light">stay up-to-date with concord smp news</p>
+          <h2 className="text-3xl font-light text-slate-700 dark:text-slate-100 mb-3">latest announcements</h2>
+          <p className="text-lg text-slate-500 dark:text-slate-400 font-light">stay up-to-date with concord smp news</p>
         </div>
 
         {announcements.length > 0 ? (
@@ -815,9 +815,9 @@ useEffect(() => {
                       <Megaphone className="w-4 h-4" />
                     </div>
                     <div className="flex-1">
-                      <h3 className="text-lg font-medium text-slate-700 mb-1">{announcement.title}</h3>
-                      <p className="text-sm text-slate-500 mb-3 font-light">{announcement.date}</p>
-                      <p className="text-slate-600 font-light">{announcement.body}</p>
+                      <h3 className="text-lg font-medium text-slate-700 dark:text-slate-100 mb-1">{announcement.title}</h3>
+                      <p className="text-sm text-slate-500 dark:text-slate-400 mb-3 font-light">{announcement.date}</p>
+                      <p className="text-slate-600 dark:text-slate-300 font-light">{announcement.body}</p>
                     </div>
                   </div>
                 </CardContent>
@@ -826,8 +826,8 @@ useEffect(() => {
           </div>
         ) : (
           <div className="text-center py-8">
-            <Megaphone className="w-12 h-12 text-slate-300 mx-auto mb-3" />
-            <p className="text-slate-500 font-light">no announcements available at the moment</p>
+            <Megaphone className="w-12 h-12 text-slate-300 dark:text-slate-700 mx-auto mb-3" />
+            <p className="text-slate-500 dark:text-slate-400 font-light">no announcements available at the moment</p>
           </div>
         )}
       </div>
@@ -838,8 +838,8 @@ const renderAffiliatesPage = () => (
   <section className="py-16 px-4 min-h-screen">
     <div className="max-w-4xl mx-auto">
       <div className="text-center mb-12">
-        <h2 className="text-3xl font-light text-slate-700 mb-3">our affiliates</h2>
-        <p className="text-lg text-slate-500 font-light">partnerships that make our community stronger</p>
+        <h2 className="text-3xl font-light text-slate-700 dark:text-slate-100 mb-3">our affiliates</h2>
+        <p className="text-lg text-slate-500 dark:text-slate-400 font-light">partnerships that make our community stronger</p>
       </div>
 
       <Card className="border-0 bg-white/70 dark:bg-slate-900/70 dark:border-slate-800/60 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
@@ -853,8 +853,8 @@ const renderAffiliatesPage = () => (
         className="w-16 h-16 object-contain rounded-full border border-slate-200"
       />
       <div className="flex-1">
-        <h3 className="text-lg font-medium text-slate-700 mb-1">Concord Mini</h3>
-        <p className="text-slate-500 font-light mb-2">
+        <h3 className="text-lg font-medium text-slate-700 dark:text-slate-100 mb-1">Concord Mini</h3>
+        <p className="text-slate-500 dark:text-slate-400 font-light mb-2">
           A fast-paced 5v5 minigames server for small teams and intense competition. Version 1.8.8. 
         </p>
         <a
@@ -878,7 +878,7 @@ const renderAffiliatesPage = () => (
   </CardContent>
 </Card>
 
-<div className="my-6 border-t border-slate-300/50"></div>
+<div className="my-6 border-t border-slate-300/50 dark:border-slate-800/60"></div>
 
       
       <div className="space-y-6">
@@ -893,8 +893,8 @@ const renderAffiliatesPage = () => (
                 className="w-16 h-16 object-contain rounded-full border border-slate-200"
               />
               <div className="flex-1">
-                <h3 className="text-lg font-medium text-slate-700 mb-1">Kings MC Network *WARNING: WEBSITE NO LONGER ACTIVE*</h3>
-                <p className="text-slate-500 font-light mb-2">
+                <h3 className="text-lg font-medium text-slate-700 dark:text-slate-100 mb-1">Kings MC Network *WARNING: WEBSITE NO LONGER ACTIVE*</h3>
+                <p className="text-slate-500 dark:text-slate-400 font-light mb-2">
                   A network featuring both a traditional SMP and Lifesteal server.
                 </p>
                 <a
