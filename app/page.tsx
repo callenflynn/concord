@@ -224,17 +224,9 @@ useEffect(() => {
 
             <div className="flex flex-wrap justify-center gap-2">
               <Badge variant="secondary" className="bg-white/50 text-slate-600 border-white/30 rounded-full px-3 py-1 dark:bg-slate-900/60 dark:text-slate-200 dark:border-slate-800/60">
-                Versions 1.20-1.21.8
+                Version 1.21.7
               </Badge>
-              <Badge variant="secondary" className="bg-white/50 text-slate-600 border-white/30 rounded-full px-3 py-1 dark:bg-slate-900/60 dark:text-slate-200 dark:border-slate-800/60">
-                always updated
-              </Badge>
-              <Badge variant="secondary" className="bg-white/50 text-slate-600 border-white/30 rounded-full px-3 py-1 dark:bg-slate-900/60 dark:text-slate-200 dark:border-slate-800/60">
-                trust-based
-              </Badge>
-              <Badge variant="secondary" className="bg-white/50 text-slate-600 border-white/30 rounded-full px-3 py-1 dark:bg-slate-900/60 dark:text-slate-200 dark:border-slate-800/60">
-                chill vibes
-              </Badge>
+
             </div>
           </div>
         </div>
