@@ -756,7 +756,9 @@ useEffect(() => {
       { src: "/images/screenshot-5.png", alt: "A view of spawn without shaders (July 13, 2025)" },
       { src: "/images/screenshot-4.png", alt: "Nighttime Minecraft landscape with glowing purple structure" },
       { src: "/images/screenshot-3.png", alt: "Minecraft player in golden armor in a cozy room" },
-      { src: "/images/screenshot-2.jpeg", alt: "Aerial view of Minecraft coastline with clear water" }
+      { src: "/images/screenshot-2.jpeg", alt: "Aerial view of Minecraft coastline with clear water" },
+      { src: "/images/screenshot-45.jpg", alt: "Cal's house" }
+
     ]
 
     return (
