@@ -482,37 +482,6 @@ useEffect(() => {
           </div>
         </div>
       </section>
-      <section className="py-16 px-4 bg-white/40 dark:bg-slate-950/40 backdrop-blur-sm">
-  <div className="max-w-4xl mx-auto">
-    <div className="text-center mb-12">
-      <h2 className="text-3xl font-light text-slate-700 dark:text-slate-100 mb-3">server trailers</h2>
-      <p className="text-lg text-slate-500 dark:text-slate-400 font-light">see concord smp in action</p>
-    </div>
-
-    <Card className="border-0 bg-white/70 dark:bg-slate-900/70 dark:border-slate-800/60 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
-      <CardContent className="p-6">
-        <div className="aspect-video rounded-lg overflow-hidden bg-slate-100 dark:bg-slate-900">
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="auto"
-            controls
-            className="w-full h-full object-cover"
-          >
-            <source src="/videos/s2trailer.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-        </div>
-        <div className="mt-4 text-center">
-          <h3 className="text-lg font-medium text-slate-700 dark:text-slate-100 mb-1">Season 2 Trailer</h3>
-          <p className="text-slate-500 dark:text-slate-400 font-light">Season 2 is vanilla+, with minor tweaks to the base game.</p>
-        </div>
-      </CardContent>
-    </Card>
-  </div>
-</section>
     </>
   )
   const renderRulesPage = () => (
