@@ -243,36 +243,12 @@ useEffect(() => {
 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <Card className="border-0 bg-white/60 dark:bg-slate-900/60 dark:border-slate-800/60 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300 rounded-2xl">
               <CardHeader className="pb-3">
-                <div className="w-10 h-10 bg-rose-100 rounded-full flex items-center justify-center mb-3">
-                  <Heart className="w-5 h-5 text-rose-400" />
-                </div>
-                <CardTitle className="text-lg font-medium text-slate-700 dark:text-slate-100">built on trust</CardTitle>
-                <CardDescription className="text-slate-500 dark:text-slate-400 font-light">
-                  no strict rules or harsh punishments. just good people doing good things together.
-                </CardDescription>
-              </CardHeader>
-            </Card>
-
-            <Card className="border-0 bg-white/60 dark:bg-slate-900/60 dark:border-slate-800/60 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300 rounded-2xl">
-              <CardHeader className="pb-3">
                 <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mb-3">
                   <Settings className="w-5 h-5 text-blue-400" />
                 </div>
                 <CardTitle className="text-lg font-medium text-slate-700 dark:text-slate-100">any client works</CardTitle>
                 <CardDescription className="text-slate-500 dark:text-slate-400 font-light">
                   vanilla, fabric, optifine, neoforge - use whatever you want.
-                </CardDescription>
-              </CardHeader>
-            </Card>
-
-            <Card className="border-0 bg-white/60 dark:bg-slate-900/60 dark:border-slate-800/60 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300 rounded-2xl">
-              <CardHeader className="pb-3">
-                <div className="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center mb-3">
-                  <Shield className="w-5 h-5 text-purple-400" />
-                </div>
-                <CardTitle className="text-lg font-medium text-slate-700 dark:text-slate-100">no anticheat stress</CardTitle>
-                <CardDescription className="text-slate-500 dark:text-slate-400 font-light">
-                  play freely without worrying about false flags or restrictions.
                 </CardDescription>
               </CardHeader>
             </Card>
@@ -503,57 +479,6 @@ useEffect(() => {
               </CardContent>
             </Card>
 
-            <Card className="border-0 bg-white/70 dark:bg-slate-900/70 dark:border-slate-800/60 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
-<CardContent className="p-6">
-  <div className="flex items-start gap-4">
-    <div className="w-8 h-8 bg-green-200 text-green-600 rounded-full flex items-center justify-center font-medium text-sm">
-      5 A
-    </div>
-    <div className="flex-1">
-      <h3 className="text-lg font-medium text-slate-700 dark:text-slate-100 mb-2">Manual client setup (optional)</h3>
-    <p className="text-slate-500 dark:text-slate-400 mb-3 font-light">
- Downloads the mods and shaders for 1.21.7 Fabric.
-</p>
-
-<a  href="https://drive.google.com/uc?export=download&id=1SlF-lpNbD9HJwuqBOlAjncPiGwwjr_5U"
-  target="_blank"
-  rel="noopener noreferrer"
->
-        <Button className="bg-green-500 hover:bg-green-600 text-white rounded-lg px-4 py-2 text-sm">
-          Download Zip
-        </Button>
-      </a>
-    </div>
-  </div>
-</CardContent>
-            </Card>
-            <Card className="border-0 bg-white/70 dark:bg-slate-900/70 dark:border-slate-800/60 backdrop-blur-sm shadow-sm rounded-2xl overflow-hidden">
-              <CardContent className="p-6">
-                <div className="flex items-start gap-4">
-                  <div className="w-8 h-8 bg-blue-200 text-blue-600 rounded-full flex items-center justify-center font-medium text-sm">
-                    5 B
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-lg font-medium text-slate-700 dark:text-slate-100 mb-2">preconfigured client installer (recommended, optional)</h3>
-                    <p className="text-slate-500 dark:text-slate-400 mb-3 font-light">
-                      Installs Java 21 JDK, Fabric 1.21.7, and all the mods and shaders. Recommended for those who have not yet modded minecraft or do not know how. After ran, please go to your Minecraft launcher and create a new instance with the 1.21.7 FABRIC version.
-                    </p>
-                    <p className="text-slate-500 dark:text-slate-400 mb-3 font-light">
-                      Also includes the files in modrinth format, and the modrinth installer for an easier install and smoother experience.
-                    </p>
-                    <a  
-                      href="https://drive.google.com/uc?export=download&id=1CcZg0i2XB2E9zmw8F5YurTHEqIC9dTBn"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <Button className="bg-green-500 hover:bg-green-600 text-white rounded-lg px-4 py-2 text-sm">
-                        Download Installer
-                      </Button>
-                    </a>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
           </div>
         </div>
       </section>
