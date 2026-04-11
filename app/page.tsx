@@ -39,6 +39,7 @@ type CurrentView = "home" | "wiki" | "rules" | "screenshots" | "announcements" |
 
 export default function ConcordSMPLanding() {
   const [copiedType, setCopiedType] = useState<string | null>(null)
+  const [menuOpen, setMenuOpen] = useState(false)
   const [dropdownOpen, setDropdownOpen] = useState(false)
   const [darkMode, setDarkMode] = useState(false)
   const [currentView, setCurrentView] = useState<CurrentView>("home")
