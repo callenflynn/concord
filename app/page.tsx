@@ -38,8 +38,7 @@ import kingsmc from './kings.png'
 type CurrentView = "home" | "wiki" | "rules" | "screenshots" | "announcements" | "Discord" | "affiliates"
 
 export default function ConcordSMPLanding() {
-  const [copied, setCopied] = useState(false)
-  const [menuOpen, setMenuOpen] = useState(false)
+  const [copiedType, setCopiedType] = useState<string | null>(null)
   const [dropdownOpen, setDropdownOpen] = useState(false)
   const [darkMode, setDarkMode] = useState(false)
   const [currentView, setCurrentView] = useState<CurrentView>("home")
@@ -49,13 +48,17 @@ export default function ConcordSMPLanding() {
   const announcements = getAnnouncements()
   const latestAnnouncement = announcements.length > 0 ? announcements[0] : null
 
-  const serverIP = "those-boring.gl.joinmc.link"
+  const javaServerIP = "those-boring.gl.joinmc.link"
+  const bedrockServerIPs = {
+    primary: "panel-folder.gl.at.ply.gg:3698",
+    secondary: "147.185.221.224:3698"
+  }
 
-  const copyServerIP = async () => {
+  const copyToClipboard = async (text: string, type: string) => {
     try {
-      await navigator.clipboard.writeText(serverIP)
-      setCopied(true)
-      setTimeout(() => setCopied(false), 2000)
+      await navigator.clipboard.writeText(text)
+      setCopiedType(type)
+      setTimeout(() => setCopiedType(null), 2000)
     } catch (err) {
       console.error('Failed to copy: ', err)
     }
@@ -203,12 +206,12 @@ useEffect(() => {
               </p>
             </div>
 
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
               <Button
-                onClick={copyServerIP}
+                onClick={() => copyToClipboard(javaServerIP, 'java')}
                 className="bg-white/80 hover:bg-white/90 text-slate-700 border border-slate-300/50 rounded-full px-6 py-3 shadow-sm backdrop-blur-sm flex items-center gap-2 dark:bg-slate-900/70 dark:hover:bg-slate-900/80 dark:text-slate-100 dark:border-slate-700/60"
               >
-                {copied ? (
+                {copiedType === 'java' ? (
                   <>
                     <CheckCircle className="w-4 h-4" />
                     Copied!
@@ -216,7 +219,23 @@ useEffect(() => {
                 ) : (
                   <>
                     <Copy className="w-4 h-4" />
-                    Copy IP: {serverIP}
+                    Java: {javaServerIP}
+                  </>
+                )}
+              </Button>
+              <Button
+                onClick={() => copyToClipboard(bedrockServerIPs.primary, 'bedrock')}
+                className="bg-white/80 hover:bg-white/90 text-slate-700 border border-slate-300/50 rounded-full px-6 py-3 shadow-sm backdrop-blur-sm flex items-center gap-2 dark:bg-slate-900/70 dark:hover:bg-slate-900/80 dark:text-slate-100 dark:border-slate-700/60"
+              >
+                {copiedType === 'bedrock' ? (
+                  <>
+                    <CheckCircle className="w-4 h-4" />
+                    Copied!
+                  </>
+                ) : (
+                  <>
+                    <Copy className="w-4 h-4" />
+                    Bedrock: {bedrockServerIPs.primary}
                   </>
                 )}
               </Button>
@@ -226,7 +245,9 @@ useEffect(() => {
               <Badge variant="secondary" className="bg-white/50 text-slate-600 border-white/30 rounded-full px-3 py-1 dark:bg-slate-900/60 dark:text-slate-200 dark:border-slate-800/60">
                 Version 1.21.7
               </Badge>
-
+              <Badge variant="secondary" className="bg-white/50 text-slate-600 border-white/30 rounded-full px-3 py-1 dark:bg-slate-900/60 dark:text-slate-200 dark:border-slate-800/60">
+                Bedrock Secondary: {bedrockServerIPs.secondary}
+              </Badge>
             </div>
           </div>
         </div>
