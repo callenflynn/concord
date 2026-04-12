@@ -353,7 +353,7 @@ useEffect(() => {
               </CardHeader>
             </Card>
 
-                <Card className="border-0 bg-white/60 dark:bg-slate-900/60 dark:border-slate-800/60 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300 rounded-2xl">
+                <Card className="border-0 bg-[url('https://cdn.modrinth.com/data/cached_images/b9a1530f1c111baf39df9ce81412d4194c19beb1.png')] bg-cover bg-center dark:border-slate-800/60 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300 rounded-2xl">
               <CardHeader className="pb-3">
                 <div className="w-10 h-10 bg-indigo-100 rounded-full flex items-center justify-center mb-3">
                   {/* Using the image directly for the icon */}
@@ -365,9 +365,9 @@ useEffect(() => {
                     className="w-10 h-10 object-cover rounded-full"
                   />
                 </div>
-                <CardTitle className="text-lg font-medium text-slate-700 dark:text-slate-100">Distant Horizons</CardTitle>
+                <CardTitle className="text-lg font-medium text-slate-700 dark:text-slate-100">Distant Horizons and Voxy</CardTitle>
                 <CardDescription className="text-slate-500 dark:text-slate-400 font-light">
-                  We have the Distant Horizons support plugin, allowing for Distant Horizons to be used client-side to the fullest potential.
+                  We have the Distant Horizons support plugin, allowing for Distant Horizons to be used client-side to the fullest potential. We also have the new Voxy serverside plugin, for a more detailed LOD experience.
                 </CardDescription>
               </CardHeader>
             </Card>
