@@ -141,7 +141,7 @@ useEffect(() => {
     '/images/screenshot-30.webp',
     '/images/screenshot-31.webp',
     '/images/screenshot-44.png',
-    'https://cdn.modrinth.com/data/Jrmoreqs/534340affc3732e8f7eae42951b827f5b6363d9d_96.webp',
+    'https://cdn.modrinth.com/data/7cMAqMND/825406c32fc5825d931931d478b910121c678f9a_96.webp',
     '/images/distanthorizons.png'
 
   ]
@@ -339,16 +339,16 @@ useEffect(() => {
                 <div className="w-10 h-10 bg-indigo-100 rounded-full flex items-center justify-center mb-3">
                   {/* Using the image directly for the icon */}
                     <img
-                      src="https://cdn.modrinth.com/data/Jrmoreqs/534340affc3732e8f7eae42951b827f5b6363d9d_96.webp"
-                      alt="Advanced Backups Logo"
+                      src="https://cdn.modrinth.com/data/7cMAqMND/825406c32fc5825d931931d478b910121c678f9a_96.webp"
+                      alt="Backuper Logo"
                       width={20}
                       height={20}
                       className="w-10 h-10 object-cover rounded-full"
                     />
                 </div>
-                  <CardTitle className="text-lg font-medium text-slate-700 dark:text-slate-100">advanced backups</CardTitle>
+                  <CardTitle className="text-lg font-medium text-slate-700 dark:text-slate-100">backuper</CardTitle>
                 <CardDescription className="text-slate-500 dark:text-slate-400 font-light">
-                    we use Advanced Backups to run full server backups, so major incidents can be restored reliably.
+                    we use Backuper to run full server backups, so major incidents can be restored reliably.
                 </CardDescription>
               </CardHeader>
             </Card>
