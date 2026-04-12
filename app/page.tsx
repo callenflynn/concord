@@ -141,7 +141,7 @@ useEffect(() => {
     '/images/screenshot-30.webp',
     '/images/screenshot-31.webp',
     '/images/screenshot-44.png',
-    '/images/coreprotect.jpg',
+    'https://cdn.modrinth.com/data/Jrmoreqs/534340affc3732e8f7eae42951b827f5b6363d9d_96.webp',
     '/images/distanthorizons.png'
 
   ]
@@ -338,17 +338,17 @@ useEffect(() => {
               <CardHeader className="pb-3">
                 <div className="w-10 h-10 bg-indigo-100 rounded-full flex items-center justify-center mb-3">
                   {/* Using the image directly for the icon */}
-                  <Image
-                    src="/images/coreprotect.jpg"
-                    alt="CoreProtect Logo"
-                    width={20}
-                    height={20}
-                    className="w-10 h-10 object-cover rounded-full"
-                  />
+                    <img
+                      src="https://cdn.modrinth.com/data/Jrmoreqs/534340affc3732e8f7eae42951b827f5b6363d9d_96.webp"
+                      alt="Advanced Backups Logo"
+                      width={20}
+                      height={20}
+                      className="w-10 h-10 object-cover rounded-full"
+                    />
                 </div>
-                <CardTitle className="text-lg font-medium text-slate-700 dark:text-slate-100">anti-griefing & rollbacks</CardTitle>
+                  <CardTitle className="text-lg font-medium text-slate-700 dark:text-slate-100">advanced backups</CardTitle>
                 <CardDescription className="text-slate-500 dark:text-slate-400 font-light">
-                  we use CoreProtect to log block changes, allowing us to easily rollback any major griefing.
+                    we use Advanced Backups to run full server backups, so major incidents can be restored reliably.
                 </CardDescription>
               </CardHeader>
             </Card>

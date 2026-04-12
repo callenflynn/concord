@@ -9,7 +9,7 @@ const announcementsData: Announcement[] = [
             {
       id: "announcement-9",
     title: "Big changes",
-    body: "Updated game to 1.21.11 and added bedrock support. Added many more plugins and datapacks, Added Voxy support.",
+    body: "Updated game to 1.21.11 and added bedrock support. Added many more plugins and datapacks, Added Voxy support. Replaced coreprotect with advanced backups",
     date: "2026-4-12",
   },
           {
