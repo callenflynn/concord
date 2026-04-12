@@ -35,7 +35,7 @@ import { getAnnouncements } from "@/lib/announcements"
 import concordLogo from './image.jpeg'
 import kingsmc from './kings.png'
 
-type CurrentView = "home" | "wiki" | "rules" | "screenshots" | "announcements" | "Discord" | "affiliates"
+type CurrentView = "home" | "rules" | "screenshots" | "announcements" | "Discord" | "affiliates"
 
 export default function ConcordSMPLanding() {
   const [copiedType, setCopiedType] = useState<string | null>(null)
@@ -353,8 +353,9 @@ useEffect(() => {
               </CardHeader>
             </Card>
 
-                <Card className="border-0 bg-[url('https://cdn.modrinth.com/data/cached_images/b9a1530f1c111baf39df9ce81412d4194c19beb1.png')] bg-cover bg-center dark:border-slate-800/60 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300 rounded-2xl">
-              <CardHeader className="pb-3">
+                <Card className="relative overflow-hidden border-0 bg-[url('https://cdn.modrinth.com/data/cached_images/b9a1530f1c111baf39df9ce81412d4194c19beb1.png')] bg-cover bg-center dark:border-slate-800/60 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300 rounded-2xl">
+              <div className="absolute inset-0 bg-black/50" aria-hidden="true"></div>
+              <CardHeader className="relative z-10 pb-3">
                 <div className="w-10 h-10 bg-indigo-100 rounded-full flex items-center justify-center mb-3">
                   {/* Using the image directly for the icon */}
                   <Image
@@ -365,27 +366,9 @@ useEffect(() => {
                     className="w-10 h-10 object-cover rounded-full"
                   />
                 </div>
-                <CardTitle className="text-lg font-medium text-slate-700 dark:text-slate-100">Distant Horizons and Voxy</CardTitle>
-                <CardDescription className="text-slate-500 dark:text-slate-400 font-light">
+                <CardTitle className="text-lg font-medium text-white dark:text-slate-100">Distant Horizons and Voxy</CardTitle>
+                <CardDescription className="text-slate-100/90 dark:text-slate-200 font-light">
                   We have the Distant Horizons support plugin, allowing for Distant Horizons to be used client-side to the fullest potential. We also have the new Voxy serverside plugin, for a more detailed LOD experience.
-                </CardDescription>
-              </CardHeader>
-            </Card>
-
-            <Card className="border-0 bg-white/60 dark:bg-slate-900/60 dark:border-slate-800/60 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300 rounded-2xl">
-              <CardHeader className="pb-3">
-                <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center mb-3">
-                  <Image
-                    src="/images/viaversion.png"
-                    alt="ViaVersion Logo"
-                    width={20}
-                    height={20}
-                    className="w-10 h-10 object-cover rounded-full"
-                  />
-                </div>
-                <CardTitle className="text-lg font-medium text-slate-700 dark:text-slate-100">ViaVersion & ViaBackwards</CardTitle>
-                <CardDescription className="text-slate-500 dark:text-slate-400 font-light">
-                  Join with any client version 1.20-1.21.8! Our ViaVersion and ViaBackwards plugins ensure compatibility across versions.
                 </CardDescription>
               </CardHeader>
             </Card>
@@ -828,41 +811,7 @@ const renderAffiliatesPage = () => (
   </section>
 );
 
-const renderWikiPage = () => (
-  <section className="py-16 px-4 min-h-screen">
-    <div className="max-w-7xl mx-auto">
-      <div className="text-center mb-12">
-        <h2 className="text-3xl font-light text-slate-700 dark:text-slate-300 mb-3">wiki</h2>
-        <p className="text-lg text-slate-500 dark:text-slate-400 font-light">community knowledge base and guides</p>
-      </div>
 
-      <div className="bg-white/70 dark:bg-slate-900/70 backdrop-blur-sm rounded-2xl shadow-sm overflow-hidden">
-        <div className="p-4 flex items-center justify-end">
-          <a
-            href="https://global-worm-2be.notion.site/28e4905203e28033ac59ecad9c63c898?v=28e4905203e28016aa6d000c54b119e4"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="ml-2"
-          >
-            <Button variant="outline" className="flex items-center">
-              <ExternalLink className="w-4 h-4 mr-2" />
-              Comment On The Wiki & See More resources
-            </Button>
-          </a>
-        </div>
-        <iframe 
-          src="https://global-worm-2be.notion.site/ebd/28e4905203e28033ac59ecad9c63c898?v=28e4905203e2804cb92e000c7dd04bfb" 
-          width="100%" 
-          height="800" 
-          className="w-full"
-          frameBorder="0" 
-          allowFullScreen
-        />
-      </div>
-    </div>
-  </section>
-);
-  
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-100 via-indigo-100 to-purple-100 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 text-slate-800 dark:text-slate-100 transition-colors duration-300">
       {/* Navbar */}
@@ -934,13 +883,6 @@ const renderWikiPage = () => (
                       className={`w-full justify-start text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800/60 ${currentView === "affiliates" ? "font-bold bg-slate-100 dark:bg-slate-800/70" : ""}`}
                     >
                       <Network className="w-4 h-4 mr-2" /> Affiliates
-                    </Button>
-                    <Button
-                      variant="ghost"
-                      onClick={() => handleMenuClick("wiki")}
-                      className={`w-full justify-start text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800/60 ${currentView === "wiki" ? "font-bold bg-slate-100 dark:bg-slate-800/70" : ""}`}
-                    >
-                      <ScrollText className="w-4 h-4 mr-2" /> Wiki
                     </Button>
                     <Button
                       variant="ghost"
@@ -1038,13 +980,6 @@ const renderWikiPage = () => (
               </Button>
               <Button
                 variant="ghost"
-                onClick={() => handleMenuClick("wiki")}
-                className={`w-full justify-start text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800/60 ${currentView === "wiki" ? "font-bold bg-slate-100 dark:bg-slate-800/70" : ""}`}
-              >
-                <ScrollText className="w-4 h-4 mr-2" /> Wiki
-              </Button>
-              <Button
-                variant="ghost"
                 onClick={() => window.open('https://callenflynn.github.io/Modpacks/', '_blank')}
                 className="w-full justify-start text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800/60"
               >
@@ -1125,8 +1060,6 @@ const renderWikiPage = () => (
               return renderAnnouncementsPage()
             case "affiliates": 
               return renderAffiliatesPage()
-            case "wiki":
-              return renderWikiPage()
             default:
               return renderHomePage()
           }
