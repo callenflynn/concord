@@ -157,6 +157,7 @@
 
     <button onclick="addRow()">Add Service</button>
     <button onclick="generateInvoice()">Generate Invoice</button>
+    <button onclick="toggleDiscounts()" style="background-color: #FF9800; color: white; border: none;">Apply Discount</button>
 
     <!-- Modal for preset selection -->
     <div id="presetModal" class="modal">
@@ -164,12 +165,22 @@
             <span class="modal-close" onclick="closePresetModal()">&times;</span>
             <h2>Select Service Type</h2>
             <div class="preset-category">
-                <h3>Insurance Plans</h3>
+                <h3>Services</h3>
                 <button class="preset-button" onclick="loadInsurancePresets()">Insurance</button>
+                <button class="preset-button" onclick="loadStoragePresets()">CI Storage Solutions</button>
             </div>
             <div class="preset-category">
                 <button class="custom-button" onclick="addCustomRow()">Custom Service</button>
             </div>
+        </div>
+    </div>
+
+    <!-- Modal for storage solutions selection -->
+    <div id="storageModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeStorageModal()">&times;</span>
+            <h2>CI Storage Solutions</h2>
+            <div id="storagePlans"></div>
         </div>
     </div>
 
@@ -179,6 +190,21 @@
             <span class="modal-close" onclick="closeInsuranceModal()">&times;</span>
             <h2>Insurance Plans</h2>
             <div id="insurancePlans"></div>
+        </div>
+    </div>
+
+    <!-- Modal for discounts -->
+    <div id="discountModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeDiscountModal()">&times;</span>
+            <h2>Apply Discount</h2>
+            <div class="preset-category">
+                <h3>Available Discounts</h3>
+                <button class="preset-button" onclick="applyDiscount(10)">Employee Discount - 10%</button>
+            </div>
+            <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #ddd;">
+                <p><strong>Current Discount:</strong> <span id="currentDiscount">None</span></p>
+            </div>
         </div>
     </div>
 
@@ -205,11 +231,9 @@
     </table>
 
     <div id="invoice-output" style="display: none;"></div>
-// 
-//
-// RECCOMEDNATIONS
-//
-//
+
+<!-- RECOMMEDNATIONS -->
+
     <script>
         const SERVICE_RECOMMENDATIONS = [
             "Callen Industries",
@@ -396,6 +420,25 @@
             }
         };
 
+        const STORAGE_SOLUTIONS = {
+            "plans": [
+                {
+                    "name": "Small Locker",
+                    "price": 1
+                },
+                {
+                    "name": "Warehouse Small",
+                    "price": 10
+                },
+                {
+                    "name": "Warehouse Large",
+                    "price": 15
+                }
+            ]
+        };
+
+        let currentDiscount = 0;
+
         function addRow() {
             document.getElementById('presetModal').style.display = 'block';
         }
@@ -461,6 +504,68 @@
             tableBody.appendChild(newRow);
         }
 
+        function closeStorageModal() {
+            document.getElementById('storageModal').style.display = 'none';
+        }
+
+        function loadStoragePresets() {
+            const storagePlans = document.getElementById('storagePlans');
+            storagePlans.innerHTML = '';
+            
+            const sectionDiv = document.createElement('div');
+            sectionDiv.className = 'preset-category';
+            
+            STORAGE_SOLUTIONS.plans.forEach(plan => {
+                const button = document.createElement('button');
+                button.className = 'preset-button';
+                button.textContent = `${plan.name} - ${plan.price} DIAMOND${plan.price !== 1 ? 'S' : ''}`;
+                button.onclick = () => {
+                    addStorageRow(plan);
+                    closeStorageModal();
+                };
+                sectionDiv.appendChild(button);
+            });
+            
+            storagePlans.appendChild(sectionDiv);
+            closePresetModal();
+            document.getElementById('storageModal').style.display = 'block';
+        }
+
+        function addStorageRow(plan) {
+            const tableBody = document.getElementById('table-body');
+            const newRow = document.createElement('tr');
+            
+            const serviceName = `CI Storage Solutions - ${plan.name}`;
+            const cost = plan.price;
+
+            newRow.innerHTML = `
+                <td>
+                    <div class="autocomplete-container">
+                        <input type="text" placeholder="Enter service name" oninput="handleAutocomplete(this)" value="${serviceName}">
+                        <div class="autocomplete-dropdown"></div>
+                    </div>
+                </td>
+                <td><input type="number" step="1" placeholder="0" value="${cost}"></td>
+                <td><button class="remove-btn" onclick="removeRow(this)">Remove</button></td>
+            `;
+
+            tableBody.appendChild(newRow);
+        }
+
+        function closeDiscountModal() {
+            document.getElementById('discountModal').style.display = 'none';
+        }
+
+        function toggleDiscounts() {
+            document.getElementById('discountModal').style.display = 'block';
+        }
+
+        function applyDiscount(percentage) {
+            currentDiscount = percentage;
+            document.getElementById('currentDiscount').textContent = `${percentage}%`;
+            closeDiscountModal();
+        }
+
         function addCustomRow() {
             closePresetModal();
             const tableBody = document.getElementById('table-body');
@@ -512,7 +617,16 @@
             });
 
             if (total > 0) {
-                invoiceText += `\nTOTAL DUE: ${total}`;
+                invoiceText += `\nSUBTOTAL: ${total}`;
+                
+                if (currentDiscount > 0) {
+                    const discountAmount = Math.round(total * currentDiscount / 100);
+                    const finalTotal = total - discountAmount;
+                    invoiceText += `\nDISCOUNT (${currentDiscount}%): -${discountAmount}`;
+                    invoiceText += `\n\nTOTAL DUE: ${finalTotal}`;
+                } else {
+                    invoiceText += `\n\nTOTAL DUE: ${total}`;
+                }
             } else {
                 invoiceText += '\nNo valid services found.';
             }
