@@ -39,6 +39,76 @@
             color: white;
             border: none;
         }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 10% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            border-radius: 5px;
+            width: 90%;
+            max-width: 600px;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        .modal-close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .modal-close:hover {
+            color: black;
+        }
+        .preset-button {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-align: left;
+            font-size: 16px;
+        }
+        .preset-button:hover {
+            background-color: #45a049;
+        }
+        .custom-button {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            background-color: #008CBA;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-align: left;
+            font-size: 16px;
+        }
+        .custom-button:hover {
+            background-color: #007399;
+        }
+        .preset-category {
+            margin: 15px 0;
+        }
+        .preset-category h3 {
+            margin: 10px 0 5px 0;
+            color: #333;
+        }
         #invoice-output {
             background-color: #f9f9f9;
             border: 1px solid #ddd;
@@ -88,6 +158,30 @@
     <button onclick="addRow()">Add Service</button>
     <button onclick="generateInvoice()">Generate Invoice</button>
 
+    <!-- Modal for preset selection -->
+    <div id="presetModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closePresetModal()">&times;</span>
+            <h2>Select Service Type</h2>
+            <div class="preset-category">
+                <h3>Insurance Plans</h3>
+                <button class="preset-button" onclick="loadInsurancePresets()">Insurance</button>
+            </div>
+            <div class="preset-category">
+                <button class="custom-button" onclick="addCustomRow()">Custom Service</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for insurance selection -->
+    <div id="insuranceModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeInsuranceModal()">&times;</span>
+            <h2>Insurance Plans</h2>
+            <div id="insurancePlans"></div>
+        </div>
+    </div>
+
     <table id="invoice-table">
         <thead>
             <tr>
@@ -124,7 +218,251 @@
             "CI Storage Solutions"
         ];
 
+        const INSURANCE_PRESETS = {
+            "notes": {
+                "plan_duration": "All plans last for 3 months real time. Once approved, you will be notified by email when the time has started.",
+                "coverage_pool_warning": "This is a COVERAGE POOL. Your insurance depletes. If you purchase a package that covers $5,000, once that money is gone it is gone until your 3 months are up.",
+                "conversion_rate": "$100 = 10 DIAMONDS"
+            },
+            "table": {
+                "columns": [
+                    "Rank",
+                    "Base Coverage",
+                    "Price",
+                    "Fire Coverage",
+                    "Explosion Coverage",
+                    "Grief Coverage",
+                    "Bankruptcy Insurance",
+                    "Total Cost Coverage"
+                ],
+                "sections": {
+                    "Small Packages": [
+                        {
+                            "Rank": "Zombie",
+                            "Base Coverage": 350,
+                            "Price": 100,
+                            "Fire Coverage": 0,
+                            "Explosion Coverage": 0,
+                            "Grief Coverage": 0,
+                            "Bankruptcy Insurance": "N/A",
+                            "Total Cost Coverage": 350
+                        },
+                        {
+                            "Rank": "Skeleton",
+                            "Base Coverage": 500,
+                            "Price": 125,
+                            "Fire Coverage": 0,
+                            "Explosion Coverage": 0,
+                            "Grief Coverage": 50,
+                            "Bankruptcy Insurance": "N/A",
+                            "Total Cost Coverage": 550
+                        },
+                        {
+                            "Rank": "Blaze",
+                            "Base Coverage": 1000,
+                            "Price": 200,
+                            "Fire Coverage": 100,
+                            "Explosion Coverage": 0,
+                            "Grief Coverage": 50,
+                            "Bankruptcy Insurance": "N/A",
+                            "Total Cost Coverage": 1150
+                        },
+                        {
+                            "Rank": "Piglin",
+                            "Base Coverage": 1250,
+                            "Price": 225,
+                            "Fire Coverage": 100,
+                            "Explosion Coverage": 0,
+                            "Grief Coverage": 50,
+                            "Bankruptcy Insurance": "N/A",
+                            "Total Cost Coverage": 1400
+                        },
+                        {
+                            "Rank": "Zombified Piglin",
+                            "Base Coverage": 1700,
+                            "Price": 300,
+                            "Fire Coverage": 125,
+                            "Explosion Coverage": 0,
+                            "Grief Coverage": 75,
+                            "Bankruptcy Insurance": "N/A",
+                            "Total Cost Coverage": 1900
+                        },
+                        {
+                            "Rank": "ghastling",
+                            "Base Coverage": 3500,
+                            "Price": 400,
+                            "Fire Coverage": 250,
+                            "Explosion Coverage": 0,
+                            "Grief Coverage": 100,
+                            "Bankruptcy Insurance": "N/A",
+                            "Total Cost Coverage": 3850
+                        },
+                        {
+                            "Rank": "Creeper",
+                            "Base Coverage": 4500,
+                            "Price": 550,
+                            "Fire Coverage": 250,
+                            "Explosion Coverage": 700,
+                            "Grief Coverage": 250,
+                            "Bankruptcy Insurance": "N/A",
+                            "Total Cost Coverage": 5700
+                        },
+                        {
+                            "Rank": "Enderman",
+                            "Base Coverage": 6000,
+                            "Price": 750,
+                            "Fire Coverage": 400,
+                            "Explosion Coverage": 750,
+                            "Grief Coverage": 275,
+                            "Bankruptcy Insurance": "N/A",
+                            "Total Cost Coverage": 7425
+                        }
+                    ],
+                    "Large Packages": [
+                        {
+                            "Rank": "Sculk",
+                            "Base Coverage": 100000,
+                            "Price": 20500,
+                            "Fire Coverage": 12000,
+                            "Explosion Coverage": 20000,
+                            "Grief Coverage": 25000,
+                            "Bankruptcy Insurance": "N/A",
+                            "Total Cost Coverage": 157000
+                        },
+                        {
+                            "Rank": "Wither",
+                            "Base Coverage": 150000,
+                            "Price": 30000,
+                            "Fire Coverage": 16000,
+                            "Explosion Coverage": 35000,
+                            "Grief Coverage": 60000,
+                            "Bankruptcy Insurance": "N/A",
+                            "Total Cost Coverage": 261000
+                        },
+                        {
+                            "Rank": "Warden",
+                            "Base Coverage": 250000,
+                            "Price": 58900,
+                            "Fire Coverage": 25000,
+                            "Explosion Coverage": 55000,
+                            "Grief Coverage": 75000,
+                            "Bankruptcy Insurance": "N/A",
+                            "Total Cost Coverage": 405000
+                        },
+                        {
+                            "Rank": "Ender Dragon",
+                            "Base Coverage": 350000,
+                            "Price": 75000,
+                            "Fire Coverage": 40000,
+                            "Explosion Coverage": 55000,
+                            "Grief Coverage": 122500,
+                            "Bankruptcy Insurance": "N/A",
+                            "Total Cost Coverage": 567500
+                        }
+                    ],
+                    "Organization Plans": [
+                        {
+                            "Rank": "Nether",
+                            "Base Coverage": 1200000,
+                            "Price": 650000,
+                            "Fire Coverage": 80000,
+                            "Explosion Coverage": 85000,
+                            "Grief Coverage": 90000,
+                            "Bankruptcy Insurance": 800000,
+                            "Total Cost Coverage": 2905000
+                        },
+                        {
+                            "Rank": "Ender",
+                            "Base Coverage": 2000000,
+                            "Price": 890000,
+                            "Fire Coverage": 100000,
+                            "Explosion Coverage": 110000,
+                            "Grief Coverage": 135000,
+                            "Bankruptcy Insurance": 1200000,
+                            "Total Cost Coverage": 4435000
+                        },
+                        {
+                            "Rank": "Custom",
+                            "Base Coverage": "Starting at 4,500,000",
+                            "Price": "Starting at 2,000,000",
+                            "Fire Coverage": "limit: 400,000",
+                            "Explosion Coverage": "limit: 500,000",
+                            "Grief Coverage": "limit: 900,000",
+                            "Bankruptcy Insurance": "CUSTOM",
+                            "Total Cost Coverage": "CUSTOM"
+                        }
+                    ]
+                }
+            }
+        };
+
         function addRow() {
+            document.getElementById('presetModal').style.display = 'block';
+        }
+
+        function closePresetModal() {
+            document.getElementById('presetModal').style.display = 'none';
+        }
+
+        function closeInsuranceModal() {
+            document.getElementById('insuranceModal').style.display = 'none';
+        }
+
+        function loadInsurancePresets() {
+            const insurancePlans = document.getElementById('insurancePlans');
+            insurancePlans.innerHTML = '';
+            
+            const sections = INSURANCE_PRESETS.table.sections;
+            
+            for (const [sectionName, plans] of Object.entries(sections)) {
+                const sectionDiv = document.createElement('div');
+                sectionDiv.className = 'preset-category';
+                
+                const heading = document.createElement('h3');
+                heading.textContent = sectionName;
+                sectionDiv.appendChild(heading);
+                
+                plans.forEach(plan => {
+                    const button = document.createElement('button');
+                    button.className = 'preset-button';
+                    button.textContent = `${plan.Rank} - $${plan.Price}`;
+                    button.onclick = () => {
+                        addInsuranceRow(plan);
+                        closeInsuranceModal();
+                    };
+                    sectionDiv.appendChild(button);
+                });
+                
+                insurancePlans.appendChild(sectionDiv);
+            }
+            
+            closePresetModal();
+            document.getElementById('insuranceModal').style.display = 'block';
+        }
+
+        function addInsuranceRow(plan) {
+            const tableBody = document.getElementById('table-body');
+            const newRow = document.createElement('tr');
+            
+            const serviceName = `Insurance - ${plan.Rank}`;
+            const cost = plan.Price;
+
+            newRow.innerHTML = `
+                <td>
+                    <div class="autocomplete-container">
+                        <input type="text" placeholder="Enter service name" oninput="handleAutocomplete(this)" value="${serviceName}">
+                        <div class="autocomplete-dropdown"></div>
+                    </div>
+                </td>
+                <td><input type="number" step="1" placeholder="0" value="${cost}"></td>
+                <td><button class="remove-btn" onclick="removeRow(this)">Remove</button></td>
+            `;
+
+            tableBody.appendChild(newRow);
+        }
+
+        function addCustomRow() {
+            closePresetModal();
             const tableBody = document.getElementById('table-body');
             const newRow = document.createElement('tr');
 
@@ -225,12 +563,24 @@
 
         // Close dropdowns when clicking outside
         document.addEventListener('click', function(e) {
-            if (!e.target.closest('.autocomplete-container')) {
+            if (!e.target.closest('.autocomplete-container') && !e.target.closest('.modal-content')) {
                 document.querySelectorAll('.autocomplete-dropdown').forEach(dropdown => {
                     dropdown.style.display = 'none';
                 });
             }
         });
+
+        // Close modal when clicking outside of it
+        window.onclick = function(event) {
+            const presetModal = document.getElementById('presetModal');
+            const insuranceModal = document.getElementById('insuranceModal');
+            if (event.target === presetModal) {
+                presetModal.style.display = 'none';
+            }
+            if (event.target === insuranceModal) {
+                insuranceModal.style.display = 'none';
+            }
+        }
     </script>
 </body>
 </html></content>
