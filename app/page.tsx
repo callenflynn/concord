@@ -35,7 +35,7 @@ import { getAnnouncements } from "@/lib/announcements"
 import concordLogo from './image.jpeg'
 import kingsmc from './kings.png'
 
-type CurrentView = "home" | "rules" | "screenshots" | "announcements" | "Discord" | "affiliates"
+type CurrentView = "home" | "rules" | "screenshots" | "announcements" | "Discord" | "affiliates" | "play"
 
 export default function ConcordSMPLanding() {
   const [copiedType, setCopiedType] = useState<string | null>(null)
@@ -45,7 +45,6 @@ export default function ConcordSMPLanding() {
   const [currentView, setCurrentView] = useState<CurrentView>("home")
   const [enlargedImage, setEnlargedImage] = useState<string | null>(null)
   const [isMobile, setIsMobile] = useState(false)
-  const [bannerVisible, setBannerVisible] = useState(true)
   const announcements = getAnnouncements()
   const latestAnnouncement = announcements.length > 0 ? announcements[0] : null
 
@@ -208,47 +207,18 @@ useEffect(() => {
             </div>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-              <Button
-                onClick={() => copyToClipboard(javaServerIP, 'java')}
-                className="bg-white/80 hover:bg-white/90 text-slate-700 border border-slate-300/50 rounded-full px-6 py-3 shadow-sm backdrop-blur-sm flex items-center gap-2 dark:bg-slate-900/70 dark:hover:bg-slate-900/80 dark:text-slate-100 dark:border-slate-700/60"
-              >
-                {copiedType === 'java' ? (
-                  <>
-                    <CheckCircle className="w-4 h-4" />
-                    Copied!
-                  </>
-                ) : (
-                  <>
-                    <Copy className="w-4 h-4" />
-                    Java: {javaServerIP}
-                  </>
-                )}
-              </Button>
-              <Button
-                onClick={() => copyToClipboard(bedrockServerIPs.primary, 'bedrock')}
-                className="bg-white/80 hover:bg-white/90 text-slate-700 border border-slate-300/50 rounded-full px-6 py-3 shadow-sm backdrop-blur-sm flex items-center gap-2 dark:bg-slate-900/70 dark:hover:bg-slate-900/80 dark:text-slate-100 dark:border-slate-700/60"
-              >
-                {copiedType === 'bedrock' ? (
-                  <>
-                    <CheckCircle className="w-4 h-4" />
-                    Copied!
-                  </>
-                ) : (
-                  <>
-                    <Copy className="w-4 h-4" />
-                    Bedrock: {bedrockServerIPs.primary}
-                  </>
-                )}
-              </Button>
+             <Button
+               onClick={() => handleMenuClick("play")}
+               className="bg-white/80 hover:bg-white/90 text-slate-700 border border-slate-300/50 rounded-full px-8 py-3 shadow-sm backdrop-blur-sm flex items-center gap-2 dark:bg-slate-900/70 dark:hover:bg-slate-900/80 dark:text-slate-100 dark:border-slate-700/60 text-lg font-semibold"
+             >
+               Play Now
+             </Button>
             </div>
 
             <div className="flex flex-wrap justify-center gap-2">
-              <Badge variant="secondary" className="bg-white/50 text-slate-600 border-white/30 rounded-full px-3 py-1 dark:bg-slate-900/60 dark:text-slate-200 dark:border-slate-800/60">
-                Version 1.21.11
-              </Badge>
-              <Badge variant="secondary" className="bg-white/50 text-slate-600 border-white/30 rounded-full px-3 py-1 dark:bg-slate-900/60 dark:text-slate-200 dark:border-slate-800/60">
-                Bedrock Secondary: {bedrockServerIPs.secondary}
-              </Badge>
+             <Badge variant="secondary" className="bg-white/50 text-slate-600 border-white/30 rounded-full px-3 py-1 dark:bg-slate-900/60 dark:text-slate-200 dark:border-slate-800/60">
+               Version 1.21.11
+             </Badge>
             </div>
           </div>
         </div>
@@ -811,7 +781,106 @@ const renderAffiliatesPage = () => (
   </section>
 );
 
+const renderPlayPage = () => (
+  <section className="py-16 px-4 min-h-screen">
+    <div className="max-w-4xl mx-auto">
+      <div className="text-center mb-12">
+        <h2 className="text-3xl font-light text-slate-700 dark:text-slate-100 mb-3">how to join</h2>
+        <p className="text-lg text-slate-500 dark:text-slate-400 font-light">select your platform below and follow the instructions</p>
+      </div>
 
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {/* Java Edition */}
+        <Card className="border-0 bg-white/60 dark:bg-slate-900/60 dark:border-slate-800/60 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300 rounded-2xl">
+          <CardHeader className="pb-3">
+            <CardTitle className="text-xl font-medium text-slate-700 dark:text-slate-100">Java Edition</CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <div>
+              <p className="text-sm text-slate-500 dark:text-slate-400 mb-2 font-light">Server Address</p>
+              <div className="flex items-center gap-2">
+                <code className="flex-1 bg-slate-100 dark:bg-slate-800 px-3 py-2 rounded text-sm text-slate-700 dark:text-slate-300 break-all">
+                  {javaServerIP}
+                </code>
+                <Button
+                  onClick={() => copyToClipboard(javaServerIP, 'java')}
+                  size="sm"
+                  className="bg-blue-500 hover:bg-blue-600 text-white"
+                >
+                  {copiedType === 'java' ? <CheckCircle className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
+                </Button>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Bedrock Edition */}
+        <Card className="border-0 bg-white/60 dark:bg-slate-900/60 dark:border-slate-800/60 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300 rounded-2xl">
+          <CardHeader className="pb-3">
+            <CardTitle className="text-xl font-medium text-slate-700 dark:text-slate-100">Bedrock Edition</CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <div>
+              <p className="text-sm text-slate-500 dark:text-slate-400 mb-2 font-light">Primary Server</p>
+              <div className="flex items-center gap-2">
+                <code className="flex-1 bg-slate-100 dark:bg-slate-800 px-3 py-2 rounded text-sm text-slate-700 dark:text-slate-300 break-all">
+                  {bedrockServerIPs.primary}
+                </code>
+                <Button
+                  onClick={() => copyToClipboard(bedrockServerIPs.primary, 'bedrock')}
+                  size="sm"
+                  className="bg-blue-500 hover:bg-blue-600 text-white"
+                >
+                  {copiedType === 'bedrock' ? <CheckCircle className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
+                </Button>
+              </div>
+            </div>
+            <div>
+              <p className="text-sm text-slate-500 dark:text-slate-400 mb-2 font-light">Secondary Server</p>
+              <div className="flex items-center gap-2">
+                <code className="flex-1 bg-slate-100 dark:bg-slate-800 px-3 py-2 rounded text-sm text-slate-700 dark:text-slate-300 break-all">
+                  {bedrockServerIPs.secondary}
+                </code>
+                <Button
+                  onClick={() => copyToClipboard(bedrockServerIPs.secondary, 'bedrock-secondary')}
+                  size="sm"
+                  className="bg-blue-500 hover:bg-blue-600 text-white"
+                >
+                  {copiedType === 'bedrock-secondary' ? <CheckCircle className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
+                </Button>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+
+      {/* Console Instructions */}
+      <Card className="border-0 bg-white/60 dark:bg-slate-900/60 dark:border-slate-800/60 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300 rounded-2xl mt-6">
+        <CardHeader className="pb-3">
+          <CardTitle className="text-xl font-medium text-slate-700 dark:text-slate-100">Console Instructions</CardTitle>
+          <CardDescription className="text-slate-500 dark:text-slate-400 font-light">
+            Join from Nintendo Switch, PlayStation, or Xbox
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          <p className="text-slate-600 dark:text-slate-300 font-light mb-4">
+            Console players need to use a Java-to-Bedrock bridge. Visit the link below for detailed instructions:
+          </p>
+          <a
+            href="https://www.geyserconnect.net/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg font-medium transition-colors"
+          >
+            GeyserConnect - Console Guide <ExternalLink className="w-4 h-4" />
+          </a>
+        </CardContent>
+      </Card>
+    </div>
+  </section>
+);
+
+ 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-100 via-indigo-100 to-purple-100 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 text-slate-800 dark:text-slate-100 transition-colors duration-300">
       {/* Navbar */}
@@ -840,6 +909,13 @@ const renderAffiliatesPage = () => (
                   className={`text-slate-600 dark:text-slate-200 hover:text-slate-900 dark:hover:text-slate-50 px-3 py-2 ${currentView === "home" ? "font-bold text-slate-900 dark:text-slate-50 bg-slate-100 dark:bg-slate-800/70" : ""}`}
                 >
                   <Home className="w-4 h-4 mr-2" /> Home
+                </Button>
+                <Button
+                  variant="ghost"
+                  onClick={() => handleMenuClick("play")}
+                  className={`text-slate-600 dark:text-slate-200 hover:text-slate-900 dark:hover:text-slate-50 px-3 py-2 ${currentView === "play" ? "font-bold text-slate-900 dark:text-slate-50 bg-slate-100 dark:bg-slate-800/70" : ""}`}
+                >
+                  <ExternalLink className="w-4 h-4 mr-2" /> Play
                 </Button>
                 <Button
                   variant="ghost"
@@ -959,6 +1035,13 @@ const renderAffiliatesPage = () => (
               </Button>
               <Button
                 variant="ghost"
+                onClick={() => handleMenuClick("play")}
+                className={`w-full justify-start text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800/60 ${currentView === "play" ? "font-bold bg-slate-100 dark:bg-slate-800/70" : ""}`}
+              >
+                <ExternalLink className="w-4 h-4 mr-2" /> Play
+              </Button>
+              <Button
+                variant="ghost"
                 onClick={() => handleMenuClick("screenshots")}
                 className={`w-full justify-start text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800/60 ${currentView === "screenshots" ? "font-bold bg-slate-100 dark:bg-slate-800/70" : ""}`}
               >
@@ -1016,53 +1099,24 @@ const renderAffiliatesPage = () => (
         )}
       </nav>
 
-      {bannerVisible && (
-        <div className="fixed top-16 left-0 right-0 z-40 bg-red-600 text-white py-3 px-4 shadow-lg">
-          <div className="max-w-7xl mx-auto flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <div className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center">
-                <span className="text-sm font-bold">!</span>
-              </div>
-              <span className="font-medium">server address moved</span>
-            </div>
-            <div className="flex items-center gap-3">
-              <Button
-                variant="outline"
-                size="sm"
-                className="bg-white/10 border-white/30 text-white hover:bg-white/20 text-sm"
-                onClick={() => window.open('/articles/server-moved-1018/', '_blank')}
-              >
-                Read More
-              </Button>
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={() => setBannerVisible(false)}
-                className="text-white hover:bg-white/10 p-1"
-              >
-                <X className="w-4 h-4" />
-              </Button>
-            </div>
-          </div>
-        </div>
-      )}
-
-      <main className={bannerVisible ? "pt-28" : "pt-16"}> 
+      <main className="pt-16">
         {(() => {
           switch (currentView) {
             case "home":
               return renderHomePage()
             case "rules":
               return renderRulesPage()
-            case "screenshots":
-              return renderScreenshotsPage()
-            case "announcements":
-              return renderAnnouncementsPage()
-            case "affiliates": 
-              return renderAffiliatesPage()
-            default:
-              return renderHomePage()
-          }
+           case "play":
+             return renderPlayPage()
+           case "screenshots":
+             return renderScreenshotsPage()
+           case "announcements":
+             return renderAnnouncementsPage()
+           case "affiliates": 
+             return renderAffiliatesPage()
+           default:
+             return renderHomePage()
+         }
         })()}
       </main>
 
