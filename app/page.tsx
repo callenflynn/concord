@@ -552,9 +552,9 @@ useEffect(() => {
                   6
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-lg font-medium text-slate-700 dark:text-slate-100 mb-2">no netherite armor</h3>
+                  <h3 className="text-lg font-medium text-slate-700 dark:text-slate-100 mb-2">no laggy redstone</h3>
                   <p className="text-slate-500 dark:text-slate-400 font-light">
-                    Netherite armor is not allowed and is not possible to make, however netherite tools are allowed.
+                    Redstone machines that are intended to cause lag are bannable.
                   </p>
                 </div>
               </div>
