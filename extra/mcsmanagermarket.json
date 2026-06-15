@@ -1906,6 +1906,543 @@
         "ie": "utf-8",
         "oe": "utf-8"
       }
+    },
+    {
+  "platform": "ALL",
+  "language": "en_us",
+  "gameType": "Minecraft",
+  "image": "",
+  "description": "1.12.2 Paper fork for efficiency, made for anarchy servers",
+  "title": "Dionysus 1.12.2",
+  "category": "mc-paper-fork",
+  "runtime": "Java 8+",
+  "hardware": "RAM 1G+",
+  "size": "50MB",
+  "remark": "Minecraft Java",
+  "targetLink": "https://github.com/nopjmp/Dionysus/releases/download/v0.1.17/dionysus-paperclip.jar",
+  "author": "nopjmp",
+  "dockerOptional": {
+    "image": "eclipse-temurin:8-jdk",
+    "updateCommandImage": "eclipse-temurin:8-jdk"
+  },
+  "setupInfo": {
+    "type": "minecraft/java",
+    "startCommand": "java -Xms1024M -Xmx1024M -jar server.jar nogui",
+    "stopCommand": "stop",
+    "updateCommand": "",
+    "ie": "utf-8",
+    "oe": "utf-8"
+  }
+},
+{
+  "platform": "ALL",
+  "language": "en_us",
+  "gameType": "Minecraft",
+  "image": "",
+  "description": "Standard Paper 1.12.2 Minecraft Server (Recommended Spigot fork with performance improvements and plugin support)",
+  "title": "[Paper] Minecraft 1.12.2",
+  "category": "mc-paper",
+  "runtime": "Java 8+",
+  "hardware": "RAM 2G+",
+  "size": "50MB",
+  "remark": "Minecraft Java",
+  "targetLink": "https://api.papermc.io/v2/projects/paper/versions/1.12.2/builds/1620/downloads/paper-1.12.2-1620.jar",
+  "author": "papermc.io",
+  "dockerOptional": {
+    "image": "eclipse-temurin:8-jdk",
+    "updateCommandImage": "eclipse-temurin:8-jdk"
+  },
+  "setupInfo": {
+    "type": "minecraft/java",
+    "startCommand": "java -Xms2048M -Xmx2048M -jar paper-1.12.2-1620.jar nogui",
+    "stopCommand": "stop",
+    "updateCommand": "",
+    "ie": "utf-8",
+    "oe": "utf-8"
+  }
+},
+[
+  {
+    "platform": "ALL",
+    "language": "en_us",
+    "gameType": "Minecraft",
+    "title": "[Paper] 1.18.1",
+    "category": "mc-paper",
+    "description": "Paper 1.18.1 optimized plugin server",
+    "runtime": "Java 17+",
+    "hardware": "RAM 2G+",
+    "size": "50MB",
+    "remark": "PaperMC",
+    "author": "papermc.io",
+    "targetLink": "https://api.papermc.io/v2/projects/paper/versions/1.18.1/builds/latest/downloads/paper-1.18.1.jar",
+    "setupInfo": {
+      "type": "minecraft/java",
+      "startCommand": "java -Xms2G -Xmx2G -jar paper.jar nogui",
+      "stopCommand": "stop",
+      "ie": "utf-8",
+      "oe": "utf-8"
     }
+  },
+
+  {
+    "platform": "ALL",
+    "language": "en_us",
+    "gameType": "Minecraft",
+    "title": "[Paper] 1.18.2",
+    "category": "mc-paper",
+    "description": "Paper 1.18.2 plugin server",
+    "runtime": "Java 17+",
+    "hardware": "RAM 2G+",
+    "size": "50MB",
+    "author": "papermc.io",
+    "targetLink": "https://api.papermc.io/v2/projects/paper/versions/1.18.2/builds/latest/downloads/paper-1.18.2.jar",
+    "setupInfo": {
+      "type": "minecraft/java",
+      "startCommand": "java -Xms2G -Xmx2G -jar paper.jar nogui",
+      "stopCommand": "stop"
+    }
+  },
+
+  {
+    "platform": "ALL",
+    "language": "en_us",
+    "gameType": "Minecraft",
+    "title": "[Forge] 1.18.2",
+    "category": "mc-forge",
+    "description": "Forge 1.18.2 modded server",
+    "runtime": "Java 17+",
+    "hardware": "RAM 4G+",
+    "size": "120MB",
+    "author": "minecraftforge",
+    "targetLink": "https://maven.minecraftforge.net/net/minecraftforge/forge/1.18.2-40.2.0/forge-1.18.2-40.2.0-installer.jar",
+    "setupInfo": {
+      "type": "minecraft/java",
+      "startCommand": "java -Xms4G -Xmx4G -jar forge.jar nogui",
+      "stopCommand": "stop"
+    }
+  },
+
+  {
+    "platform": "ALL",
+    "language": "en_us",
+    "gameType": "Minecraft",
+    "title": "[Fabric] 1.18.2",
+    "category": "mc-fabric",
+    "description": "Fabric 1.18.2 lightweight mod loader",
+    "runtime": "Java 17+",
+    "hardware": "RAM 2G+",
+    "size": "50MB",
+    "author": "fabricmc",
+    "targetLink": "https://meta.fabricmc.net/v2/versions/loader/1.18.2/0.14.25/0.11.2/server/jar",
+    "setupInfo": {
+      "type": "minecraft/java",
+      "startCommand": "java -Xms2G -Xmx2G -jar fabric-server-launch.jar nogui",
+      "stopCommand": "stop"
+    }
+  },
+
+  {
+    "platform": "ALL",
+    "language": "en_us",
+    "gameType": "Minecraft",
+    "title": "[Forge] 1.16.2",
+    "category": "mc-forge",
+    "description": "Forge 1.16.2 modded server",
+    "runtime": "Java 8+",
+    "hardware": "RAM 3G+",
+    "size": "120MB",
+    "author": "minecraftforge",
+    "targetLink": "https://maven.minecraftforge.net/net/minecraftforge/forge/1.16.2-33.0.61/forge-1.16.2-33.0.61-installer.jar",
+    "setupInfo": {
+      "type": "minecraft/java",
+      "startCommand": "java -Xms3G -Xmx3G -jar forge.jar nogui",
+      "stopCommand": "stop"
+    }
+  },
+
+  {
+    "platform": "ALL",
+    "language": "en_us",
+    "gameType": "Minecraft",
+    "title": "[Fabric] 1.16.2",
+    "category": "mc-fabric",
+    "description": "Fabric 1.16.2 lightweight mod loader",
+    "runtime": "Java 8+",
+    "hardware": "RAM 2G+",
+    "size": "50MB",
+    "author": "fabricmc",
+    "targetLink": "https://meta.fabricmc.net/v2/versions/loader/1.16.2/0.14.25/0.11.2/server/jar",
+    "setupInfo": {
+      "type": "minecraft/java",
+      "startCommand": "java -Xms2G -Xmx2G -jar fabric-server-launch.jar nogui",
+      "stopCommand": "stop"
+    }
+  },
+
+  {
+    "platform": "ALL",
+    "language": "en_us",
+    "gameType": "Minecraft",
+    "title": "[Paper] 1.16.2",
+    "category": "mc-paper",
+    "description": "Paper 1.16.2 plugin server",
+    "runtime": "Java 8+",
+    "hardware": "RAM 2G+",
+    "size": "50MB",
+    "author": "papermc.io",
+    "targetLink": "https://api.papermc.io/v2/projects/paper/versions/1.16.2/builds/latest/downloads/paper-1.16.2.jar",
+    "setupInfo": {
+      "type": "minecraft/java",
+      "startCommand": "java -Xms2G -Xmx2G -jar paper.jar nogui",
+      "stopCommand": "stop"
+    }
+  },
+
+  {
+    "platform": "ALL",
+    "language": "en_us",
+    "gameType": "Minecraft",
+    "title": "[Paper] 1.21.8",
+    "category": "mc-paper",
+    "description": "Modern Paper 1.21.8 plugin server",
+    "runtime": "Java 21+",
+    "hardware": "RAM 4G+",
+    "size": "60MB",
+    "author": "papermc.io",
+    "targetLink": "https://api.papermc.io/v2/projects/paper/versions/1.21.8/builds/latest/downloads/paper-1.21.8.jar",
+    "setupInfo": {
+      "type": "minecraft/java",
+      "startCommand": "java -Xms4G -Xmx4G -jar paper.jar nogui",
+      "stopCommand": "stop"
+    }
+  },
+
+  {
+    "platform": "ALL",
+    "language": "en_us",
+    "gameType": "Minecraft",
+    "title": "[Fabric] 1.21.8",
+    "category": "mc-fabric",
+    "description": "Fabric 1.21.8 mod loader",
+    "runtime": "Java 21+",
+    "hardware": "RAM 3G+",
+    "size": "60MB",
+    "author": "fabricmc",
+    "targetLink": "https://meta.fabricmc.net/v2/versions/loader/1.21.8/0.15.11/0.11.2/server/jar",
+    "setupInfo": {
+      "type": "minecraft/java",
+      "startCommand": "java -Xms3G -Xmx3G -jar fabric-server-launch.jar nogui",
+      "stopCommand": "stop"
+    }
+  },
+
+  {
+    "platform": "ALL",
+    "language": "en_us",
+    "gameType": "Minecraft",
+    "title": "[Forge] 1.21.8",
+    "category": "mc-forge",
+    "description": "Forge 1.21.8 modded server",
+    "runtime": "Java 21+",
+    "hardware": "RAM 5G+",
+    "size": "150MB",
+    "author": "minecraftforge",
+    "targetLink": "https://maven.minecraftforge.net/net/minecraftforge/forge/1.21.8-installer.jar",
+    "setupInfo": {
+      "type": "minecraft/java",
+      "startCommand": "java -Xms5G -Xmx5G -jar forge.jar nogui",
+      "stopCommand": "stop"
+    }
+  },
+
+  {
+    "platform": "ALL",
+    "language": "en_us",
+    "gameType": "Minecraft",
+    "title": "[NeoForge] 1.21.7",
+    "category": "mc-neoforge",
+    "description": "NeoForge 1.21.7 modded server",
+    "runtime": "Java 21+",
+    "hardware": "RAM 5G+",
+    "size": "150MB",
+    "author": "neoforged",
+    "targetLink": "https://maven.neoforged.net/releases/net/neoforged/neoforge/1.21.7/neoforge-1.21.7-installer.jar",
+    "setupInfo": {
+      "type": "minecraft/java",
+      "startCommand": "java -Xms5G -Xmx5G -jar neoforge.jar nogui",
+      "stopCommand": "stop"
+    }
+  },
+
+  {
+    "platform": "ALL",
+    "language": "en_us",
+    "gameType": "Minecraft",
+    "title": "[NeoForge] 1.20.1",
+    "category": "mc-neoforge",
+    "description": "NeoForge 1.20.1 modded server",
+    "runtime": "Java 17+",
+    "hardware": "RAM 4G+",
+    "size": "150MB",
+    "author": "neoforged",
+    "targetLink": "https://maven.neoforged.net/releases/net/neoforged/neoforge/1.20.1/neoforge-installer.jar",
+    "setupInfo": {
+      "type": "minecraft/java",
+      "startCommand": "java -Xms4G -Xmx4G -jar neoforge.jar nogui",
+      "stopCommand": "stop"
+    }
+  },
+
+  {
+    "platform": "ALL",
+    "language": "en_us",
+    "gameType": "Minecraft",
+    "title": "[Paper] 1.28.6 (Custom/Placeholder)",
+    "category": "mc-paper",
+    "description": "Non-existent version placeholder entry",
+    "runtime": "Java 21+",
+    "hardware": "RAM 4G+",
+    "size": "60MB",
+    "author": "custom",
+    "targetLink": "",
+    "setupInfo": {
+      "type": "minecraft/java",
+      "startCommand": "echo 'invalid version'",
+      "stopCommand": "stop"
+    }
+  },
+
+  {
+    "platform": "ALL",
+    "language": "en_us",
+    "gameType": "Minecraft",
+    "title": "[NeoForge] 1.19.2",
+    "category": "mc-neoforge",
+    "description": "NeoForge 1.19.2 server",
+    "runtime": "Java 17+",
+    "hardware": "RAM 4G+",
+    "size": "150MB",
+    "author": "neoforged",
+    "targetLink": "https://maven.neoforged.net/releases/net/neoforged/neoforge/1.19.2/neoforge-installer.jar",
+    "setupInfo": {
+      "type": "minecraft/java",
+      "startCommand": "java -Xms4G -Xmx4G -jar neoforge.jar nogui",
+      "stopCommand": "stop"
+    }
+  },
+
+  {
+    "platform": "ALL",
+    "language": "en_us",
+    "gameType": "Minecraft",
+    "title": "[Fabric] 1.19.2",
+    "category": "mc-fabric",
+    "description": "Fabric 1.19.2 mod loader",
+    "runtime": "Java 17+",
+    "hardware": "RAM 3G+",
+    "size": "60MB",
+    "author": "fabricmc",
+    "targetLink": "https://meta.fabricmc.net/v2/versions/loader/1.19.2/0.14.25/0.11.2/server/jar",
+    "setupInfo": {
+      "type": "minecraft/java",
+      "startCommand": "java -Xms3G -Xmx3G -jar fabric-server-launch.jar nogui",
+      "stopCommand": "stop"
+    }
+  },
+
+  {
+    "platform": "ALL",
+    "language": "en_us",
+    "gameType": "Minecraft",
+    "title": "[Paper] 1.19.2",
+    "category": "mc-paper",
+    "description": "Paper 1.19.2 plugin server",
+    "runtime": "Java 17+",
+    "hardware": "RAM 3G+",
+    "size": "60MB",
+    "author": "papermc.io",
+    "targetLink": "https://api.papermc.io/v2/projects/paper/versions/1.19.2/builds/latest/downloads/paper-1.19.2.jar",
+    "setupInfo": {
+      "type": "minecraft/java",
+      "startCommand": "java -Xms3G -Xmx3G -jar paper.jar nogui",
+      "stopCommand": "stop"
+    }
+  },
+
+  {
+    "platform": "ALL",
+    "language": "en_us",
+    "gameType": "Minecraft",
+    "title": "[Folia] 1.26.1.2 (Placeholder)",
+    "category": "mc-folia",
+    "description": "Placeholder Folia entry",
+    "runtime": "Java 21+",
+    "hardware": "RAM 4G+",
+    "size": "60MB",
+    "author": "paper-fork",
+    "targetLink": "",
+    "setupInfo": {
+      "type": "minecraft/java/folia",
+      "startCommand": "echo 'invalid'",
+      "stopCommand": "stop"
+    }
+  },
+  {
+  "platform": "ALL",
+  "language": "en_us",
+  "gameType": "Terraria",
+  "image": "",
+  "description": "TShock is a powerful Terraria server framework with admin commands, permissions system, server-side characters, build protection, and anti-cheat tools.",
+  "title": "TShock Terraria Server",
+  "category": "terraria-tshock",
+  "runtime": ".NET 6+",
+  "hardware": "RAM 1G+",
+  "size": "60MB",
+  "remark": "Terraria Dedicated Server + TShock",
+  "author": "Pryaxis",
+  "targetLink": "https://github.com/Pryaxis/TShock/releases/latest/download/TShock.zip",
+  "setupInfo": {
+    "type": "terraria",
+    "startCommand": "dotnet TShock.Server.dll -port 7777",
+    "stopCommand": "exit",
+    "updateCommand": "",
+    "ie": "utf-8",
+    "oe": "utf-8"
+  }
+},
+{
+  "title": "Garry's Mod Server",
+  "language": "en_us",
+  "platform": "Linux",
+  "description": "Garry's Mod dedicated server with SteamCMD + Workshop support.",
+  "image": "",
+  "gameType": "Steam",
+  "category": "steam-gmod",
+  "runtime": "Linux",
+  "hardware": "RAM 2G+",
+  "size": "",
+  "targetLink": "",
+  "author": "Valve",
+  "tags": ["Docker version"],
+  "setupInfo": {
+    "startCommand": "./srcds_run -game garrysmod -console -port 27015 +maxplayers 16 +map gm_construct",
+    "stopCommand": "quit",
+    "updateCommand": "/home/steam/steamcmd/steamcmd.sh +login anonymous +force_install_dir \"/data\" +app_update 4020 validate +quit",
+    "ie": "utf8",
+    "oe": "utf8",
+    "type": "steam/gmod",
+    "processType": "docker",
+    "docker": {
+      "image": "githubyumao/steam-game-runtime:latest",
+      "updateCommandImage": "githubyumao/steam-game-runtime:latest",
+      "ports": [
+        "{mcsm_port1}:27015/tcp",
+        "{mcsm_port2}:27005/udp"
+      ],
+      "changeWorkdir": true,
+      "workingDir": "/data",
+      "env": [],
+      "extraVolumes": []
+    }
+  }
+},
+{
+  "title": "Valheim Server",
+  "language": "en_us",
+  "platform": "Linux",
+  "description": "Valheim dedicated survival server.",
+  "gameType": "Steam",
+  "category": "steam-valheim",
+  "runtime": "Linux",
+  "hardware": "RAM 3G+",
+  "author": "Iron Gate",
+  "tags": ["Docker version"],
+  "setupInfo": {
+    "startCommand": "./valheim_server.x86_64 -name \"Server\" -port 2456 -world \"world\" -password \"changeme\"",
+    "stopCommand": "quit",
+    "updateCommand": "/home/steam/steamcmd/steamcmd.sh +login anonymous +force_install_dir \"/data\" +app_update 896660 validate +quit",
+    "ie": "utf8",
+    "oe": "utf8",
+    "type": "steam/valheim",
+    "processType": "docker",
+    "docker": {
+      "image": "githubyumao/steam-game-runtime:latest",
+      "updateCommandImage": "githubyumao/steam-game-runtime:latest",
+      "ports": [
+        "{mcsm_port1}:2456/udp",
+        "{mcsm_port2}:2457/udp",
+        "{mcsm_port3}:2458/udp"
+      ],
+      "changeWorkdir": true,
+      "workingDir": "/data",
+      "env": [],
+      "extraVolumes": []
+    }
+  }
+},
+{
+  "title": "Unturned Server",
+  "language": "en_us",
+  "platform": "Linux",
+  "description": "Free zombie survival sandbox server.",
+  "gameType": "Steam",
+  "category": "steam-unturned",
+  "runtime": "Linux",
+  "hardware": "RAM 2G+",
+  "tags": ["Docker version"],
+  "setupInfo": {
+    "startCommand": "./Unturned_Headless.x86_64 -nographics -batchmode",
+    "stopCommand": "quit",
+    "updateCommand": "/home/steam/steamcmd/steamcmd.sh +login anonymous +force_install_dir \"/data\" +app_update 1110390 validate +quit",
+    "ie": "utf8",
+    "oe": "utf8",
+    "type": "steam/unturned",
+    "processType": "docker",
+    "docker": {
+      "image": "githubyumao/steam-game-runtime:latest",
+      "updateCommandImage": "githubyumao/steam-game-runtime:latest",
+      "ports": [
+        "{mcsm_port1}:27015/udp"
+      ],
+      "changeWorkdir": true,
+      "workingDir": "/data",
+      "env": [],
+      "extraVolumes": []
+    }
+  }
+},
+{
+  "title": "Counter-Strike 2 Server",
+  "language": "en_us",
+  "platform": "Linux",
+  "description": "CS2 dedicated competitive server.",
+  "gameType": "Steam",
+  "category": "steam-cs2",
+  "runtime": "Linux",
+  "hardware": "RAM 4G+",
+  "tags": ["Docker version"],
+  "setupInfo": {
+    "startCommand": "./cs2 -dedicated +map de_dust2",
+    "stopCommand": "quit",
+    "updateCommand": "/home/steam/steamcmd/steamcmd.sh +login anonymous +force_install_dir \"/data\" +app_update 730 validate +quit",
+    "ie": "utf8",
+    "oe": "utf8",
+    "type": "steam/cs2",
+    "processType": "docker",
+    "docker": {
+      "image": "githubyumao/steam-game-runtime:latest",
+      "updateCommandImage": "githubyumao/steam-game-runtime:latest",
+      "ports": [
+        "{mcsm_port1}:27015/tcp",
+        "{mcsm_port2}:27005/udp"
+      ],
+      "changeWorkdir": true,
+      "workingDir": "/data",
+      "env": [],
+      "extraVolumes": []
+    }
+  }
+}
+]
   ]
 }
