@@ -1,4 +1,4 @@
-
+{
   "languages": [
     {
       "label": "English",
@@ -1905,20 +1905,7 @@
         "updateCommand": "",
         "ie": "utf-8",
         "oe": "utf-8"
-      },
-      {
-  "name": "Dionysus",
-  "version": "1.12.2",
-  "type": "minecraft",
-  "tag": ["paper", "fork", "anarchy", "performance"],
-  "description": "1.12.2 Paper fork for efficiency, made for anarchy servers",
-  "install": {
-    "type": "download",
-    "url": "https://github.com/nopjmp/Dionysus/releases/download/v0.1.17/dionysus-paperclip.jar",
-    "filename": "server.jar"
-  },
-  "startCommand": "java -Xms1G -Xmx2G -jar server.jar nogui"
-}
+      }
     }
   ]
 }
