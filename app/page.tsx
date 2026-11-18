@@ -50,8 +50,8 @@ export default function ConcordSMPLanding() {
 
   const javaServerIP = "those-boring.gl.joinmc.link"
   const bedrockServerIPs = {
-    primary: "panel-folder.gl.at.ply.gg:3698",
-    secondary: "147.185.221.224:3698"
+    primary: "molecule-proposing.tun.ply.gg:19132",
+    secondary: "147.185.221.217:49532"
   }
 
   const copyToClipboard = async (text: string, type: string) => {
